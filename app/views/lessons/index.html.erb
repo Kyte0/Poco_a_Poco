@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="justify-content-center">
+  <h1>Lessons</h1>
+
+  <div class="searchbar">
+    <%= render "shared/lesson_search_form" %>
+  </div>
+
+  <% @lessons.each do |lesson| %>
+    <div>
+      <h2><%= lesson.user.first_name%> <%= lesson.user.last_name %></h2>
+      <p> <%= lesson.user.bio  %> </p>
+      <p> <%= lesson.instrument  %> </p>
+      <p> <%= lesson.level  %> </p>
+      <p> <%= lesson.location  %> </p>
+    </div>
+  <% end  %>
+  </div>
+</div>

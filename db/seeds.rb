@@ -1,7 +1,7 @@
 require "open-uri"
 
-User.destroy_all
 Lesson.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 
