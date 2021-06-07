@@ -2,6 +2,7 @@
     <div class="search-info">
       <h1>Lessons in "Location"</h1>
     </div>
+    <%= render "shared/lesson_search_form" %>
     <div class="cards">
       <%= @lessons.each do |lesson| %>
       <%= link_to lesson_path(lesson) do %>
