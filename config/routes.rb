@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :edit, :update]
     resources :tasks, only: [:create, :edit, :update]
   end
+
   resources :reviews, only: [:destroy]
+  resources :tasks, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
