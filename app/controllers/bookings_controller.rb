@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
       redirect_to users_id_path(@user)
     else
       render 'new'
+    end
   end
 
   def edit
@@ -30,7 +31,8 @@ class BookingsController < ApplicationController
       redirect_to users_id_path(@user)
     else
       render :edit
-  end
+     end
+   end
 
   def destroy
     @booking = Booking.find(params[:id])
