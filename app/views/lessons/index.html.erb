@@ -1,7 +1,8 @@
   <div class="info-and-cards">
     <div class="search-info">
-      <h1>Lessons in "Location"</h1>
+      <h1>Lessons in "Location</h1>
     </div>
+    <%= render "shared/lesson_search_form" %>
     <div class="cards">
       <%= @lessons.each do |lesson| %>
       <%= link_to lesson_path(lesson) do %>
@@ -14,11 +15,13 @@
           <%= image_tag("logo.jpeg") %>
         <div class="card-trip-infos">
             <div>
-              <h2><%= lesson.user.first_name %></h2>
-              <h2><%= lesson.user.last_name %></h2>
+              <h3><%= lesson.user.first_name %></h3>
+              <h3><%= lesson.average_rating %></h3>
+              <h3><%= lesson.instrument %></h3>
+              <h3><%= lesson.level %></h3>
+              <h3>£<%= lesson.price %></h3>
               <!-- <p> <%#= lesson.description  %> </p> -->
             </div>
-          <h2 class="card-trip-pricing">€<%= lesson.price%></h2>
         </div>
      <% end %>
     <% end %>

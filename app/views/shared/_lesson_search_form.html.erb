@@ -1,6 +1,5 @@
-<%= simple_form_for(:lesson, url: lessons_path, method: :get) do |f| %>
-  <%=  %>
-  <%= f.input :query, label: false, placeholder: "Search here" %>
+<%= simple_form_for(:lesson, url: lessons_path, method: :get, html: {class: "form-inline"}) do |f| %>
+  <%= f.input :query, label: false, placeholder: "Search here", class: "w-75" %>
   <%= f.submit "Search" %>
 <% end %>
   
