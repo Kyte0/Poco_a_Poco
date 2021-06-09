@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top <%= params[:action] != "home" ? "navbar-lewagon-black" : "" %>">
   <%= link_to "#", class: "navbar-brand" do %>
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="25" cy="25" r="25" fill="#285943"/>
