@@ -115,6 +115,8 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.7-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pg_search (2.3.5)
@@ -231,12 +233,9 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-<<<<<<< HEAD
   x86_64-darwin-19
-  x86_64-linux
-=======
   x86_64-darwin-20
->>>>>>> acc8a9b03f58bfb74cdf3247da563a15b3835155
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
