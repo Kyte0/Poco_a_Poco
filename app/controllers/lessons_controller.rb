@@ -14,7 +14,8 @@ class LessonsController < ApplicationController
   end
 
   def index
-      if params[:query].present? && params[:lesson][:query].present?
+
+      if params[:lesson].present? && params[:lesson][:query].present?
       # query = params[:lesson][:query]
         @lessons = Lesson.global_search(params[:lesson][:query])
           # if @lessons == []
