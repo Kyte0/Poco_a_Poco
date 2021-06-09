@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @task = Task.all
   end
 
   def new
@@ -15,9 +16,10 @@ class BookingsController < ApplicationController
     @booking.lesson = @lesson
 
     if @booking.save
-      redirect_to users_id_path(@user)
+      redirect_to users_path(@user)
     else
       render 'new'
+    end
   end
 
   def edit
@@ -27,15 +29,16 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      redirect_to users_id_path(@user)
+      redirect_to users_path(@user)
     else
       render :edit
-  end
+     end
+   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to users_id_path(@user)
+    redirect_to users_path(@user)
   end
 
   def booking_params
