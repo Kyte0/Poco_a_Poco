@@ -1,5 +1,10 @@
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+  <%= link_to "/", class: "navbar-brand" do %>
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top <%= params[:action] != "home" ? "navbar-lewagon-black" : "" %>">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to "/", class: "navbar-brand" do %>
+
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="25" cy="25" r="25" fill="#285943"/>
     <path d="M13.9112 34C13.6712 34 13.4672 33.928 13.2992 33.784C13.1552 33.616 13.0832 33.412 13.0832 33.172V9.664C13.0832 9.4 13.1552 9.196 13.2992 9.052C13.4672 8.884 13.6712 8.8 13.9112 8.8H23.0552C25.7672 8.8 27.9032 9.46 29.4632 10.78C31.0232 12.1 31.8032 14.008 31.8032 16.504C31.8032 19 31.0232 20.908 29.4632 22.228C27.9272 23.524 25.7912 24.172 23.0552 24.172H16.6832V33.172C16.6832 33.412 16.5992 33.616 16.4312 33.784C16.2632 33.928 16.0592 34 15.8192 34H13.9112ZM22.8752 21.148C24.6272 21.148 25.9472 20.752 26.8352 19.96C27.7472 19.168 28.2032 18.016 28.2032 16.504C28.2032 14.992 27.7592 13.84 26.8712 13.048C25.9832 12.232 24.6512 11.824 22.8752 11.824H16.6472V21.148H22.8752Z" fill="white"/>
@@ -16,7 +21,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Home", "/", class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
