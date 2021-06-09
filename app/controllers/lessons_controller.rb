@@ -14,7 +14,16 @@ class LessonsController < ApplicationController
   end
 
   def index
-    @lessons = Lesson.all
+    query = params[:lesson][:query]
+    if query
+      @lessons = Lesson.global_search(query)
+        # if @lessons == []
+        #   @lessons = Lesson.kinda_matching(query)
+        # end
+    else
+      @lessons = Lesson.all
+    end
+
   end
 
   def show

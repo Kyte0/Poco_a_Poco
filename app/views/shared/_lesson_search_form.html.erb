@@ -1,0 +1,6 @@
+<%= simple_form_for(:lesson, url: lessons_path, method: :get) do |f| %>
+  <%=  %>
+  <%= f.input :query, label: false, placeholder: "Search here" %>
+  <%= f.submit "Search" %>
+<% end %>
+  
