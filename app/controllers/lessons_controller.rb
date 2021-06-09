@@ -14,8 +14,8 @@ class LessonsController < ApplicationController
   end
 
   def index
+    if params[:lesson][:query].present?
     query = params[:lesson][:query]
-    if query
       @lessons = Lesson.global_search(query)
         # if @lessons == []
         #   @lessons = Lesson.kinda_matching(query)
