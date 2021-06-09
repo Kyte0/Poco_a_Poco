@@ -1,7 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="25" fill="#285943"/>
+    <path d="M13.9112 34C13.6712 34 13.4672 33.928 13.2992 33.784C13.1552 33.616 13.0832 33.412 13.0832 33.172V9.664C13.0832 9.4 13.1552 9.196 13.2992 9.052C13.4672 8.884 13.6712 8.8 13.9112 8.8H23.0552C25.7672 8.8 27.9032 9.46 29.4632 10.78C31.0232 12.1 31.8032 14.008 31.8032 16.504C31.8032 19 31.0232 20.908 29.4632 22.228C27.9272 23.524 25.7912 24.172 23.0552 24.172H16.6832V33.172C16.6832 33.412 16.5992 33.616 16.4312 33.784C16.2632 33.928 16.0592 34 15.8192 34H13.9112ZM22.8752 21.148C24.6272 21.148 25.9472 20.752 26.8352 19.96C27.7472 19.168 28.2032 18.016 28.2032 16.504C28.2032 14.992 27.7592 13.84 26.8712 13.048C25.9832 12.232 24.6512 11.824 22.8752 11.824H16.6472V21.148H22.8752Z" fill="white"/>
+    <path d="M24.4112 42C24.1712 42 23.9672 41.928 23.7992 41.784C23.6552 41.616 23.5832 41.412 23.5832 41.172V17.664C23.5832 17.4 23.6552 17.196 23.7992 17.052C23.9672 16.884 24.1712 16.8 24.4112 16.8H33.5552C36.2672 16.8 38.4032 17.46 39.9632 18.78C41.5232 20.1 42.3032 22.008 42.3032 24.504C42.3032 27 41.5232 28.908 39.9632 30.228C38.4272 31.524 36.2912 32.172 33.5552 32.172H27.1832V41.172C27.1832 41.412 27.0992 41.616 26.9312 41.784C26.7632 41.928 26.5592 42 26.3192 42H24.4112ZM33.3752 29.148C35.1272 29.148 36.4472 28.752 37.3352 27.96C38.2472 27.168 38.7032 26.016 38.7032 24.504C38.7032 22.992 38.2592 21.84 37.3712 21.048C36.4832 20.232 35.1512 19.824 33.3752 19.824H27.1472V29.148H33.3752Z" fill="white"/>
+    </svg>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -20,8 +24,8 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My Profile", "#", class: "dropdown-item" %>
             <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
