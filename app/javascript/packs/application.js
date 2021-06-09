@@ -30,11 +30,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initUpdateNavbarOnScroll } from '../components/navbar-scroll';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initUpdateNavbarOnScroll();
   // initSelect2();
   initMapbox();
 });
