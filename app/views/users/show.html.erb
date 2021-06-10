@@ -1,5 +1,21 @@
-<% if current_user.teacher  %>
-  <%= render 'teacher_show' %>
-  <% else  %>
-  <%= render 'student_show' %>
+<br>
+<br>
+<br>
+
+<h1 class="p-5">Teacher Show Page</h1>
+<% current_user.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+
+
+<h1> Your classes: </h1>
+ <% current_user.classes.each do |lesson| %>
+ <h2> <%= lesson.user.first_name %> </h2>
+ <h2> <%= lesson.price %> </h2>
+<% end %>
+
+<h1> Your bookings: </h1>
+<% current_user.lessons.each do |lesson| %>
+ <h1> <%= lesson.price %> </h1>
+<% end %>
+

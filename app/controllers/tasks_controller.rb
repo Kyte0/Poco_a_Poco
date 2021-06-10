@@ -1,8 +1,12 @@
 class TasksController < ApplicationController
 
+  def new
+    @task = Task.new
+  end
+
   def create
     @task = Task.new(task_params)
-    @task.user = current_user.teacher
+    @task.user = current_user
     if @task.save
       redirect_to booking_path(@booking)
     else
@@ -20,13 +24,13 @@ class TasksController < ApplicationController
       redirect_to booking_path(@booking)
     else
       render 'edit'
+    end
   end
 
   def destroy
     @task = Task.find(params[:task_id])
     @task.destroy
     redirect_to booking_path(@booking)
-
   end
 
   private
