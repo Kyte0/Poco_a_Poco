@@ -12,7 +12,12 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if current_page?(lessons_path) %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/navbar_homepage' %>
+    <% end %>
+  
     <%= render 'shared/flashes' %>
 
     <%= yield %>

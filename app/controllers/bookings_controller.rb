@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @task = Task.all
+    @task = Task.new
+    @review = Review.new
   end
 
   def new
@@ -16,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.lesson = @lesson
 
     if @booking.save
-      redirect_to users_path(@user)
+      redirect_to booking_path(@booking)
     else
       render 'new'
     end
