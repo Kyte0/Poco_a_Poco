@@ -1,6 +1,16 @@
 <br>
 <br>
 <br>
+
+<% if current_user == @lesson.user %>
+  <h1> <%= @lesson.instrument %> </h1>
+  <h2> <%= @lesson.price %> </h2>
+  <h2> <%= @lesson.level %> </h2>
+  <h2> <%= @lesson.location %> </h2>
+  <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
+  <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-primary' %>
+  <%= link_to 'Book a class', lessons_path, class: 'btn btn-primary' %>
+<% else  %>
 <div class="container">
   <h1> <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %> </h1>
   <h1> <%= @lesson.instrument %> </h1>
@@ -15,6 +25,8 @@
             <%= f.input :end_date, as: :date, required: false, html5:true  %>
             <%= f.submit class: 'btn btn-nice' %>
         <% end %>
+  <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
 </div>
+<% end %>
 <br>
 <br>

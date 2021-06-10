@@ -8,8 +8,8 @@
 </div>
 <div>
      <%= link_to 'Add a review', new_booking_review_path(@booking), class: 'btn btn-primary' %>
-
-   <% if current_user.teacher %>
-    <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-primary' %>
+       <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
+    <% if current_user == @booking.lesson.user.teacher %>
+        <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-primary' %>
     <% end %>
 </div>

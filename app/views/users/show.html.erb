@@ -1,3 +1,14 @@
-<% if current_user.teacher  %>
-  <h1> I'm a teacher </h1>
+<br>
+<br>
+<br>
+<h1> Your classes: </h1>
+ <% current_user.classes.each do |lesson| %>
+ <h2> <%= lesson.user.first_name %> </h2>
+ <h2> <%= lesson.price %> </h2>
 <% end %>
+
+<h1> Your bookings: </h1>
+<% current_user.lessons.each do |lesson| %>
+ <h1> <%= lesson.price %> </h1>
+<% end %>
+

@@ -30,7 +30,7 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    @lesson = Lesson.find(params[:id])
   end
 
   def update
