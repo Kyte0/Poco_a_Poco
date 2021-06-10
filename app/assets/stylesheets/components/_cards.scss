@@ -48,3 +48,14 @@ left: 8px;
 .first_name {
 font-weight: bolder;
 }
+
+.home-page-card {
+  height: 350px;
+  width: 350px;
+}
+
+.home-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
+}
