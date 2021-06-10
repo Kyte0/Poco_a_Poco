@@ -16,6 +16,9 @@
         <div class="card-trip-infos">
             <div>
               <h3><%= lesson.user.first_name %></h3>
+              <% lesson.user.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, crop: :fill, class: 'avatar' %>
+              <% end %>
               <h3><%= lesson.average_rating %></h3>
               <h3><%= lesson.instrument %></h3>
               <h3><%= lesson.level %></h3>
