@@ -12,10 +12,10 @@
   </head>
 
   <body>
-    <% if current_page?(root_url) %>
-      <%= render 'shared/navbar_homepage' %>
-    <% else %>
+    <% if current_page?(lessons_path) %>
       <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/navbar_homepage' %>
     <% end %>
   
     <%= render 'shared/flashes' %>
