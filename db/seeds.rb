@@ -1,67 +1,72 @@
 require "open-uri"
 
+Booking.destroy_all
 Lesson.destroy_all
 User.destroy_all
+
+file1 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623248495/wzjivbkak78vtrw7swm1.jpg')
+file2 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623248638/aiagyj4hzvl9m5i0tvmw.jpg')
+file3 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623250143/ut0tzgyqvy28ch38xc3t.jpg')
+file4 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623251909/k6ivki2anvsqs3qkeivp.jpg')
+file5 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623319007/ghqgjsyf2c5qx1askl0x.jpg')
+file6 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623251962/gweidwsabso4ax6tkk9h.jpg')
+file7 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254540/lvqylvr2dpkcumedpxf1.jpg')
+file8 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623255041/o2xqehgxs00xuzuzqkse.jpg')
+file9 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254279/dx4ynj5zzghtu2decpjp.jpg')
+file10 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623255791/ct5pdae1wmq10feqaluk.jpg')
+# file11 = URI.open('')
+# file12 = URI.open('')
+file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756/k4urqpzkav3ohtddwkd8.jpg')
+file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
+file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
 
 puts "Creating users..."
 
 user1 = User.new(first_name:"Reva", last_name:"Scorcese", email:"reva@gmail.com", password:"123456", date_of_birth: DateTime.new(1998,01,01), teacher: true, bio: "Classically trained pianist who can help push any Grade 7 or 8 student over the last hurdles.")
-user1.photos.attach(io: file1, filename: 'file1.png', content_type: 'image/png')
+user1.photos.attach(io: file1, filename: 'file1.jpg', content_type: 'image/jpg')
 user1.save!
+puts "finish one"
 user2 = User.new(first_name:"John", last_name:"Smythe", email:"john@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,01,15), teacher: true, bio: "Friendly pianist offering individual piano and singing lessons in London area for beginners & beyond.")
-user2.photos.attach(io: file2, filename: 'file2.png', content_type: 'image/png')
+user2.photos.attach(io: file2, filename: 'file2.jpg', content_type: 'image/jpg')
 user2.save!
 user3 = User.new(first_name:"Oliver", last_name:"West", email:"oliver@gmail.com", password:"123456", date_of_birth: DateTime.new(1994,04,22), teacher: true, bio: "Jazz is the most fun way to play piano or double bass! If you bring your love of music, I'll bring the expertise.")
-user3.photos.attach(io: file3, filename: 'file3.png', content_type: 'image/png')
+user3.photos.attach(io: file3, filename: 'file3.jpg', content_type: 'image/jpg')
 user3.save!
 user4 = User.new(first_name:"Hannah", last_name:"Hunter", email:"hannah@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,05,12), teacher: true, bio: "Singer/songwriter/guitarist, happy to help any budding folk musician along their journey.")
 user4.save!
 user5 = User.new(first_name:"James", last_name:"Barton", email:"james@gmail.com", password:"123456", date_of_birth: DateTime.new(1954,01,10), teacher: true, bio: "Opera singer with over 30 years of professional experience in opera and theatre.")
+user5.photos.attach(io: file5, filename: 'file5.jpg', content_type: 'image/jpg')
 user5.save!
 user6 = User.new(first_name:"Big", last_name:"Cheddar", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1987,11,13), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
 user6.save!
 user7 = User.new(first_name:"Ophelia", last_name:"Anderson", email:"ophelia@gmail.com", password:"123456", date_of_birth: DateTime.new(1996,03,17), teacher: true, bio: "Experimental Guitarist with all the gear if you have the ideas. Let's get weird & have fun!")
-user7.photos.attach(io: file7, filename: 'file7.png', content_type: 'image/png')
+user7.photos.attach(io: file7, filename: 'file7.jpg', content_type: 'image/jpg')
 user7.save!
 user8 = User.new(first_name:"Ruth", last_name:"Davies", email:"ruth@gmail.com", password:"123456", date_of_birth: DateTime.new(1979,11,16), teacher: true, bio: "Master of Spanish & classic guitar & piano. I'd like to teach entustiastic people how to create beautiful music.")
-user8.photos.attach(io: file8, filename: 'file8.png', content_type: 'image/png')
+user8.photos.attach(io: file8, filename: 'file8.jpg', content_type: 'image/jpg')
 user8.save!
 user9 = User.new(first_name:"Felix", last_name:"Lighter", email:"felix@gmail.com", password:"123456", date_of_birth: DateTime.new(1984,12,02), teacher: true, bio: "Classic rocker, happy to teach some powerchords or how to solo like Hendrix!")
-user9.photos.attach(io: file9, filename: 'file9.png', content_type: 'image/png')
+user9.photos.attach(io: file9, filename: 'file9.jpg', content_type: 'image/jpg')
 user9.save!
 user10 = User.new(first_name:"Alan", last_name:"Jones", email:"alan@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,01,05), teacher: true, bio: "Experienced piano graduate of Liverpool Institute of Arts, fluent in French & English.")
-user10.photos.attach(io: file10, filename: 'file10.png', content_type: 'image/png')
+user10.photos.attach(io: file10, filename: 'file10.jpg', content_type: 'image/jpg')
 user10.save!
 user11 = User.new(first_name:"Rosie", last_name:"Lyne", email:"rosie@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,07,10), teacher: true, bio: "Jazz bassist extrordinaire, take this instrument for a spin with me. I'll show you how easy it is to make great sounds")
 user11.save!
 user12 = User.new(first_name:"Chloé", last_name:"Rubis", email:"chloe@gmail.com", password:"123456", date_of_birth: DateTime.new(1995,10,29), teacher: true, bio: "Passionate Double bassist & violinist, ready to take on some students who want to see how versatile these instruments can be.")
 user12.save!
 user13 = User.new(first_name:"Victoria", last_name:"Lasoo", email:"victoria@gmail.com", password:"123456", date_of_birth: DateTime.new(1980,10,14), teacher: true, bio: "Folk violin (or fiddle) is one of the snappiest ways to learn, be hoedown ready in no time at all!")
-user13.photos.attach(io: file13, filename: 'file13.png', content_type: 'image/png')
+user13.photos.attach(io: file13, filename: 'file13.jpg', content_type: 'image/jpg')
 user13.save!
 user14 = User.new(first_name:"Tom", last_name:"Rojo", email:"tom@gmail.com", password:"123456", date_of_birth: DateTime.new(1977,03,10), teacher: true, bio: "A graduate of Conservatorio Giuseppe Verdi, a master of classical violin.")
-user14.photos.attach(io: file14, filename: 'file14.png', content_type: 'image/png')
+user14.photos.attach(io: file14, filename: 'file14.jpg', content_type: 'image/jpg')
 user14.save!
 user15 = User.new(first_name:"Sam", last_name:"Wallace", email:"sam@gmail.com", password:"123456", date_of_birth: DateTime.new(1999,01,01), teacher: true, bio: "Violin prodigy & student of Master Littman at the Shine School of Music in Durban.")
-user15.photos.attach(io: file15, filename: 'file15.png', content_type: 'image/png')
+user15.photos.attach(io: file15, filename: 'file15.jpg', content_type: 'image/jpg')
 user15.save!
 puts "Finished creating #{User.count} users!"
 
-file1 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623248495/wzjivbkak78vtrw7swm1.jpg')
-file2 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623248638/aiagyj4hzvl9m5i0tvmw.jpg')
-file3 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623250143/ut0tzgyqvy28ch38xc3t.jpg')
-file4 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623251909/k6ivki2anvsqs3qkeivp.jpg')
-file5 = URI.open('')
-file6 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623251962/gweidwsabso4ax6tkk9h.jpg')
-file7 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254540/lvqylvr2dpkcumedpxf1.jpg')
-file8 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623255041/o2xqehgxs00xuzuzqkse.jpg')
-file9 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254279/dx4ynj5zzghtu2decpjp.jpg')
-file10 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623255791/ct5pdae1wmq10feqaluk.jpg')
-file11 = URI.open('')
-file12 = URI.open('')
-file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756/k4urqpzkav3ohtddwkd8.jpg')
-file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
-file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
+
 
 
 puts "Creating Lessons..."

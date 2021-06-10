@@ -3,4 +3,5 @@ class UsersController < ApplicationController
     @completed_bookings = Booking.where("end_date < ?", DateTime.now)
     @upcoming_bookings = Booking.where("start_date >= ?", DateTime.now)
   end
+
 end
