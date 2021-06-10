@@ -1,105 +1,50 @@
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-   // margin: px;
+  flex-grow: 1;
+  width: 50%;
 }
 
-.card {
-  display: grid;
-  grid-template-columns: 1fr;
-
-.card img {
-  border-radius: none;
-}
-
-}
-
-.card a {
-  text-decoration: none;
-}
-
-.card-trip {
-  overflow: hidden;
-  background: white;
-  margin: 8px;
-  border-radius: 5px;
-  // border: solid 2px;
-  // border-color: #8D0801;
-}
-
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 15px;
-  opacity: .7;
-  margin: 0;
-  color: #8D0801;
-}
-
-
-.card-show h1 {
-  color: black;
-  font-size: 64px;
-  opacity: .7;
-  margin: 0;
-  padding: 8px;
-  text-align: center;
-}
-
-.card-show h2 {
-  font-size: 32px;
-  opacity: .7;
-  margin: 0;
-  padding: 8px;
-  text-align: center;
-}
-
-.card-trip .card-trip-infos {
-  padding: 16px;
+.card-category {
+  background-image: url('<%= cl_image_path photo.key%>');
+  background-size: cover;
+  background-position: center;
+  height: 218px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 1px;
   position: relative;
-  // height: 100px;
+  flex-grow: 1;
+
 }
 
-.card-trip-infos p {
-  text-decoration: none;
+.card-attribute {
+  position: absolute;
 }
 
-
-.card-trip-infos-show p {
-  opacity: .7;
-  margin: 0;
-  padding: 8px;
-  box-shadow: none;
+.instrument {
+top: 8px;
+left: 8px;
 }
 
-.card-show{
-  background: white;
-  padding: 8px;
-  box-shadow: none;
-  margin-top: 16px;
-  border: solid;
-  border-color: #8D0801;
-  border-radius: 3px;
+.level {
+top: 8px;
+right: 8px;
 }
 
-.ghosts-index-card {
-  border: solid;
-  border-color: #8D0801;
-  border-radius: 3px;
-  // box-shadow: 3px red;
+.price {
+bottom: 8px;
+right: 8px;
+}
 
+.rating {
+bottom: 8px;
+left: 8px;
+}
+
+.first_name {
+font-weight: bolder;
 }
