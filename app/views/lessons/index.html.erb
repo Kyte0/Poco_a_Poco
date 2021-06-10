@@ -4,7 +4,7 @@
     </div>
     <%= render "shared/lesson_search_form" %>
     <div class="cards">
-      <%= @lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
       <%= link_to lesson_path(lesson) do %>
         <div class="index-card"></div>
           <%#= if lesson.photos.attached? %>

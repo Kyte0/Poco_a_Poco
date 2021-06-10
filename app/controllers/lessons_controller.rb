@@ -14,7 +14,6 @@ class LessonsController < ApplicationController
   end
 
   def index
-
       if params[:lesson].present? && params[:lesson][:query].present?
       # query = params[:lesson][:query]
         @lessons = Lesson.global_search(params[:lesson][:query])
@@ -27,6 +26,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
+    @booking = Booking.new
   end
 
   def edit

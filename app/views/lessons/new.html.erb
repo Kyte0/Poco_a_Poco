@@ -1,0 +1,13 @@
+<br>
+<br>
+<br>
+<div class="container">
+  <h3> Add a lesson:</h3>
+        <%= simple_form_for (@lesson) do |f| %>
+            <%= f.input :instrument %>
+            <%= f.input :price %>
+            <%= f.input :level %>
+            <%= f.input :location %>
+            <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
+</div>
