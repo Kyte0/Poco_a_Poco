@@ -14,15 +14,20 @@ class LessonsController < ApplicationController
   end
 
   def index
-
-      if params[:lesson].present? && params[:lesson][:query].present?
-      # query = params[:lesson][:query]
-        @lessons = Lesson.global_search(params[:lesson][:query])
-          # if @lessons == []
-          #   @lessons = Lesson.kinda_matching(query)
-      else
-        @lessons = Lesson.all
-      end
+    if params[:lesson].present? && params[:lesson][:query].present?
+    # query = params[:lesson][:query]
+      @lessons = Lesson.global_search(params[:lesson][:query])
+        # if @lessons == []
+        #   @lessons = Lesson.kinda_matching(query)
+    else
+      @lessons = Lesson.all
+    end
+    @markers = @lessons.geocoded.map do |lesson|
+      {
+        lat: lesson.latitude,
+        lng: lesson.longitude
+      }
+    end
   end
 
   def show
@@ -47,7 +52,7 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:instrument, :price, :level, :location)
+    params.require(:lesson).permit(:instrument, :price, :level, :location, photos: [])
   end
 
 end

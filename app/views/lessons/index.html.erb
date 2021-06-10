@@ -4,7 +4,7 @@
     </div>
     <%= render "shared/lesson_search_form" %>
     <div class="cards">
-      <%= @lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
       <%= link_to lesson_path(lesson) do %>
         <div class="index-card"></div>
           <%#= if lesson.photos.attached? %>
@@ -16,10 +16,14 @@
         <div class="card-trip-infos">
             <div>
               <h3><%= lesson.user.first_name %></h3>
+              <% lesson.user.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, crop: :fill, class: 'avatar' %>
+              <% end %>
               <h3><%= lesson.average_rating %></h3>
               <h3><%= lesson.instrument %></h3>
               <h3><%= lesson.level %></h3>
               <h3>£<%= lesson.price %></h3>
+
               <!-- <p> <%#= lesson.description  %> </p> -->
             </div>
         </div>
