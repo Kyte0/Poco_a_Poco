@@ -7,7 +7,6 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
-
 <h1> Your classes: </h1>
  <% current_user.classes.each do |lesson| %>
  <h2> <%= lesson.user.first_name %> </h2>
