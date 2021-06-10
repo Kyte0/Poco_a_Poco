@@ -11,7 +11,7 @@ class Lesson < ApplicationRecord
     pg_search_scope :global_search,
       against: [ :instrument, :location, :level ],
       associated_against: {
-          user: [ :first_name, :last_name, :bio ],
+          user: [ :first_name, :last_name ],
         },
         using: {tsearch: { prefix: true }}
 
@@ -22,10 +22,10 @@ class Lesson < ApplicationRecord
       }
 
   def average_rating
-    num_ratings = self.bookings.map { |b| b.review }.size
-    rating_total = self.bookings.map { |b| b.review }.map { |r| r.rating }.reduce(:+)
-    unless num_ratings.zero?
-      "Rating: #{rating_total/num_ratings}"
+    num_ratings = self.bookings.select{|b| b.review }.map { |b| b.review }.size
+    rating_total = self.bookings.select{|b| b.review }.map { |b| b.review }.map { |r| r.rating }.reduce(:+)
+    if rating_total
+      return "Rating: #{rating_total / num_ratings}"
     end
   end
 end

@@ -7,6 +7,9 @@
         <span id="banner-typed-text"></span>
       </p>
       <a class="banner-btn text-decoration-none" href="/lessons"> Book a class </a>
+      <% if current_user.teacher %>
+        <a class="banner-btn text-decoration-none" href="/lessons/new"> Add a class </a>
+      <% end %>
     </div>
     <div class="home-page-input" style="padding-bottom: 250px;"> <%= render 'shared/lesson_search_form'  %> </div>
   </div>
