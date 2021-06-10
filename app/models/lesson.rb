@@ -7,7 +7,7 @@ class Lesson < ApplicationRecord
     pg_search_scope :global_search,
       against: [ :instrument, :location, :level ],
       associated_against: {
-          user: [ :first_name, :last_name, :bio ],
+          user: [ :first_name, :last_name ],
         },
         using: {tsearch: { prefix: true }}
 
