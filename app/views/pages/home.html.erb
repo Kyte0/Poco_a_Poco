@@ -1,21 +1,18 @@
 <div class="content">
-  <div class="banner" style="background-image:url(/assets/photo1)">
+  <div class="banner background-image-home">
     <div class="container mt-4">
       <h1 class="home-title" > Poco a Poco </h1>
       <h3>
         <span id="banner-typed-text"></span>
       </h3>
       <a class="banner-btn text-decoration-none" href="/lessons"> Book a class </a>
-      
       <% if current_user %>
-      <% if current_user.teacher %>
-        <a class="banner-btn text-decoration-none" href="/lessons/new"> Add a class </a>
-         <% else %> 
-        <p></p>
+        <% if current_user.teacher %>
+          <a class="banner-btn text-decoration-none" href="/lessons/new"> Add a class </a>
+        <% else %> 
+          <p></p>
+        <% end %>     
       <% end %>
-        
-      <% end %>
-      
     </div>
     <div class="home-page-input" style="padding-bottom: 250px;"> <%= render 'shared/lesson_search_form'  %> </div>
   </div>
