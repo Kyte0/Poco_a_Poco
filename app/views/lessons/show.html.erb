@@ -19,7 +19,7 @@
         <div class="d-flex justify-content-around">
           <% @lesson.user.photos.each do |photo| %>
               <div class="image-show">
-                <%= cl_image_tag photo.key, crop: :fill, width: 300, style: "border-radius: 8px"%>
+                <%= cl_image_tag photo.key, crop: :fill, width: 230, style: "border-radius: 8px"%>
               </div>
             <% end %>
           <div class="d-flex flex-column justify-content-around">
@@ -32,7 +32,6 @@
         <%# want the first h3 to show an icon with a colour changing circular border, that is based on level %>
           <%= image_tag("icons/#{@lesson.instrument}.png") %>
           <h3> £<%= @lesson.price %>0/hour </h3>
-          <h3> £<%= @lesson.price %>0 </h3>
           <h3> <%= @lesson.level %> </h3>
           <h3> <%= @lesson.location %> </h3>
         </div>
