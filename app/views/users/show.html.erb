@@ -1,14 +1,14 @@
-<br>
-<br>
+<div id="show-whole-background">
 <br>
 
 <div class="container">
 <h1 class="p-5"> Welcome <%= current_user.first_name %> <%= current_user.last_name %> </h1>
 <% current_user.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+ <div class="image-show"> <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %> </div>
 <% end %>
 
 <div>
+  <% if current_user.teacher == true%>
 <h1> Your classes: </h1>
  <% current_user.classes.each do |lesson| %>
  <div>
@@ -16,18 +16,26 @@
 <%= lesson.price %> </h4>
 </div>
 <% end %>
-</div>
+<% end %>
 
-<div>
+</div>
+<% if current_user.teacher == true%>
+<a class="btn-show btn btn-outline-dark text-decoration-none" href="/lessons/new"> Teach a new class</a>
+<% end %>
+
+<div class="booking-box">
 <h1> Your bookings: </h1>
-<% current_user.lessons.each do |lesson| %>
+<% current_user.bookings.each do |booking| %>
 <div>
- <h4> You booked a lesson with <%= lesson.user.first_name %> to learn the <%= lesson.instrument %> </h4>
+ <h4 class="individual-bookings"> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> to learn the <%= booking.lesson.instrument %> </h4>
  <h1></h1>
  </div>
 <% end %>
 </div>
+<a class="btn-show btn btn-outline-dark text-decoration-none" href="/lessons"> Book a class</a>
+
 </div>
 <br>
 <br>
 <br>
+</div>

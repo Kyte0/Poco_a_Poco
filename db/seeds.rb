@@ -26,7 +26,6 @@ puts "Creating users..."
 user1 = User.new(first_name:"Reva", last_name:"Scorcese", email:"reva@gmail.com", password:"123456", date_of_birth: DateTime.new(1998,01,01), teacher: true, bio: "Classically trained pianist who can help push any Grade 7 or 8 student over the last hurdles.")
 user1.photos.attach(io: file1, filename: 'file1.jpg', content_type: 'image/jpg')
 user1.save!
-puts "finish one"
 user2 = User.new(first_name:"John", last_name:"Smythe", email:"john@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,01,15), teacher: true, bio: "Friendly pianist offering individual piano and singing lessons in London area for beginners & beyond.")
 user2.photos.attach(io: file2, filename: 'file2.jpg', content_type: 'image/jpg')
 user2.save!
@@ -69,9 +68,6 @@ user15.photos.attach(io: file15, filename: 'file15.jpg', content_type: 'image/jp
 user15.save!
 puts "Finished creating #{User.count} users!"
 
-
-
-
 puts "Creating Lessons..."
 
 lesson1 = Lesson.create!(instrument:"Piano", price: 50, level:"Expert", location:"NW1 2RA", user: user1)
@@ -95,4 +91,20 @@ lesson18 = Lesson.create!(instrument: "Violin", price: 10, level:"Beginner", loc
 lesson19 = Lesson.create!(instrument: "Piano", price: 10, level:"Beginner", location:"EC4M 8AY", user: user8)
 lesson20 = Lesson.create!(instrument: "Double Bass", price: 10, level:"Beginner", location:"WC2R 0RG", user: user3)
 
-puts "Finished creating #{Lesson.count} lessons!"
+puts "Created #{Lesson.count} lessons!"
+
+puts "Creating Bookings..."
+ # user_id, lesson_id, start_date, end_date
+booking1 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+booking2 = Booking.create!(lesson: lesson9, user: user2, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
+booking3 = Booking.create!(lesson: lesson9, user: user3, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+
+puts "Created #{Booking.count} bookings!"
+
+puts "Creating reviews..."
+ # rating,comment,booking
+review1 = Review.create!(rating: 5, comment:"A wonderful teacher, very patient and understanding of my slow progress (Also easy on the eyes ;) )", booking: booking1)
+review2 = Review.create!(rating: 4, comment:"Bit casual for me but still a very good teacher & all round nice person", booking: booking2)
+review3 = Review.create!(rating: 5, comment:"Can't say enough wonderful things about this teacher, they helped me go from clueless to peerless!", booking: booking2)
+
+puts "Finished creating #{Review.count} reviews!"
