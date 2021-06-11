@@ -2,7 +2,7 @@
 #background-color{
   width: auto;
   background: rgb(215,255,241);
-  background: linear-gradient(180deg, rgba(215,255,241,1) 60%, rgba(255,255,255,1) 100%);
+  background-image: linear-gradient(#588157, white);
   margin-top: 60px;
   padding-top: 10px;
 }
@@ -29,6 +29,7 @@
 
 .image-show{
   margin-bottom: 10px;
+
 }
 
 .booking-form-show{
@@ -38,4 +39,17 @@
 .review-show{
   margin: 20px;
   background-color: transparent;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
 }
+
+.booking-form-show{
+  padding-left: 30px;
+}
+
+
+.image-show{
+  padding-right: 20px;
+}
+
+
