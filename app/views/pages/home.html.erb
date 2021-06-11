@@ -2,17 +2,16 @@
   <div class="banner" style="background-image:url(/assets/photo1)">
     <div class="container mt-4">
       <h1 class="home-title" > Poco a Poco </h1>
-      <p class="home-p"> Little by little...</p>
-      <p>
+      <h3>
         <span id="banner-typed-text"></span>
-      </p>
+      </h3>
       <a class="banner-btn text-decoration-none" href="/lessons"> Book a class </a>
       
       <% if current_user %>
       <% if current_user.teacher %>
         <a class="banner-btn text-decoration-none" href="/lessons/new"> Add a class </a>
          <% else %> 
-        <p> no </p>
+        <p></p>
       <% end %>
         
       <% end %>

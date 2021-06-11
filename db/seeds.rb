@@ -1,5 +1,6 @@
 require "open-uri"
 
+Review.destroy_all
 Booking.destroy_all
 Lesson.destroy_all
 User.destroy_all
