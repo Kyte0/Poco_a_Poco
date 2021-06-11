@@ -14,8 +14,8 @@ file7 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254540/
 file8 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623255041/o2xqehgxs00xuzuzqkse.jpg')
 file9 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254279/dx4ynj5zzghtu2decpjp.jpg')
 file10 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623255791/ct5pdae1wmq10feqaluk.jpg')
-# file11 = URI.open('')
-# file12 = URI.open('')
+file11 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623336127/myekn314zasdctogcows.jpg')
+file12 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623335906/ncifs5yt25qbfhia6u2o.jpg')
 file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756/k4urqpzkav3ohtddwkd8.jpg')
 file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
 file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
@@ -51,9 +51,11 @@ user9.save!
 user10 = User.new(first_name:"Alan", last_name:"Jones", email:"alan@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,01,05), teacher: true, bio: "Experienced piano graduate of Liverpool Institute of Arts, fluent in French & English.")
 user10.photos.attach(io: file10, filename: 'file10.jpg', content_type: 'image/jpg')
 user10.save!
-user11 = User.new(first_name:"Rosie", last_name:"Lyne", email:"rosie@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,07,10), teacher: true, bio: "Jazz bassist extrordinaire, take this instrument for a spin with me. I'll show you how easy it is to make great sounds")
+user11 = User.new(first_name:"Jimothy", last_name:"Smith", email:"rosie@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,07,10), teacher: true, bio: "Jazz bassist extrordinaire, take this instrument for a spin with me. I'll show you how easy it is to make great sounds")
+user11.photos.attach(io: file11, filename: 'file11.jpg', content_type: 'image/jpg')
 user11.save!
 user12 = User.new(first_name:"Chloé", last_name:"Rubis", email:"chloe@gmail.com", password:"123456", date_of_birth: DateTime.new(1995,10,29), teacher: true, bio: "Passionate Double bassist & violinist, ready to take on some students who want to see how versatile these instruments can be.")
+user12.photos.attach(io: file12, filename: 'file12.jpg', content_type: 'image/jpg')
 user12.save!
 user13 = User.new(first_name:"Victoria", last_name:"Lasoo", email:"victoria@gmail.com", password:"123456", date_of_birth: DateTime.new(1980,10,14), teacher: true, bio: "Folk violin (or fiddle) is one of the snappiest ways to learn, be hoedown ready in no time at all!")
 user13.photos.attach(io: file13, filename: 'file13.jpg', content_type: 'image/jpg')
