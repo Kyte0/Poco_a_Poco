@@ -9,10 +9,12 @@
       <a class="btn btn-outline-success text-decoration-none" href="/lessons"> Book a class </a>
 
       <% if current_user %>
+
       <% if current_user.teacher %>
         <a class="btn btn-outline-success text-decoration-none" href="/lessons/new"> Add a class </a>
          <% else %>
       <% end %>
+
       <% end %>
       </div>
     </div>
