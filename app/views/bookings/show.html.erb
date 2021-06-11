@@ -4,8 +4,8 @@
 <div class="container">
   <h1>Congrats you just booked a lesson with <%= @booking.lesson.user.first_name %> </h1>
   <h4> You're going to learn to play the <%= @booking.lesson.instrument %> </h4>
-  <h6> Start date: <%= @booking.start_date.strftime("%d %B %Y") %> </h6>
-  <h6> End date: <%= @booking.end_date.strftime("%d %B %Y") %> </h6>
+  <h6> Start date: <%= @booking.start_date.strftime("%d %B %Y - %H:%M %p") %> </h6>
+  <h6> End date: <%= @booking.end_date.strftime("%d %B %Y - %H:%M %p") %> </h6>
 
 <div>
      <%= link_to 'Add a review', new_booking_review_path(@booking), class: 'btn btn-primary' %>
