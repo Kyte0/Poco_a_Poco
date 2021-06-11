@@ -1,59 +1,58 @@
-<br>
-<br>
-<br>
-<div class="container-show">
-  <% if current_user == @lesson.user %>
-    <h1> <%= @lesson.instrument %> </h1>
-    <h2> <%= @lesson.price %> </h2>
-    <h2> <%= @lesson.level %> </h2>
-    <h2> <%= @lesson.location %> </h2>
-    <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
-    <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-primary' %>
-    <%= link_to 'Book a class', lessons_path, class: 'btn btn-primary' %>
-  <% else  %>
-  <div class="d-flex justify-content-between">
-    <div class=>
-      <div class="d-flex justify-content-around">
-        <% @lesson.user.photos.each do |photo| %>
-            <div class="image-show">
-              <%= cl_image_tag photo.key, crop: :fill, width: 300, style: "border-radius: 8px"%>
-            </div>
-          <% end %>
-        <div class="d-flex flex-column justify-content-around">
-          <h1> <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %> </h1>
-          <p style="width: 400px"> <%= @lesson.user.bio %> </p>
+<div id="background-color">
+  <div class="container-show">
+    <% if current_user == @lesson.user %>
+      <h1> <%= @lesson.instrument %> </h1>
+      <h2> <%= @lesson.price %> </h2>
+      <h2> <%= @lesson.level %> </h2>
+      <h2> <%= @lesson.location %> </h2>
+      <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
+      <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-primary' %>
+      <%= link_to 'Book a class', lessons_path, class: 'btn btn-primary' %>
+    <% else  %>
+    <div class="d-flex justify-content-between">
+      <div class=>
+        <div class="d-flex justify-content-around">
+          <% @lesson.user.photos.each do |photo| %>
+              <div class="image-show">
+                <%= cl_image_tag photo.key, crop: :fill, width: 300, style: "border-radius: 8px"%>
+              </div>
+            <% end %>
+          <div class="d-flex flex-column justify-content-around">
+            <h1> <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %> </h1>
+            <p style="width: 400px"> <%= @lesson.user.bio %> </p>
+          </div>
+        </div>
+
+        <div class="crucial-info-show-page">
+          <h3> Instrument: <%= @lesson.instrument %> </h3>
+          <h3> Price: <%= @lesson.price %>0 </h3>
+          <h3> Level: <%= @lesson.level %> </h3>
+          <h3> Postcode: <%= @lesson.location %> </h3>
         </div>
       </div>
 
-      <div class="crucial-info-show-page">
-        <h3> Instrument: <%= @lesson.instrument %> </h3>
-        <h3> Price: <%= @lesson.price %>0 </h3>
-        <h3> Level: <%= @lesson.level %> </h3>
-        <h3> Postcode: <%= @lesson.location %> </h3>
-      </div>
+    <div class="booking-form-show">
+      <h3> Book a lesson with <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %>:</h3>
+            <%= simple_form_for [@lesson, @booking] do |f| %>
+                <%= f.input :start_date, as: :date, required: false, html5:true  %>
+                <%= f.input :end_date, as: :date, required: false, html5:true  %>
+                <%= f.submit class: 'btn btn-outline-success' %>
+            <% end %>
+      <%# <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
     </div>
 
-  <div class="booking-form-show">
-    <h3> Book a lesson with <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %>:</h3>
-          <%= simple_form_for [@lesson, @booking] do |f| %>
-              <%= f.input :start_date, as: :date, required: false, html5:true  %>
-              <%= f.input :end_date, as: :date, required: false, html5:true  %>
-              <%= f.submit class: 'btn btn-outline-success' %>
-          <% end %>
-    <%# <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
-  </div>
-
-  <% end %>
-  </div>
-</div>
-  <div class="review-show">
-    <h1>Reviews</h1>
-    <% if @lesson.bookings.any? %>
-      <% @lesson.bookings do |booking| %>
-        <%= booking.review.rating %>
-        <%= booking.review.comment %>
-      <% end %>
-    <% else %>
-      <p> <%= @lesson.user.first_name %> does not have any reviews</p>
     <% end %>
+    </div>
   </div>
+    <div class="review-show">
+      <h1>Reviews</h1>
+      <% if @lesson.bookings.any? %>
+        <% @lesson.bookings do |booking| %>
+          <%= booking.review.rating %>
+          <%= booking.review.comment %>
+        <% end %>
+      <% else %>
+        <p> <%= @lesson.user.first_name %> does not have any reviews</p>
+      <% end %>
+    </div>
+</div>
