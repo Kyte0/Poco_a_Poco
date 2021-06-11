@@ -1,7 +1,9 @@
-<div class="container">
+<br>
+<br>
+<div class="container reviews-new">
   <h3> Add a review for this booking: </h3>
         <%= simple_form_for [@booking, @review] do |f| %>
-            <%= f.input :rating %>
+            <%= f.input :rating, collection: 1..5 %>
             <%= f.input :comment %>
             <%= f.submit class: 'btn btn-primary' %>
         <% end %>
