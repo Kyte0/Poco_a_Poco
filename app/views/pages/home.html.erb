@@ -4,21 +4,26 @@
       <h1 class="home-title" > Poco a Poco </h1>
       <h3>
         <span id="banner-typed-text"></span>
-      </h3>
-      <a class="banner-btn text-decoration-none" href="/lessons"> Book a class </a>
+      </p>
+      <div class="home-buttons">
+      <a class="btn btn-outline-success text-decoration-none" href="/lessons"> Book a class </a>
+
       <% if current_user %>
-        <% if current_user.teacher %>
-          <a class="banner-btn text-decoration-none" href="/lessons/new"> Add a class </a>
-        <% else %> 
-          <p></p>
-        <% end %>     
+      <% if current_user.teacher %>
+        <a class="btn btn-outline-success text-decoration-none" href="/lessons/new"> Add a class </a>
+         <% else %>
+        <p> no </p>
       <% end %>
+
+      <% end %>
+      </div>
     </div>
     <div class="home-page-input" style="padding-bottom: 250px;"> <%= render 'shared/lesson_search_form'  %> </div>
   </div>
 </div>
-<h2 class="mt-3 ml-3">Featured Teachers</h2>
-  <div class="cards home-page-grid mt-3 d-flex ml-5">
+<div class="bottom-cards">
+<h2 class="feature-teacher-title mt-3 ml-3">Featured Teachers</h2>
+  <div class="cards home-page-grid mt-3 d-flex ">
     <% @lessons.each do |lesson| %>
       <% if lesson.user.photos.attached? %>
         <%= link_to lesson_path(lesson) do %>
@@ -26,12 +31,10 @@
             <h3 class="card-attribute first_name"><%= lesson.user.first_name %></h3>
             <h4 class="card-attribute rating"><%= lesson.average_rating %></h4>
             <h4 class="card-attribute instrument"><%= lesson.instrument %></h4>
-
           </div>
         <% end %>
       <% end %>
     <% end %>
+   </div>
   </div>
-
-
 <%= javascript_pack_tag "navbar-scroll" %>

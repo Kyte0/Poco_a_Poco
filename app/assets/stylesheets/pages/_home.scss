@@ -63,3 +63,21 @@
 .background-image-home {
   background-image: url(asset_path("photo1.jpg"));
 }
+
+.home-buttons{
+  flex-direction: horizontal;
+  margin-bottom: 15px;
+}
+
+.feature-teacher-title{
+  display: flex;
+  justify-content: center;
+  font-family: Poppins, sans-serif;
+}
+
+.home-page-grid{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+}
