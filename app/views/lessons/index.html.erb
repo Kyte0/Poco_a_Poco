@@ -1,8 +1,15 @@
   <div class="info-and-cards">
     <div class="search-info">
-      <h1>Lessons in "Location</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Lessons</h1>
     </div>
-    <%= render "shared/lesson_search_form" %>
+    <div class="map-and-cards">
     <div class="cards">
       <% @lessons.each do |lesson| %>
       <%= link_to lesson_path(lesson) do %>
@@ -17,7 +24,7 @@
             <div>
               <h3><%= lesson.user.first_name %></h3>
               <% lesson.user.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, crop: :fill, class: 'avatar' %>
+                <%= cl_image_tag photo.key, crop: :fill, class: 'avatar-large' %>
               <% end %>
               <h3><%= lesson.average_rating %></h3>
               <h3><%= lesson.instrument %></h3>
@@ -29,11 +36,12 @@
         </div>
      <% end %>
     <% end %>
-    </div>
   </div>
   <div id="map"
     style= "height: 100vh; width: 700px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+ </div>
 </div>
+
