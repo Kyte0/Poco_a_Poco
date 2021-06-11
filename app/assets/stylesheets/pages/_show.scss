@@ -1,3 +1,12 @@
+
+#background-color{
+  width: auto;
+  background: rgb(215,255,241);
+  background: linear-gradient(180deg, rgba(215,255,241,1) 60%, rgba(255,255,255,1) 100%);
+  margin-top: 60px;
+  padding-top: 10px;
+}
+
 .container-show{
   margin: 15px;
   display: flex;
@@ -22,4 +31,5 @@
 
 .review-show{
   margin: 20px;
+  background-color: transparent;
 }
