@@ -7,6 +7,7 @@
   <div class="mt-3 mb-3"><h6> Start date: <%= @booking.start_date.strftime("%d %B %Y") %> </h6>
   <h6> End date: <%= @booking.end_date.strftime("%d %B %Y") %> </h6></div>
 
+
 <div>
     <%= link_to_if @booking.review.blank?, 'Add a review', new_booking_review_path(@booking), class: 'btn btn-outline-success text-decoration-none' do %>
     <% end %>
