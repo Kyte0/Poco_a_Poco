@@ -2,14 +2,17 @@
 <br>
 <br>
 <div class="container">
-  <h1>Congrats you just booked a lesson: </h1>
-  <h1> Start date: <%= @booking.start_date %> </h1>
-  <h1> End date: <%= @booking.end_date %> </h1>
-</div>
+  <h1>Congrats you just booked a lesson with <%= @booking.lesson.user.first_name %> </h1>
+  <h4> You're going to learn to play the <%= @booking.lesson.instrument %> </h4>
+  <h6> Start date: <%= @booking.start_date.strftime("%d %B %Y") %> </h6>
+  <h6> End date: <%= @booking.end_date.strftime("%d %B %Y") %> </h6>
+
 <div>
      <%= link_to 'Add a review', new_booking_review_path(@booking), class: 'btn btn-primary' %>
        <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
-    <% if current_user == @booking.lesson.user.teacher %>
+</div>
+    <!-- <% if current_user == @booking.lesson.user.teacher %> -->
         <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-primary' %>
-    <% end %>
+    <!-- <% end %> -->
+</div>
 </div>
