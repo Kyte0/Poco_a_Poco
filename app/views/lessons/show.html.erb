@@ -1,20 +1,25 @@
 <div id="background-color">
   <div class="container-show">
     <% if current_user == @lesson.user %>
+      <% @lesson.user.photos.each do |photo| %>
+        <div class="image-show">
+          <%= cl_image_tag photo.key, crop: :fill, width: 300, style: "border-radius: 8px"%>
+        </div>
+      <% end %>
       <h1> <%= @lesson.instrument %> </h1>
       <h2> <%= @lesson.price %> </h2>
       <h2> <%= @lesson.level %> </h2>
       <h2> <%= @lesson.location %> </h2>
-      <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
-      <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-primary' %>
-      <%= link_to 'Book a class', lessons_path, class: 'btn btn-primary' %>
+      <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-outline-success' %>
+      <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-outline-success' %>
+      <%= link_to 'Book a class', lessons_path, class: 'btn btn-outline-success' %>
     <% else  %>
     <div class="d-flex justify-content-between">
       <div class=>
         <div class="d-flex justify-content-around">
           <% @lesson.user.photos.each do |photo| %>
               <div class="image-show">
-                <%= cl_image_tag photo.key, crop: :fill, width: 300, style: "border-radius: 8px"%>
+                <%= cl_image_tag photo.key, crop: :fill, width: 230, style: "border-radius: 8px"%>
               </div>
             <% end %>
           <div class="d-flex flex-column justify-content-around">
@@ -24,7 +29,9 @@
         </div>
 
         <div class="crucial-info-show-page">
-          <h3>  <%= @lesson.instrument %> </h3>
+        <%# want the first h3 to show an icon with a colour changing circular border, that is based on level %>
+          <%= image_tag("icons/#{@lesson.instrument}.png") %>
+          <h3> £<%= @lesson.price %>0/hour </h3>
           <h3> <%= @lesson.level %> </h3>
           <h3> <%= @lesson.location %> </h3>
         </div>
@@ -47,11 +54,11 @@
       <h1>Reviews</h1>
       <% if @reviews.any? %>
         <% @reviews.each do |review| %>
-        <div container>
+        <div class="d-flex" container>
         <p> <% review.rating.to_i.times do %> </p>
           <i class="far fa-star"></i>
         <% end %>
-        <p> <%= review.comment %> </p>
+        <p> <%= review.comment %></p>
         <% end %>
         </div>
       <% else %>

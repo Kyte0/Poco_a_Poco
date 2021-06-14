@@ -101,7 +101,8 @@ puts "Creating Bookings..."
 booking1 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
 booking2 = Booking.create!(lesson: lesson9, user: user2, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
 booking3 = Booking.create!(lesson: lesson9, user: user3, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
-
+booking4 = Booking.create!(lesson: lesson10, user: user10, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking5 = Booking.create!(lesson: lesson10, user: user10, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
 puts "Created #{Booking.count} bookings!"
 
 puts "Creating reviews..."
@@ -111,6 +112,9 @@ puts "Creating reviews..."
 review1 = Review.create!(rating: 5, comment:"A wonderful teacher, very patient and understanding of my slow progress.", booking: booking1)
 review2 = Review.create!(rating: 4, comment:"Bit casual for me but still a very good teacher & all round nice person", booking: booking2)
 review3 = Review.create!(rating: 5, comment:"Can't say enough wonderful things about this teacher, they helped me go from clueless to peerless!", booking: booking2)
+review4 = Review.create!(rating: 5, comment:"Had such an amazing lesson with this teacher! Learned a lot and the environment was easygoing and friendly!", booking: booking3)
+review5 = Review.create!(rating: 4, comment:"Really enjoyed my lesson with this teacher! Would definitely recommend!", booking: booking4)
+review6 = Review.create!(rating: 4, comment:"Fab teacher!", booking: booking4)
 
 puts "Generating random reviews..."
 
