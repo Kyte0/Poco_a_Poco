@@ -1,8 +1,18 @@
 class BookingsController < ApplicationController
 
+
+  def index
+    all_completed_bookings = Booking.where("end_date < ?", DateTime.now)
+    @completed_bookings = all_completed_bookings.select { |booking| booking.lesson.user == current_user }
+    all_upcoming_bookings = Booking.where("start_date >= ? ", DateTime.now)
+    @upcoming_bookings = all_upcoming_bookings.select { |booking| booking.lesson.user == current_user }
+  end
+
+
   def show
     @booking = Booking.find(params[:id])
-    @task = Task.new
+    @lesson = @booking.lesson
+    @tasks = @booking.tasks
     @review = Review.new
   end
 

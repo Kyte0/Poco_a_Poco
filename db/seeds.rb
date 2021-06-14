@@ -118,16 +118,19 @@ review6 = Review.create!(rating: 4, comment:"Fab teacher!", booking: booking4)
 
 puts "Generating random reviews..."
 
-while Review.count < 50
+lessons = Lesson.all
+lessons.each do |lesson|
   
-  nice_adjective = ["wonderful", "terrfic", "lovely", "great", "extraordinary", "exceptional"]
-  nice_quality = ["patient", "warm", "enthusiastic", "attentive", "respectful", "funny", "understanding", "encouraging"]
-  not_nice_quality = ["stern", "harsh", "rigid", "sarcastic", "disillusioned", "unprepared"]
+  nice_adjective = ["wonderful", "terrific", "lovely", "great", "extraordinary", "exceptional", "brilliant", "gifted", "superb", "tip-top"]
+  nice_quality = ["patient", "warm", "enthusiastic", "attentive", "respectful", "funny", "understanding", "encouraging", "collaborative", "professional"]
+  not_nice_quality = ["stern", "harsh", "rigid", "sarcastic", "disillusioned", "unprepared", "immature", "old fashioned", "indifferent", "casual"]
   
   good_comment = [
     "A really #{nice_adjective.sample} teacher, they are #{nice_quality.sample} & #{nice_quality.sample}. Highly reccomended!",
     "I'd definitely recommend this teacher. I found them to be really #{nice_quality.sample} and an all round #{nice_adjective.sample} person.",
-    "I've never felt such #{nice_adjective.sample} energy in a lesson. This teacher is #{nice_quality.sample}, #{nice_quality.sample} and #{nice_quality.sample}. I could go on! Book them while you can."
+    "I've never felt such #{nice_adjective.sample} energy in a lesson. This teacher is #{nice_quality.sample}, #{nice_quality.sample} and #{nice_quality.sample}. I could go on! Book them while you can.",
+    "#{nice_adjective.sample.capitalize}! After dealing with teachers who were way too #{not_nice_quality.sample}, I found this teacher to be really #{nice_quality.sample}.",
+    "This teacher is #{nice_adjective.sample}, simple as that. If you ever wanted a teacher that personifies #{nice_quality.sample} look no further!"
   ]
   middle_comment = [
     "Even though this teacher can be #{not_nice_quality.sample} at times, they are a #{nice_adjective.sample} teacher who is definitely #{nice_quality.sample}.",
@@ -142,9 +145,10 @@ while Review.count < 50
   
   user_random = User.all.sample
   lesson_random = Lesson.all.sample
-  Booking.create!(lesson: lesson_random, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  Booking.create!(lesson: lesson, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
   booking_random = Booking.last
   review_random_good = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  review_random_good2 = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
   review_random_middle =  Review.create!(rating: [3,3,4,4,5].sample, comment: middle_comment.sample, booking: booking_random) 
   review_random_bad = Review.create!(rating: [1,2,2,3,3].sample, comment: bad_comment.sample, booking: booking_random)
 
