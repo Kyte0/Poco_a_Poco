@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @lesson = Lesson.find(params[:id])
+    @lesson = @booking.lesson
     @tasks = @booking.tasks
     @review = Review.new
   end
