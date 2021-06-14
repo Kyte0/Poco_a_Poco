@@ -1,4 +1,4 @@
-<div id="background-color">
+
   <div class="container-show">
 
       <h1 class="name-of-person"> Welcome <%= current_user.first_name %> </h1>
@@ -13,14 +13,14 @@
         <div class="content-lesson-card">
           <h4 class="bio">Bio</h4>
           <p style="width: 400px"> <%= current_user.bio %> </p>
-          <% current_user.lessons.each do |lesson| %>
+          <% current_user.classes.each do |classs| %>
             <div class="icon-image">
-              <%= image_tag("icons/#{lesson.instrument}.png") %>
+              <%= image_tag("icons/#{classs.instrument}.png") %>
             </div>
             <div>
-              <p> £<%= lesson.price %>0/hour </p>
-              <p> <%= lesson.level %> </p>
-              <p> <%= lesson.location %> </p>
+              <p> £<%= classs.price %>0/hour </p>
+              <p> <%= classs.level %> </p>
+              <p> <%= classs.location %> </p>
             <% end %>
           </div>
         </div>
@@ -36,8 +36,7 @@
       <p> Your classes: </p>
       <% current_user.classes.each do |lesson| %>
         <div>
-          <h4> You have created a <%= link_to 'class', lesson_path(lesson) %> to teach the <%= lesson.instrument %> for €
-          <%= lesson.price %> </h4>
+          <h4> You have created a <%= link_to 'class', lesson_path(lesson) %> to teach the <%= lesson.instrument %> for £<%= lesson.price %>0 </h4>
         </div>
       <% end %>
       <%= link_to 'View all your bookings for your classes', bookings_path, class: 'btn btn-outline-success text-decoration-none'  %>
@@ -70,5 +69,4 @@
   <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-outline-success' %>
   <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-outline-success' %>
   <%= link_to 'Book a class', lessons_path, class: 'btn btn-outline-success' %>
-</div>
 </div>
