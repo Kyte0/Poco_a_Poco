@@ -1,9 +1,11 @@
+<br>
+<br>
 <div class="container">
   <h3> Add a task for this booking:</h3>
-        <%= simple_form_for [@task] do |f| %>
+        <%= simple_form_for [@booking, @task] do |f| %>
             <%= f.input :name %>
             <%= f.input :content %>
-            <%= f.input :type %>
+            <%= f.input :category %>
             <%= f.submit class: 'btn btn-primary' %>
         <% end %>
 </div>

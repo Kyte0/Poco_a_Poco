@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
     if @lesson.save
-      redirect_to lessons_path
+      redirect_to user_path(current_user)
     else
       render :new
     end

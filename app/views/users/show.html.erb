@@ -12,10 +12,11 @@
 <h1> Your classes: </h1>
  <% current_user.classes.each do |lesson| %>
  <div>
- <h4> You have created a class to teach the <%= lesson.instrument %> for €
+ <h4> You have created a <%= link_to 'class', lesson_path(lesson) %> to teach the <%= lesson.instrument %> for €
 <%= lesson.price %> </h4>
 </div>
 <% end %>
+<%= link_to 'View all your bookings for your classes', bookings_path, class: 'btn btn-outline-success text-decoration-none'  %>
 <% end %>
 
 </div>
@@ -24,15 +25,25 @@
 <% end %>
 
 <div class="booking-box">
-<h1> Your bookings: </h1>
-<% current_user.bookings.each do |booking| %>
+<h1> Your upcoming bookings: </h1>
+<% @upcoming_bookings.each do |booking| %>
 <div>
  <h4 class="individual-bookings"> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> to learn the <%= booking.lesson.instrument %> </h4>
  <h1></h1>
  </div>
 <% end %>
 </div>
-<a class="btn-show btn btn-outline-dark text-decoration-none" href="/lessons"> Book a class</a>
+<a class="btn-show btn btn-outline-dark text-decoration-none" href="/lessons"> Book a new lesson </a>
+
+<div class="booking-box">
+<h1> Your completed bookings: </h1>
+<% @completed_bookings.each do |booking| %>
+<div>
+ <h4 class="individual-bookings"> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> to learn the <%= booking.lesson.instrument %> </h4>
+ <h1></h1>
+ </div>
+<% end %>
+</div>
 
 </div>
 <br>
