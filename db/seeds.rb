@@ -118,7 +118,8 @@ review6 = Review.create!(rating: 4, comment:"Fab teacher!", booking: booking4)
 
 puts "Generating random reviews..."
 
-while Review.count < 50
+lessons = Lesson.all
+lessons.each do |lesson|
   
   nice_adjective = ["wonderful", "terrific", "lovely", "great", "extraordinary", "exceptional", "brilliant", "gifted", "superb", "tip-top"]
   nice_quality = ["patient", "warm", "enthusiastic", "attentive", "respectful", "funny", "understanding", "encouraging", "collaborative", "professional"]
@@ -144,7 +145,7 @@ while Review.count < 50
   
   user_random = User.all.sample
   lesson_random = Lesson.all.sample
-  Booking.create!(lesson: lesson_random, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  Booking.create!(lesson: lesson, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
   booking_random = Booking.last
   review_random_good = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
   review_random_good2 = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
