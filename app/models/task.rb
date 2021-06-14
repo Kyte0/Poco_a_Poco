@@ -1,6 +1,5 @@
 class Task < ApplicationRecord
   belongs_to :booking
-  belongs_to :achievement
 
   #after_update :check_for_achievements
 

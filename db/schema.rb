@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_100527) do
+ActiveRecord::Schema.define(version: 2021_06_14_120546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "achievements", force: :cascade do |t|
-    t.string "name"
-    t.boolean "completed"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -91,12 +83,10 @@ ActiveRecord::Schema.define(version: 2021_06_10_100527) do
     t.string "name"
     t.text "content"
     t.boolean "completed"
-    t.string "type"
+    t.string "category"
     t.bigint "booking_id", null: false
-    t.bigint "achievement_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["achievement_id"], name: "index_tasks_on_achievement_id"
     t.index ["booking_id"], name: "index_tasks_on_booking_id"
   end
 
@@ -123,6 +113,5 @@ ActiveRecord::Schema.define(version: 2021_06_10_100527) do
   add_foreign_key "lessons", "users"
   add_foreign_key "milestones", "users"
   add_foreign_key "reviews", "bookings"
-  add_foreign_key "tasks", "achievements"
   add_foreign_key "tasks", "bookings"
 end
