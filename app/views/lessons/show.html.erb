@@ -44,7 +44,9 @@
                 <%= f.input :end_date, as: :datetime, required: false, html5:true  %>
                 <%= f.submit class: 'btn btn-outline-success' %>
             <% end %>
-      <%# <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
+       <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
+       <%= link_to 'Explore more lessons', lessons_path, class: 'btn btn-primary' %>
+
     </div>
 
     <% end %>
@@ -62,7 +64,7 @@
         <% end %>
         </div>
       <% else %>
-        <p> <%= @lesson.user.first_name %> does not have any reviews</p>
+        <p> There are no reviews yet</p>
       <% end %>
     </div>
 </div>

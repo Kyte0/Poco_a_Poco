@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+
   def show
-    @completed_bookings = Booking.where("end_date < ?", DateTime.now)
-    @upcoming_bookings = Booking.where("start_date >= ?", DateTime.now)
+    @user = User.find(params[:id])
+    @completed_bookings = Booking.where("end_date < ? and user_id = ?", DateTime.now, @user)
+    @upcoming_bookings = Booking.where("start_date >= ? and user_id = ?", DateTime.now, @user)
   end
 
 end
