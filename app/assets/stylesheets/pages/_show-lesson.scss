@@ -2,6 +2,7 @@
 #background-color{
   width: auto;
    margin-top: 60px;
+   padding-bottom: 300px;
   // padding-top: 10px;
   // background-color: #c1cfdb;
 }
@@ -10,6 +11,7 @@
   height: 300px;
   background-color: #c1cfdb;
   color: black;
+
   // display: flex;
   // justify-content: space-around;
 }
@@ -49,8 +51,6 @@
   font-size: 24px;
 }
 
-
-
 // #ECECEC
 
 .profile-card-info {
@@ -69,9 +69,9 @@
 .name-of-person{
   margin: 0 auto;
   align-items: center;
-  width: 300px;
+  width: 400px;
   position: relative;
-  top: 250px;
+  top: 240px;
 }
 
 .bio{
@@ -90,14 +90,13 @@
   transition: 0.3s;
   margin: 0 auto;
   text-align: center;
-
-
 }
 
 .review-show{
   position: absolute;
   top: 600px;
   left: 560px;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
 
@@ -116,14 +115,33 @@
 
 }
 
-.review-stars{
-  display: flex;
-  display: inline-block;
+.fa-star{
+  // display: flex;
+  // display: inline;
+  // position: absolute;
+  // float: right;
+  float:left;
+  margin-bottom: 8px;
 }
+
 
 .profile-page-bookings {
   border: 2px black solid;
 }
 
+.review-comment{
+  width: 720px;
+  height: 30px;
+  margin: 20px;
+  left: -25px;
+  // border: solid black;
+  position: relative;
+  display: inline-block;
+  top: -19px;
+}
+
+// .review-h1{
+//   text-align: center;
+// }
 
 
