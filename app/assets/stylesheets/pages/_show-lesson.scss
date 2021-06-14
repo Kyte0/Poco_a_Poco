@@ -51,8 +51,6 @@
   font-size: 24px;
 }
 
-
-
 // #ECECEC
 
 .profile-card-info {
@@ -71,7 +69,7 @@
 .name-of-person{
   margin: 0 auto;
   align-items: center;
-  width: 300px;
+  width: 400px;
   position: relative;
   top: 240px;
 }
@@ -92,14 +90,13 @@
   transition: 0.3s;
   margin: 0 auto;
   text-align: center;
-
-
 }
 
 .review-show{
   position: absolute;
   top: 600px;
   left: 560px;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
 
@@ -124,8 +121,22 @@
   // position: absolute;
   // float: right;
   float:left;
+  margin-bottom: 8px;
 }
 
+.review-comment{
+  width: 720px;
+  height: 30px;
+  margin: 20px;
+  left: -25px;
+  // border: solid black;
+  position: relative;
+  display: inline-block;
+  top: -19px;
+}
 
+// .review-h1{
+//   text-align: center;
+// }
 
 
