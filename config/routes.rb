@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :edit, :update]
   end
   resources :bookings, only: [:index, :show, :destroy] do
+    member do
+      patch :accept
+      patch :reject
+    end
     resources :reviews, only: [:new, :create, :edit, :update]
     resources :tasks, only: [:new, :create, :edit, :update]
   end

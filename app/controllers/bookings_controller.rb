@@ -1,13 +1,11 @@
 class BookingsController < ApplicationController
 
-
   def index
     all_completed_bookings = Booking.where("end_date < ?", DateTime.now)
     @completed_bookings = all_completed_bookings.select { |booking| booking.lesson.user == current_user }
     all_upcoming_bookings = Booking.where("start_date >= ? ", DateTime.now)
     @upcoming_bookings = all_upcoming_bookings.select { |booking| booking.lesson.user == current_user }
   end
-
 
   def show
     @booking = Booking.find(params[:id])
@@ -25,7 +23,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.lesson = @lesson
-
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -43,14 +40,28 @@ class BookingsController < ApplicationController
       redirect_to users_path(@user)
     else
       render :edit
-     end
-   end
+    end
+  end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to users_path(@user)
   end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: true)
+    redirect_to booking_path(@booking)
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: false)
+    redirect_to booking_path(@booking)
+  end
+
+  private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
