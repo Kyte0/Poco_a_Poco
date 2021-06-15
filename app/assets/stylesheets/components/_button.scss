@@ -63,3 +63,17 @@ $white-theme: rgba(255, 255, 255, 0.8) ;
   transition: 0.3s;
   font-weight: normal;
 }
+
+.btn-nice-green{
+  background-color: white;
+  color: $green-theme;
+  border: 2px solid $green-theme;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-green:hover{
+  color: white;
+  background-color: $green-theme;
+  transition: 0.3s;
+}
