@@ -23,9 +23,9 @@ file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756
 file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
 file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
 
-Milestone.create!(name: "one_booking")
+Milestone.create!(name: "one_booking", image: 'icons/trophy.png')
 Milestone.create!(name: "five_bookings", image: 'icons/trophy.png')
-Milestone.create!(name: "three_tasks")
+Milestone.create!(name: "three_tasks", image: 'icons/clipboard.png')
 Milestone.create!(name: "sign_up")
 Milestone.create!(name: "add_lesson")
 Milestone.create!(name: "first_booking")
@@ -120,6 +120,14 @@ booking3 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.ne
 booking4 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
 booking5 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
 puts "Created #{Booking.count} bookings!"
+
+puts "Creating Tasks..."
+
+Task.create!(booking: booking1, name: 'scales', content: "practise scales A-E on piano", completed: true)
+Task.create!(booking: booking2, name: 'scales', content: "practise scales A-E on piano", completed: true)
+Task.create!(booking: booking3, name: 'scales', content: "practise scales A-E on piano", completed: true)
+
+puts "done"
 
 puts "Creating reviews..."
 
