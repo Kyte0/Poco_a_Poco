@@ -1,0 +1,5 @@
+<div style="padding-top: 80px">
+<% @notifications.each do |notification| %>
+<%= link_to notification.message, notification_path(notification) %>
+<% end %>
+</div>

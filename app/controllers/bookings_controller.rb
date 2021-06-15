@@ -24,6 +24,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.lesson = @lesson
     if @booking.save
+      Notification.create(user: @booking.lesson.user,
+        message: "#{@booking.user.first_name} just booked a spot in your lesson",
+        url: booking_path(@booking), seen: false
+        )
       redirect_to booking_path(@booking)
     else
       render 'new'
@@ -53,12 +57,26 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(accepted: true)
     redirect_to booking_path(@booking)
+    if @booking.accepted
+      Notification.create(user: @booking.user,
+        message: "#{@booking.lesson.user.first_name} just accepted your booking",
+        url: booking_path(@booking), seen: false
+        )
+      redirect_to booking_path(@booking)
+    end
   end
 
   def reject
     @booking = Booking.find(params[:id])
     @booking.update(accepted: false)
     redirect_to booking_path(@booking)
+    if @booking.accepted == false
+      Notification.create(user: @booking.user,
+        message: "#{@booking.lesson.user.first_name} just rejected your booking",
+        url: booking_path(@booking), seen: false
+        )
+      redirect_to booking_path(@booking)
+    end
   end
 
   private

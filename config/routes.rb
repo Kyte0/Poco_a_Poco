@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/show'
   devise_for :users
   root to: 'pages#home'
   resources :users, only: [:show]
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:destroy]
   resources :tasks, only: [:destroy]
+  resources :notifications, only: [:show, :index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
