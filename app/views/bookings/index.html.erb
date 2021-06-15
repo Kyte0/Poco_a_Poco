@@ -1,22 +1,28 @@
 <br>
 <br>
 <div class="container">
-<div class="booking-box">
-<h1> Your upcoming bookings: </h1>
-<% @upcoming_bookings.each do |booking| %>
-<div>
- <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
- </div>
-<% end %>
-</div>
+  <div class="booking-box">
+    <h1> Your upcoming bookings: </h1>
+    <% @upcoming_bookings.each do |booking| %>
+    <div>
+      <% if booking.accepted == nil %>
+        <%= link_to "Reject booking", reject_booking_path(booking), method: :patch, class: "btn m-2 accept-booking" %>
+        <%= link_to "Accept booking", accept_booking_path(booking), method: :patch, class: "btn m-2 accept-booking" %>
+        <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
+      <% elsif booking.accepted %>
+        <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 
-<div class="booking-box">
-<h1> Your completed bookings: </h1>
-<% @completed_bookings.each do |booking| %>
-<div>
- <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
- <h1></h1>
+  <div class="booking-box">
+    <h1> Your completed bookings: </h1>
+    <% @completed_bookings.each do |booking| %>
+    <div>
+     <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
+     <h1></h1>
+   </div>
+   <% end %>
  </div>
-<% end %>
-</div>
 </div>

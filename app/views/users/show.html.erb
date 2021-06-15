@@ -50,7 +50,9 @@
     <p> Your upcoming bookings: </p>
     <% @upcoming_bookings.each do |booking| %>
       <div>
+        <% if booking.accepted || booking.accepted == nil %>
         <h4 class="individual-bookings"> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> to learn the <%= booking.lesson.instrument %> </h4>
+        <% end %>
         <p></p>
       </div>
     <% end %>
