@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .content {
-  min-height: calc(100vh - 120px);
+  // min-height: calc(100vh - 120px);
   box-sizing: border-box;
   display: block;
 }
@@ -12,6 +12,7 @@
   padding: 150px 0;
   text-align: center;
 }
+
 
 .custom-container{
   flex-direction: column;
