@@ -127,6 +127,7 @@
 
 .profile-page-bookings {
   border: 2px black solid;
+  // top: 230px;
 }
 
 .review-comment{
@@ -144,4 +145,15 @@
 //   text-align: center;
 // }
 
+.user-show-button-area{
+  display: flex;
+  justify-content: space-around;
+}
 
+.your-class-buttons-area{
+  display: flex;
+  justify-content: space-around;
+    .btn {
+      margin: 10px;
+    }
+}
