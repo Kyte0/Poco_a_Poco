@@ -64,12 +64,13 @@
             <% if current_user == @booking.user %>
               <% if task.completed %>
                 <p> Task completed! </p>
-              <% else %>
+              <% end%>
+            <% else %>
+              <% if current_user == @booking.lesson.user %>
                 <%= simple_form_for [@booking, task] do |f| %>
                   <%= f.input :completed, as: :boolean, label: 'Mark as complete', input_html: {class:"task_complete"} %>
                 <% end %>
               <% end %>
-            <% else %>
               <% if task.completed %>
                 <p> Task completed! </p>
               <% else %>
@@ -79,6 +80,7 @@
           </div>
           <% end %>
         </div>
+
   <% end %>
   </div>
 </div>
