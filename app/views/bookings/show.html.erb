@@ -14,8 +14,9 @@
       <% else %>
         <p> Your booking was rejected! </p>
       <% end %>
-<div><%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
-   </div>
+      <div>
+        <%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
+      </div>
       <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-outline-dark text-decoration-none your-home-btn' %>
 
     <% else %>
