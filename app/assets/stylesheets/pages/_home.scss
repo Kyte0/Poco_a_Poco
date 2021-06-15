@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .content {
-  min-height: calc(100vh - 120px);
+  // min-height: calc(100vh - 120px);
   box-sizing: border-box;
   display: block;
 }
@@ -12,19 +12,20 @@
   padding: 150px 0;
   text-align: center;
 }
-  .container {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 1.5rem !important;
-  }
 
+
+.custom-container{
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1.5rem !important;
+}
 
 .home-title {
   font-family: Poppins, sans-serif;

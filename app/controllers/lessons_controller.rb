@@ -26,7 +26,8 @@ class LessonsController < ApplicationController
     @markers = @lessons.geocoded.map do |lesson|
       {
         lat: lesson.latitude,
-        lng: lesson.longitude
+        lng: lesson.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { lesson: lesson })
       }
     end
   end

@@ -9,3 +9,12 @@
   position: sticky;
   width: 50%;
 }
+
+.info-window-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapboxgl-popup-content {
+}

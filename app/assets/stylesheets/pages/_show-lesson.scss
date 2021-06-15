@@ -11,10 +11,18 @@
   height: 300px;
   background-color: #c1cfdb;
   color: black;
-
   // display: flex;
   // justify-content: space-around;
 }
+.container-user-show{
+  height: 300px;
+  width: 100vw;
+  background-color: #c1cfdb;
+  color: black;
+  // display: flex;
+  // justify-content: space-around;
+}
+
 .image-show{
   height: 300px;
   width: 300px;
@@ -25,11 +33,26 @@
     }
 }
 
+.image-user-show{
+    img{
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+}
+
 .content-lesson-card{
   padding-top: 110px;
   margin: 5px;
   margin-right: 5px;
 }
+
+.content-lesson-card-user-show{
+  padding: 1rem;
+  margin: 5px;
+  margin-right: 5px;
+}
+
 .profile-card-info{
   // display: flex;
   justify-content: space-between;
@@ -57,7 +80,7 @@
   overflow: hidden;
   background: white;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 400px;
   position: absolute;
@@ -66,12 +89,27 @@
   top: 200px;
 }
 
+
+.profile-card-info-user-show {
+  overflow: hidden;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+}
+
 .name-of-person{
   margin: 0 auto;
   align-items: center;
   width: 400px;
   position: relative;
   top: 240px;
+}
+
+
+.name-of-person-user-show{
+  margin-bottom: 1rem;
 }
 
 .bio{
@@ -130,6 +168,12 @@
   // top: 230px;
 }
 
+.profile-page-bookings-user-show {
+  border: 2px black solid;
+  padding: 2rem;
+}
+
+
 .review-comment{
   width: 720px;
   height: 30px;
@@ -157,3 +201,4 @@
       margin: 10px;
     }
 }
+
