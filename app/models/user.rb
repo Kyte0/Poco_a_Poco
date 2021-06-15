@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :lessons, through: :bookings
   has_many :reviews, through: :bookings
   has_many :tasks, through: :bookings
-  # has_many :achievements, through: :tasks
-  has_many :milestones
   has_many_attached :photos
+  has_many :user_milestones
+  has_many :milestones, through: :user_milestones
 end
 
 
