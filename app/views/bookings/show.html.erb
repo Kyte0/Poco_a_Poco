@@ -14,8 +14,9 @@
       <% else %>
         <p> Your booking was rejected! </p>
       <% end %>
-<div><%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
-   </div>
+      <div>
+        <%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
+      </div>
       <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-outline-dark text-decoration-none your-home-btn' %>
 
     <% else %>
@@ -64,12 +65,13 @@
             <% if current_user == @booking.user %>
               <% if task.completed %>
                 <p> Task completed! </p>
-              <% else %>
+              <% end%>
+            <% else %>
+              <% if current_user == @booking.lesson.user %>
                 <%= simple_form_for [@booking, task] do |f| %>
                   <%= f.input :completed, as: :boolean, label: 'Mark as complete', input_html: {class:"task_complete"} %>
                 <% end %>
               <% end %>
-            <% else %>
               <% if task.completed %>
                 <p> Task completed! </p>
               <% else %>
@@ -79,6 +81,7 @@
           </div>
           <% end %>
         </div>
+
   <% end %>
   </div>
 </div>

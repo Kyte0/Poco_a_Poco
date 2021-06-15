@@ -1,8 +1,10 @@
 require "open-uri"
 
+Notification.destroy_all
 UserMilestone.destroy_all
 Milestone.destroy_all
 Review.destroy_all
+Task.destroy_all
 Booking.destroy_all
 Lesson.destroy_all
 User.destroy_all
@@ -27,9 +29,9 @@ Milestone.create!(name: "one_booking", image: 'icons/trophy.png')
 Milestone.create!(name: "five_bookings", image: 'icons/trophy.png')
 Milestone.create!(name: "three_tasks", image: 'icons/clipboard.png')
 Milestone.create!(name: "add_lesson", image: 'icons/music.png')
-Milestone.create!(name: "first_booking")
-Milestone.create!(name: "two_lessons")
-Milestone.create!(name: "add_review")
+Milestone.create!(name: "two_lessons", image: 'icons/music.png')
+Milestone.create!(name: "receive_first_booking", image: 'icons/review.png')
+Milestone.create!(name: "leaving_review", image: 'icons/review.png')
 
 puts "Creating users..."
 
