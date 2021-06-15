@@ -1,0 +1,10 @@
+<div class="info-window-div">
+<h2><%= lesson.user.first_name %></h2>
+<% if lesson.user.photos.attached? %>
+  <%= cl_image_tag lesson.user.photos.first.key, class: 'info-window-image' %>
+<% else %>
+  <p>No Image</p>
+<% end %>
+<br></br>
+<%= link_to 'View Lesson', lesson_path(lesson), class: 'btn btn-nice-green' %>
+</div>
