@@ -47,7 +47,9 @@
     <p> Your upcoming bookings: </p>
     <% @upcoming_bookings.each do |booking| %>
       <div>
+        <% if booking.accepted || booking.accepted == nil %>
         <h5 class="individual-bookings-user"> <%= image_tag("icons/#{booking.lesson.instrument}.png") %> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> on <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h5>
+        <% end %>
         <p></p>
       </div>
     <% end %>
