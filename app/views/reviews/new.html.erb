@@ -4,7 +4,8 @@
   </div>
   <div class="col-5 custom-container">
     <div class="card card-new-lesson">
-      <h3> Review your booking: </h3>
+      <%= cl_image_tag @booking.lesson.user.photos.first.key, class: 'avatar-bordered-lg', style: "margin: 0 auto;" %>
+      <h3 class="py-3" style="margin: 0 auto;"> Review <%= @booking.lesson.user.first_name %> </h3>
       <%= simple_form_for [@booking, @review] do |f| %>
           <%= f.input :rating, collection: 1..5 %>
           <%= f.input :comment %>
