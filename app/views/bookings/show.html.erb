@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-<div class="container">
+<div class="custom-container">
   <% if current_user == @booking.user %>
     <% if  @booking.accepted %>
       <p> Your booking is confirmed! </p>
@@ -44,7 +44,7 @@
   <% if @tasks.any? %>
   <h1>Tasks</h1>
   <% @tasks.each do |task| %>
-  <div class="d-flex" container>
+  <div class="d-flex">
     <ul>
       <li> Name: <%= task.name %> </li>
       <li> Content: <%= task.content %></li>

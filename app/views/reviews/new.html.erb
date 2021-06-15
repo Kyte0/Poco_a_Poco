@@ -1,6 +1,6 @@
 <br>
 <br>
-<div class="container reviews-new">
+<div class="custom-container reviews-new">
   <h3> Add a review for this booking: </h3>
         <%= simple_form_for [@booking, @review] do |f| %>
             <%= f.input :rating, collection: 1..5 %>
