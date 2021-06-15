@@ -33,6 +33,7 @@ user3 = User.new(first_name:"Oliver", last_name:"West", email:"oliver@gmail.com"
 user3.photos.attach(io: file3, filename: 'file3.jpg', content_type: 'image/jpg')
 user3.save!
 user4 = User.new(first_name:"Hannah", last_name:"Hunter", email:"hannah@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,05,12), teacher: true, bio: "Singer/songwriter/guitarist, happy to help any budding folk musician along their journey.")
+user4.photos.attach(io: file4, filename: 'file4.jpg', content_type: 'image/jpg')
 user4.save!
 user5 = User.new(first_name:"James", last_name:"Barton", email:"james@gmail.com", password:"123456", date_of_birth: DateTime.new(1954,01,10), teacher: true, bio: "Opera singer with over 30 years of professional experience in opera and theatre.")
 user5.photos.attach(io: file5, filename: 'file5.jpg', content_type: 'image/jpg')
