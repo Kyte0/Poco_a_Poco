@@ -29,6 +29,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { updateTaskCompleted } from './tasks-completed';
 
+import { initFlatpickr } from "../plugins/flatpickr";
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -38,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
   initMapbox();
+  initFlatpickr();
   updateTaskCompleted();
   if (document.querySelector('#banner-typed-text')) {
     loadDynamicBannerText();
