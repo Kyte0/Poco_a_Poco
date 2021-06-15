@@ -22,8 +22,8 @@
   </div>
 </div>
 <div class="bottom-cards">
-<h2 class="feature-teacher-title mt-3 ml-3">Featured Teachers</h2>
-  <div class="cards home-page-grid mt-3 d-flex ">
+<h2 class="feature-teacher-title mt-5 mb-5 ml-3">Featured Teachers</h2>
+  <div class="cards-home home-page-grid mt-3 mb-5 d-flex ">
     <% @lessons.each do |lesson| %>
       <% if lesson.user.photos.attached? %>
         <%= link_to lesson_path(lesson) do %>
