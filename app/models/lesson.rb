@@ -7,6 +7,7 @@ class Lesson < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   after_create :create_milestone_lesson
+  after_create :create_milestone_two_lessons
 
   include PgSearch::Model
     pg_search_scope :global_search,
@@ -35,6 +36,15 @@ class Lesson < ApplicationRecord
   def create_milestone_lesson
     puts "Lesson is being created"
     if self.user.lessons.count == 1
+      puts "User LESSON milestone being created"
+      milestone = Milestone.find_by_name("add_lesson")
+      UserMilestone.create!(milestone: milestone, user: self.user)
+    end
+  end
+
+  def create_milestone_two_lessons
+    puts "Lesson is being created"
+    if self.user.lessons.count == 2
       puts "User LESSON milestone being created"
       milestone = Milestone.find_by_name("add_lesson")
       UserMilestone.create!(milestone: milestone, user: self.user)

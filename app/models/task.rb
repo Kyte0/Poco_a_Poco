@@ -9,7 +9,7 @@ class Task < ApplicationRecord
     #if task.booking.tasks are complete then create achievement with Achievement
   #end
 
-  after_create :create_milestone_task_three
+  after_update :create_milestone_task_three
 
   private
 
