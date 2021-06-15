@@ -45,12 +45,13 @@
     <h3>Achievements</h3>
     <% current_user.milestones.each do |milestone| %>
       <% if milestone.name == 'five_bookings' %>
-        <%= image_tag milestone.image, class: 'trophy-small' %>
+        <%= image_tag milestone.image, class: 'icon-badge-small' %>
       <% elsif milestone.name == 'one_booking' %>
-        <%= image_tag milestone.image, class: 'trophy-small' %>
+        <%= image_tag milestone.image, class: 'icon-badge-small' %>
       <% elsif milestone.name == 'three_tasks' %>
-        <%= image_tag milestone.image, class: 'trophy-small' %>
-
+        <%= image_tag milestone.image, class: 'icon-badge-small' %>
+      <% elsif milestone.name == 'add_lesson' %>
+        <%= image_tag milestone.image, class: 'icon-badge-small' %>
       <% end %>
     <% end %>
   </div>
