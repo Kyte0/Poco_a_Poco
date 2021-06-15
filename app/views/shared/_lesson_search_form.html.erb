@@ -1,6 +1,5 @@
 <%= simple_form_for(:lesson, url: lessons_path, method: :get, html: {class: "form-inline"}) do |f| %>
   <%= f.input :query, label: false, placeholder: "Instrument", input_html: {class: "search-bar-left"} %>
-  <%= f.input :location, label: false, placeholder: "Location", input_html: {class: "search-bar-center"} %>
+  <%= f.input :location, label: false, placeholder: "Location", input_html: {class: "search-bar-center", style: "border: none;"} %>
   <%= f.submit "Search", class: 'btn search-button' %>
 <% end %>
-  

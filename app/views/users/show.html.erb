@@ -1,18 +1,23 @@
 
-  <div class="container-show">
+<div class="container-user-show cover-photo-underlay">
 
-      <h1 class="name-of-person"> Welcome <%= current_user.first_name %> </h1>
-      <div class="profile-card-info">
+</div>
+<div class="cover-photo-spacer">
 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <div class="profile-card-info-user-show">
         <% current_user.photos.each do |photo| %>
-          <div class="image-show">
+          <div class="image-user-show">
             <%= cl_image_tag photo.key %>
           </div>
         <% end %>
 
-        <div class="content-lesson-card">
+        <div class="content-lesson-card-user-show">
           <h4 class="bio">Bio</h4>
-          <p style="width: 400px"> <%= current_user.bio %> </p>
+          <p> <%= current_user.bio %> </p>
           <% current_user.classes.each do |classs| %>
             <div class="icon-image">
               <%= image_tag("icons/#{classs.instrument}.png") %>
@@ -21,48 +26,45 @@
               <p> £<%= classs.price %>0/hour </p>
               <p> <%= classs.level %> </p>
               <p> <%= classs.location %> </p>
+            </div>
+          <% end %>
+          <div class="">
+            <% if current_user.teacher == true%>
+              <div class="your-class-buttons-area">
+                <%= link_to 'View all your bookings for your classes', bookings_path, class: 'btn btn-nice-green'%>
+                <a class="btn btn-nice-dark" href="/lessons/new"> Teach a new class</a>
+              </div>
             <% end %>
-            <div class="">
-    <% if current_user.teacher == true%>
-
-      <div class="your-class-buttons-area">
-      <%= link_to 'View all your bookings for your classes', bookings_path, class: 'btn btn-nice-green'%>
-      <% end %>
-      <% if current_user.teacher == true%>
-        <a class="btn btn-nice-dark" href="/lessons/new"> Teach a new class</a>
-      <% end %>
-      </div>
-  </div>
           </div>
         </div>
       </div>
-  </div>
-</div>
-<div class="row">
-<div class="col-4">
-</div>
-<div class="profile-page-bookings col-6 m-5">
+    </div>
+    <div class="col-7">
+      <h1 class="name-of-person-user-show"> Welcome <%= current_user.first_name %> </h1>
+      <div class="profile-page-bookings-user-show">
+        <div>
+          <p> Your upcoming bookings: </p>
+          <% @upcoming_bookings.each do |booking| %>
+            <div>
+              <h5 class="individual-bookings-user"> 
+                <%= image_tag("icons/#{booking.lesson.instrument}.png") %> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> on <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> 
+              </h5>
+            </div>
+          <% end %>
+        </div>
+        <a class="btn btn-nice-dark" href="/lessons"> Book a new lesson </a>
 
-  <div class="booking-box-user">
-    <p> Your upcoming bookings: </p>
-    <% @upcoming_bookings.each do |booking| %>
-      <div>
-        <% if booking.accepted || booking.accepted == nil %>
-        <h5 class="individual-bookings-user"> <%= image_tag("icons/#{booking.lesson.instrument}.png") %> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> on <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h5>
-        <% end %>
-        <p></p>
+        <div class="booking-box-user">
+          <p> Your completed bookings: </p>
+          <% @completed_bookings.each do |booking| %>
+            <div>
+              <h5 class="individual-bookings"> 
+                <%= image_tag("icons/#{booking.lesson.instrument}.png") %>  You completed a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %>  
+              </h5>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-  </div>
-  <a class="btn btn-nice-dark" href="/lessons"> Book a new lesson </a>
-
-  <div class="booking-box-user">
-    <p> Your completed bookings: </p>
-    <% @completed_bookings.each do |booking| %>
-      <div>
-        <h5 class="individual-bookings"> <%= image_tag("icons/#{booking.lesson.instrument}.png") %>  You completed a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %>  </h5>
-        <p></p>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>

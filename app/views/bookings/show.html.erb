@@ -1,14 +1,12 @@
+
 <div class="banner-booking-index">
 </div>
 <!--  -->
 <div class="all-items-confirmation d-flex justify-content-around align-items-center">
   <div class="container-booking-show">
-<!--     <div><%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
-    </div> -->
-
-    <h5 class="your-lesson"><%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %> </h5>
 
     <% if current_user == @booking.user %>
+    <h5 class="your-lesson"><%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %> </h5>
       <% if  @booking.accepted %>
         <p> Your booking is confirmed! </p>
       <% elsif @booking.accepted == nil %>

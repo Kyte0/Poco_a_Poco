@@ -15,6 +15,7 @@ class LessonsController < ApplicationController
 
   def index
     if params[:lesson].present? && params[:lesson][:query].present?
+      @choice = params[:lesson][:query]
     # query = params[:lesson][:query]
       @lessons = Lesson.global_search(params[:lesson][:query])
         # if @lessons == []
@@ -25,7 +26,8 @@ class LessonsController < ApplicationController
     @markers = @lessons.geocoded.map do |lesson|
       {
         lat: lesson.latitude,
-        lng: lesson.longitude
+        lng: lesson.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { lesson: lesson })
       }
     end
   end

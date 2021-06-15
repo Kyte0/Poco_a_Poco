@@ -1,31 +1,51 @@
-    <div class="search-info">
-      <h1>Lessons in "Location</h1>
-      <!-- <%#= render "shared/lesson_search_form" %> -->
-    </div>
+<div class="index-container">
 
-    <div class="info-and-cards d-flex ml-3 mr-3">
-      <div class="cards mt-5 mr-3">
+  <div class="cards-and-map d-flex ml-3 mr-3">
+    <div class="cards-and-h1">
+      <div class="search-info d-flex justify-content-center mt-2">
+        <% if @choice.present?%>
+          <h1><%=@choice.capitalize%> lessons near you</h1>
+        <% else %>
+          <h1>Browse our teachers</h1>
+        <% end %>
+      </div>
+      <div class="index-cards mb-3">
         <% @lessons.each do |lesson| %>
-        <% if lesson.user.photos.attached? %>
-            <%= link_to lesson_path(lesson) do %>
-              <div class="card-category mb-3" id="index" style="background-image: url(<%= cl_image_path lesson.user.photos.first.key %>);">
-                <h3 class="card-attribute first_name"><%= lesson.user.first_name %></h3>
-                <% lesson.user.photos.each do |photo| %>
-
-                <% end %>
-                <h4 class="card-attribute rating"><%= lesson.average_rating %></h4>
-                <h4 class="card-attribute instrument"><%= lesson.instrument %></h4>
-                <h4 class="card-attribute level"><%= lesson.level %></h4>
-                <h4 class="card-attribute price">£<%= lesson.price %></h4>
-
+          <% if lesson.user.photos.attached? %>
+            <%= link_to lesson_path(lesson), class: "text-decoration-none text-body" do %>
+              <div class="card-category mb-4 mr-4 mt-4">
+                <%= cl_image_tag lesson.user.photos.first.key, class: 'card-top-image' %>
+                <div class="card-category-infos">
+                    <h3><strong><%= lesson.user.first_name %></strong></h3>
+                  <div class="card-category-h4s">
+                    <div class="card-attribute-div d-flex align-items-center">
+                      <h4 class="card-attribute-description">INSTRUMENT</h4>
+                      <h4 class="card-attribute-stat"><strong><%= lesson.instrument %></strong></h4>
+                    </div>
+                    <div class="card-attribute-div d-flex align-items-center">
+                      <h4 class="card-attribute-description">RATING</h4>
+                      <h4 class="card-attribute-stat"><strong><%= lesson.average_rating %></strong></h4>
+                    </div>
+                    <div class="card-attribute-div d-flex align-items-center">
+                      <h4 class="card-attribute-description">LEVEL</h4>
+                      <h4 class="card-attribute-stat"><strong><%= lesson.level %></strong></h4>
+                    </div>
+                    <div class="card-attribute-div d-flex align-items-center">
+                      <h4 class="card-attribute-description">PRICE</h4><h4 class="card-attribute-stat"><strong>£<%= lesson.price %></strong></h4></div>
+                  </div>
+                </div>
               </div>
             <% end %>
           <% end %>
         <% end %>
       </div>
-    <div id="map"
-      style= "height: 100vh; width: 700px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="map-border-container">
+      <div id="map"
+        style= "height: 100vh; width: 100%;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
+</div>
