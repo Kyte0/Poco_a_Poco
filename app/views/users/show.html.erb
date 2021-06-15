@@ -53,7 +53,6 @@
           <% end %>
         </div>
         <a class="btn btn-nice-dark" href="/lessons"> Book a new lesson </a>
-
         <div class="booking-box-user">
           <p> Your completed bookings: </p>
           <% @completed_bookings.each do |booking| %>
@@ -62,6 +61,20 @@
                 <%= image_tag("icons/#{booking.lesson.instrument}.png") %>  You completed a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %>  
               </h5>
             </div>
+          <% end %>
+        </div>
+        <div>
+          <h3>Achievements</h3>
+          <% current_user.milestones.each do |milestone| %>
+            <% if milestone.name == 'five_bookings' %>
+              <%= image_tag milestone.image, class: 'icon-badge-small' %>
+            <% elsif milestone.name == 'one_booking' %>
+              <%= image_tag milestone.image, class: 'icon-badge-small' %>
+            <% elsif milestone.name == 'three_tasks' %>
+              <%= image_tag milestone.image, class: 'icon-badge-small' %>
+            <% elsif milestone.name == 'add_lesson' %>
+              <%= image_tag milestone.image, class: 'icon-badge-small' %>
+            <% end %>
           <% end %>
         </div>
       </div>

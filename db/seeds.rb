@@ -1,7 +1,7 @@
 require "open-uri"
 
-Milestone.destroy_all
 UserMilestone.destroy_all
+Milestone.destroy_all
 Review.destroy_all
 Booking.destroy_all
 Lesson.destroy_all
@@ -23,15 +23,19 @@ file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756
 file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
 file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
 
-Milestone.create!(name: "five_bookings")
+Milestone.create!(name: "one_booking", image: 'icons/trophy.png')
+Milestone.create!(name: "five_bookings", image: 'icons/trophy.png')
+Milestone.create!(name: "three_tasks", image: 'icons/clipboard.png')
+Milestone.create!(name: "add_lesson", image: 'icons/music.png')
+Milestone.create!(name: "first_booking")
+Milestone.create!(name: "two_lessons")
+Milestone.create!(name: "add_review")
+
 puts "Creating users..."
 
 user1 = User.new(first_name:"Reva", last_name:"Scorcese", email:"reva@gmail.com", password:"123456", date_of_birth: DateTime.new(1998,01,01), teacher: true, bio: "Classically trained pianist who can help push any Grade 7 or 8 student over the last hurdles.")
 user1.photos.attach(io: file1, filename: 'file1.jpg', content_type: 'image/jpg')
 user1.save!
-
-
-
 user2 = User.new(first_name:"John", last_name:"Smythe", email:"john@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,01,15), teacher: true, bio: "Friendly pianist offering individual piano and singing lessons in London area for beginners & beyond.")
 user2.photos.attach(io: file2, filename: 'file2.jpg', content_type: 'image/jpg')
 user2.save!
@@ -112,6 +116,14 @@ booking3 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.ne
 booking4 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
 booking5 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
 puts "Created #{Booking.count} bookings!"
+
+puts "Creating Tasks..."
+
+Task.create!(booking: booking1, name: 'scales', content: "practise scales A-E on piano", completed: true)
+Task.create!(booking: booking2, name: 'scales', content: "practise scales A-E on piano", completed: true)
+Task.create!(booking: booking3, name: 'scales', content: "practise scales A-E on piano", completed: true)
+
+puts "done"
 
 puts "Creating reviews..."
 
