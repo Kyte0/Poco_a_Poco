@@ -1,48 +1,115 @@
 .cards {
   flex-grow: 1;
+  border-right-style: solid 2px;
+  border-right-color: white;
+}
+
+.cards-home {
+  flex-grow: 1;
+  border-right-style: solid 2px;
+  border-right-color: white;
   width: 50%;
 }
 
 .card-category {
-  background-image: url('<%= cl_image_path photo.key%>');
-  background-size: cover;
-  background-position: center;
-  height: 218px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 368px;
   border-radius: 1px;
-  position: relative;
-  flex-grow: 1;
-
 }
 
-.card-attribute {
+.card-category img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-category h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-category p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-category h3 {
+  padding: 5px;
   position: absolute;
+  top: -50px;
+  left: 8px;
+  background-color: #0B7A75;
+  color: white;
+  padding: 4px 16px;
+  border-radius: 50px;
+}
+
+.card-category-h4s {
+  width: 100%;
+  margin: 0px;
+  h4 {
+    margin: 4px 0;
+     }
+}
+
+
+.card-category .card-category-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+
+
+.card-category-infos .card-category-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-attribute-description {
+  justify-content: flex-start;
+  font-size: 16px;
+  a {
+  text-decoration: none;
+  }
+}
+
+.card-attribute-stat {
+  justify-content: flex-end;
+  font-size: 16px;
+}
+
+.card-attribute-div {
+  justify-content: space-between;
+}
+
+.card-attribute .first_name {
+}
+
+.index-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .instrument {
-top: 8px;
-left: 8px;
 }
 
 .level {
-top: 8px;
-right: 8px;
 }
 
 .price {
-bottom: 8px;
-right: 8px;
 }
 
 .rating {
-bottom: 8px;
-left: 8px;
 }
 
 .first_name {
@@ -58,6 +125,11 @@ font-weight: bolder;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 24px;
+}
+
+
+.index-container {
+  margin-top: 64px;
 }
 
 .card-new-lesson {

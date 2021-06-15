@@ -26,7 +26,7 @@ class Lesson < ApplicationRecord
     num_ratings = self.bookings.select{|b| b.review }.map { |b| b.review }.size
     rating_total = self.bookings.select{|b| b.review }.map { |b| b.review }.map { |r| r.rating }.reduce(:+)
     if rating_total
-      return "Rating: #{rating_total / num_ratings}"
+      return "#{rating_total / num_ratings}"
     end
   end
 end

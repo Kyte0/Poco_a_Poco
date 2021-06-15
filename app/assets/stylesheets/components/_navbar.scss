@@ -11,6 +11,7 @@
     transition: 1s color ease;
   }
   transition: 1s background-color ease;
+  position: fixed;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,9 +24,13 @@
 
 
 .navbar-lewagon-black {
-  background-color: white !important;
+  // background-color: white !important;
   .nav-link {
     color: black !important;
   }
+}
+
+.navbar-brand {
+  margin-right: 110px;
 }
 
