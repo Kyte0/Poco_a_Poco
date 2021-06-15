@@ -33,11 +33,13 @@ user3 = User.new(first_name:"Oliver", last_name:"West", email:"oliver@gmail.com"
 user3.photos.attach(io: file3, filename: 'file3.jpg', content_type: 'image/jpg')
 user3.save!
 user4 = User.new(first_name:"Hannah", last_name:"Hunter", email:"hannah@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,05,12), teacher: true, bio: "Singer/songwriter/guitarist, happy to help any budding folk musician along their journey.")
+user4.photos.attach(io: file4, filename: 'file4.jpg', content_type: 'image/jpg')
 user4.save!
 user5 = User.new(first_name:"James", last_name:"Barton", email:"james@gmail.com", password:"123456", date_of_birth: DateTime.new(1954,01,10), teacher: true, bio: "Opera singer with over 30 years of professional experience in opera and theatre.")
 user5.photos.attach(io: file5, filename: 'file5.jpg', content_type: 'image/jpg')
 user5.save!
-user6 = User.new(first_name:"Big", last_name:"Cheddar", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1987,11,13), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
+user6 = User.new(first_name:"Big", last_name:"Cheddar", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1945,11,16), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
+user6.photos.attach(io: file6, filename: 'file6.jpg', content_type: 'image/jpg')
 user6.save!
 user7 = User.new(first_name:"Ophelia", last_name:"Anderson", email:"ophelia@gmail.com", password:"123456", date_of_birth: DateTime.new(1996,03,17), teacher: true, bio: "Experimental Guitarist with all the gear if you have the ideas. Let's get weird & have fun!")
 user7.photos.attach(io: file7, filename: 'file7.jpg', content_type: 'image/jpg')
@@ -45,7 +47,7 @@ user7.save!
 user8 = User.new(first_name:"Ruth", last_name:"Davies", email:"ruth@gmail.com", password:"123456", date_of_birth: DateTime.new(1979,11,16), teacher: true, bio: "Master of Spanish & classic guitar & piano. I'd like to teach entustiastic people how to create beautiful music.")
 user8.photos.attach(io: file8, filename: 'file8.jpg', content_type: 'image/jpg')
 user8.save!
-user9 = User.new(first_name:"Felix", last_name:"Lighter", email:"felix@gmail.com", password:"123456", date_of_birth: DateTime.new(1984,12,02), teacher: true, bio: "Classic rocker, happy to teach some powerchords or how to solo like Hendrix!")
+user9 = User.new(first_name:"Francis", last_name:"Lighter", email:"felix@gmail.com", password:"123456", date_of_birth: DateTime.new(1984,12,02), teacher: true, bio: "Classic rocker, happy to teach some powerchords or how to solo like Hendrix!")
 user9.photos.attach(io: file9, filename: 'file9.jpg', content_type: 'image/jpg')
 user9.save!
 user10 = User.new(first_name:"Alan", last_name:"Jones", email:"alan@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,01,05), teacher: true, bio: "Experienced piano graduate of Liverpool Institute of Arts, fluent in French & English.")
@@ -94,7 +96,10 @@ lesson20 = Lesson.create!(instrument: "Double Bass", price: 10, level:"Beginner"
 puts "Created #{Lesson.count} lessons!"
 
 puts "Creating Bookings..."
- # user_id, lesson_id, start_date, end_date
+
+# user_id, lesson_id, start_date, end_date
+
+
 booking1 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
 booking2 = Booking.create!(lesson: lesson9, user: user2, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
 booking3 = Booking.create!(lesson: lesson9, user: user3, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
@@ -103,12 +108,52 @@ booking5 = Booking.create!(lesson: lesson10, user: user10, start_date: DateTime.
 puts "Created #{Booking.count} bookings!"
 
 puts "Creating reviews..."
- # rating,comment,booking
-review1 = Review.create!(rating: 5, comment:"A wonderful teacher, very patient and understanding of my slow progress (Also easy on the eyes ;) )", booking: booking1)
+
+# rating,comment,booking
+
+review1 = Review.create!(rating: 5, comment:"A wonderful teacher, very patient and understanding of my slow progress.", booking: booking1)
 review2 = Review.create!(rating: 4, comment:"Bit casual for me but still a very good teacher & all round nice person", booking: booking2)
 review3 = Review.create!(rating: 5, comment:"Can't say enough wonderful things about this teacher, they helped me go from clueless to peerless!", booking: booking2)
 review4 = Review.create!(rating: 5, comment:"Had such an amazing lesson with this teacher! Learned a lot and the environment was easygoing and friendly!", booking: booking3)
 review5 = Review.create!(rating: 4, comment:"Really enjoyed my lesson with this teacher! Would definitely recommend!", booking: booking4)
 review6 = Review.create!(rating: 4, comment:"Fab teacher!", booking: booking4)
+
+puts "Generating random reviews..."
+
+lessons = Lesson.all
+lessons.each do |lesson|
+
+  nice_adjective = ["wonderful", "terrific", "lovely", "great", "extraordinary", "exceptional", "brilliant", "gifted", "superb", "tip-top"]
+  nice_quality = ["patient", "warm", "enthusiastic", "attentive", "respectful", "funny", "understanding", "encouraging", "collaborative", "professional"]
+  not_nice_quality = ["stern", "harsh", "rigid", "sarcastic", "disillusioned", "unprepared", "immature", "old fashioned", "indifferent", "casual"]
+
+  good_comment = [
+    "A really #{nice_adjective.sample} teacher, they are #{nice_quality.sample} & #{nice_quality.sample}. Highly reccomended!",
+    "I'd definitely recommend this teacher. I found them to be really #{nice_quality.sample} and an all round #{nice_adjective.sample} person.",
+    "I've never felt such #{nice_adjective.sample} energy in a lesson. This teacher is #{nice_quality.sample}, #{nice_quality.sample} and #{nice_quality.sample}. I could go on! Book them while you can.",
+    "#{nice_adjective.sample.capitalize}! After dealing with teachers who were way too #{not_nice_quality.sample}, I found this teacher to be really #{nice_quality.sample}.",
+    "This teacher is #{nice_adjective.sample}, simple as that. If you ever wanted a teacher that personifies #{nice_quality.sample} look no further!"
+  ]
+  middle_comment = [
+    "Even though this teacher can be #{not_nice_quality.sample} at times, they are a #{nice_adjective.sample} teacher who is definitely #{nice_quality.sample}.",
+    "A little bit #{not_nice_quality.sample} for me but this teacher is also undoubtedly #{nice_quality.sample} & a #{nice_adjective.sample} person.",
+    "Although this teacher is #{nice_adjective.sample}, there was something I personally didn't vibe with. I'm more #{nice_quality.sample} and they were a little bit more #{not_nice_quality.sample}"
+  ]
+  bad_comment = [
+    "I didn't have a great time with this teacher. I needed a teacher that was a lot more #{nice_quality.sample} but found them too #{not_nice_quality.sample} for me.",
+    "I heard this teacher was #{not_nice_quality.sample}, but wow! Back to searching for #{nice_quality.sample} teachers!",
+    "I was recommended this teacher by another #{nice_adjective.sample} musician. Sounds weird but this teachers was too #{nice_quality.sample}. I'll take someone a little bit #{not_nice_quality.sample} like me next time."
+  ]
+
+  user_random = User.all.sample
+  lesson_random = Lesson.all.sample
+  Booking.create!(lesson: lesson, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
+  review_random_good = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  review_random_good2 = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  review_random_middle =  Review.create!(rating: [3,3,4,4,5].sample, comment: middle_comment.sample, booking: booking_random)
+  review_random_bad = Review.create!(rating: [1,2,2,3,3].sample, comment: bad_comment.sample, booking: booking_random)
+
+end
 
 puts "Finished creating #{Review.count} reviews!"

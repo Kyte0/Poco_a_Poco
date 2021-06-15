@@ -1,0 +1,159 @@
+
+#background-color{
+  width: auto;
+   margin-top: 60px;
+   padding-bottom: 300px;
+  // padding-top: 10px;
+  // background-color: #c1cfdb;
+}
+
+.container-show{
+  height: 300px;
+  background-color: #c1cfdb;
+  color: black;
+
+  // display: flex;
+  // justify-content: space-around;
+}
+.image-show{
+  height: 300px;
+  width: 300px;
+    img{
+      height: 400px;
+      width: 400px;
+      object-fit: cover;
+    }
+}
+
+.content-lesson-card{
+  padding-top: 110px;
+  margin: 5px;
+  margin-right: 5px;
+}
+.profile-card-info{
+  // display: flex;
+  justify-content: space-between;
+    h3 {
+      padding: 10px;
+    }
+
+}
+
+.icon-image{
+  height: 50px;
+  width: 50px;
+}
+
+.review-show{
+  // margin: 20px;
+  background-color: transparent;
+  font-family: Poppins, sans-serif;
+  font-size: 24px;
+}
+
+// #ECECEC
+
+.profile-card-info {
+  overflow: hidden;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 400px;
+  position: absolute;
+  left: 100px;
+  top: -1px;
+  top: 200px;
+}
+
+.name-of-person{
+  margin: 0 auto;
+  align-items: center;
+  width: 400px;
+  position: relative;
+  top: 240px;
+}
+
+.bio{
+  font-weight: bold;
+}
+
+.booking-form-show{
+  width: 700px;
+  left: 550px;
+  position: absolute;
+  top: -1px;
+  top: 400px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.review-show{
+  position: absolute;
+  top: 600px;
+  left: 560px;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+
+.form-input-end{
+  display: inline-block;
+  }
+.form-input-start{
+  display:inline-block;
+}
+
+.btn-outline-dark{
+  margin: 0 auto;
+  // display: flex;
+  // align-items: center;
+  width: 100%;
+
+}
+
+.fa-star{
+  // display: flex;
+  // display: inline;
+  // position: absolute;
+  // float: right;
+  float:left;
+  margin-bottom: 8px;
+}
+
+
+.profile-page-bookings {
+  border: 2px black solid;
+  // top: 230px;
+}
+
+.review-comment{
+  width: 720px;
+  height: 30px;
+  margin: 20px;
+  left: -25px;
+  // border: solid black;
+  position: relative;
+  display: inline-block;
+  top: -19px;
+}
+
+// .review-h1{
+//   text-align: center;
+// }
+
+.user-show-button-area{
+  display: flex;
+  justify-content: space-around;
+}
+
+.your-class-buttons-area{
+  display: flex;
+  justify-content: space-around;
+    .btn {
+      margin: 10px;
+    }
+}

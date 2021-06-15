@@ -1,0 +1,78 @@
+$dark-theme: rgba(56, 56, 56, 1);
+$green-theme: rgba(0, 117, 20, 0.6);
+$alert-theme:rgba(189, 0, 0, 0.8);
+$white-theme: rgba(255, 255, 255, 0.8) ;
+
+.btn-nice{
+  background-color: $green-theme;
+  color: white;
+  border: 2px solid $green-theme;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice:hover{
+  color: $green-theme;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.btn-nice-dark{
+  background-color: $dark-theme;
+  color: white;
+  font-weight: 300;
+  border: 1px solid white;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-dark:hover{
+  border: 1px solid $dark-theme;
+  color: white;
+  font-weight: normal;
+  background-color: $dark-theme;
+  transition: 0.3s;
+}
+
+.btn-nice-alert{
+  background-color: $alert-theme;
+  color: white;
+  border: 2px solid $alert-theme;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-alert:hover{
+  color: $alert-theme;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.btn-nice-white{
+  background-color: $white-theme;
+  color: rgb(53, 53, 53);
+  font-weight: 300;
+  border: 1px solid $white-theme;
+  border-radius: 4px;
+}
+
+.btn-nice-white:hover{
+  background-color: rgba(255, 255, 255, 1);
+  color: rgb(53, 53, 53);
+  transition: 0.3s;
+  font-weight: normal;
+}
+
+.btn-nice-green{
+  background-color: white;
+  color: $green-theme;
+  border: 2px solid $green-theme;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-green:hover{
+  color: white;
+  background-color: $green-theme;
+  transition: 0.3s;
+}

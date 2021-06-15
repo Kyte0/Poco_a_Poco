@@ -1,3 +1,4 @@
 class Milestone < ApplicationRecord
-  belongs_to :user
+  has_many :user_milestones
+  has_many :users, through: :user_milestones
 end

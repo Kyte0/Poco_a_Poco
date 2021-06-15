@@ -2,15 +2,17 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @booking = Booking.find(params[:booking_id])
   end
 
   def create
+    @booking = Booking.find(params[:booking_id])
     @task = Task.new(task_params)
-    @task.user = current_user
+    @task.booking = @booking
     if @task.save
       redirect_to booking_path(@booking)
     else
-      render 'bookings/show' #????
+      render 'new'
     end
   end
 
@@ -19,9 +21,9 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:task_id])
+    @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@task.booking)
     else
       render 'edit'
     end
@@ -36,7 +38,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :content, :completed, :type)
+    params.require(:task).permit(:name, :content, :category, :completed)
   end
 
 end

@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_100527) do
+ActiveRecord::Schema.define(version: 2021_06_15_100645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "achievements", force: :cascade do |t|
-    t.string "name"
-    t.boolean "completed"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_100527) do
     t.datetime "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accepted"
     t.index ["lesson_id"], name: "index_bookings_on_lesson_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -70,12 +63,9 @@ ActiveRecord::Schema.define(version: 2021_06_10_100527) do
 
   create_table "milestones", force: :cascade do |t|
     t.string "name"
-    t.boolean "completed"
     t.string "image"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_milestones_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -91,13 +81,21 @@ ActiveRecord::Schema.define(version: 2021_06_10_100527) do
     t.string "name"
     t.text "content"
     t.boolean "completed"
-    t.string "type"
+    t.string "category"
     t.bigint "booking_id", null: false
-    t.bigint "achievement_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["achievement_id"], name: "index_tasks_on_achievement_id"
     t.index ["booking_id"], name: "index_tasks_on_booking_id"
+  end
+
+  create_table "user_milestones", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "milestone_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "completed", default: false
+    t.index ["milestone_id"], name: "index_user_milestones_on_milestone_id"
+    t.index ["user_id"], name: "index_user_milestones_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -121,8 +119,8 @@ ActiveRecord::Schema.define(version: 2021_06_10_100527) do
   add_foreign_key "bookings", "lessons"
   add_foreign_key "bookings", "users"
   add_foreign_key "lessons", "users"
-  add_foreign_key "milestones", "users"
   add_foreign_key "reviews", "bookings"
-  add_foreign_key "tasks", "achievements"
   add_foreign_key "tasks", "bookings"
+  add_foreign_key "user_milestones", "milestones"
+  add_foreign_key "user_milestones", "users"
 end
