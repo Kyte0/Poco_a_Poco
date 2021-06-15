@@ -11,6 +11,5 @@ class User < ApplicationRecord
   has_many_attached :photos
   has_many :user_milestones
   has_many :milestones, through: :user_milestones
+  has_many :notifications
 end
-
-

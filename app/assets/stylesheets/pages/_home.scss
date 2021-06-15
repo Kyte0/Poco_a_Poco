@@ -12,7 +12,7 @@
   padding: 150px 0;
   text-align: center;
 }
-  .container {
+  .container{
     flex-direction: column;
     display: flex;
     justify-content: space-around;
@@ -32,6 +32,7 @@
   font-weight: 600;
   color: white;
   margin: 0;
+  padding-bottom: 30px;
   // font-weight: bolder;
 }
 
@@ -66,18 +67,21 @@
 
 .home-buttons{
   flex-direction: horizontal;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  padding-top: 30px;
 }
 
 .feature-teacher-title{
   display: flex;
   justify-content: center;
   font-family: Poppins, sans-serif;
+  color: white;
 }
 
 .home-page-grid{
   display: flex;
   width: 100%;
   justify-content: space-around;
+  padding-bottom: 70px;
 
 }

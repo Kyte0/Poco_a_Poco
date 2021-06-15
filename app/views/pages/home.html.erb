@@ -21,8 +21,20 @@
   </div>
 </div>
 <div class="bottom-cards">
-<h2 class="feature-teacher-title mt-3 ml-3">Featured Teachers</h2>
-  <div class="cards home-page-grid mt-3 d-flex ">
+    <div class="d-flex justify-content-between w-100">
+      <h2 class="feature-teacher-title mt-3 ml-3">Newest Teacher</h2>
+      <h2 class="feature-teacher-title mt-3 ml-3">Featured Teachers</h2>
+    </div>
+  <div class="cards home-page-grid mt-3">
+    <div>
+        <%= link_to lesson_path(@newest_lesson) do %>
+          <div class="card-category home-page-card mb-3" id="index" style="background-image: url(<%= cl_image_path @newest_lesson.user.photos.first.key %>);">
+            <h3 class="card-attribute first_name"><%= @newest_lesson.user.first_name %></h3>
+            <h4 class="card-attribute rating"><%= @newest_lesson.average_rating %></h4>
+            <h4 class="card-attribute instrument"><%= @newest_lesson.instrument %></h4>
+          </div>
+        <% end %> 
+      </div>
     <% @lessons.each do |lesson| %>
       <% if lesson.user.photos.attached? %>
         <%= link_to lesson_path(lesson) do %>
