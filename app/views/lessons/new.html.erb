@@ -1,7 +1,5 @@
-<br>
-<br>
-<br>
-<div class="container">
+<div class="row">
+  <div class="col-5">
   <h3> Add a lesson:</h3>
         <%= simple_form_for (@lesson) do |f| %>
             <%= f.input :instrument %>
@@ -10,4 +8,8 @@
             <%= f.input :location %>
             <%= f.submit class: 'btn btn-outline-success' %>
         <% end %>
+  </div>
+  <div class="col-7">
+    <%= image_tag 'https://images.unsplash.com/photo-1513745405825-efaf9a49315f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80' %>
+  </div>
 </div>

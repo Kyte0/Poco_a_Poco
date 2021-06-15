@@ -37,7 +37,8 @@ user4.save!
 user5 = User.new(first_name:"James", last_name:"Barton", email:"james@gmail.com", password:"123456", date_of_birth: DateTime.new(1954,01,10), teacher: true, bio: "Opera singer with over 30 years of professional experience in opera and theatre.")
 user5.photos.attach(io: file5, filename: 'file5.jpg', content_type: 'image/jpg')
 user5.save!
-user6 = User.new(first_name:"Big", last_name:"Cheddar", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1987,11,13), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
+user6 = User.new(first_name:"Big", last_name:"Cheddar", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1945,11,16), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
+user6.photos.attach(io: file6, filename: 'file6.jpg', content_type: 'image/jpg')
 user6.save!
 user7 = User.new(first_name:"Ophelia", last_name:"Anderson", email:"ophelia@gmail.com", password:"123456", date_of_birth: DateTime.new(1996,03,17), teacher: true, bio: "Experimental Guitarist with all the gear if you have the ideas. Let's get weird & have fun!")
 user7.photos.attach(io: file7, filename: 'file7.jpg', content_type: 'image/jpg')
@@ -120,11 +121,11 @@ puts "Generating random reviews..."
 
 lessons = Lesson.all
 lessons.each do |lesson|
-  
+
   nice_adjective = ["wonderful", "terrific", "lovely", "great", "extraordinary", "exceptional", "brilliant", "gifted", "superb", "tip-top"]
   nice_quality = ["patient", "warm", "enthusiastic", "attentive", "respectful", "funny", "understanding", "encouraging", "collaborative", "professional"]
   not_nice_quality = ["stern", "harsh", "rigid", "sarcastic", "disillusioned", "unprepared", "immature", "old fashioned", "indifferent", "casual"]
-  
+
   good_comment = [
     "A really #{nice_adjective.sample} teacher, they are #{nice_quality.sample} & #{nice_quality.sample}. Highly reccomended!",
     "I'd definitely recommend this teacher. I found them to be really #{nice_quality.sample} and an all round #{nice_adjective.sample} person.",
@@ -142,14 +143,14 @@ lessons.each do |lesson|
     "I heard this teacher was #{not_nice_quality.sample}, but wow! Back to searching for #{nice_quality.sample} teachers!",
     "I was recommended this teacher by another #{nice_adjective.sample} musician. Sounds weird but this teachers was too #{nice_quality.sample}. I'll take someone a little bit #{not_nice_quality.sample} like me next time."
   ]
-  
+
   user_random = User.all.sample
   lesson_random = Lesson.all.sample
   Booking.create!(lesson: lesson, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
   booking_random = Booking.last
   review_random_good = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
   review_random_good2 = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
-  review_random_middle =  Review.create!(rating: [3,3,4,4,5].sample, comment: middle_comment.sample, booking: booking_random) 
+  review_random_middle =  Review.create!(rating: [3,3,4,4,5].sample, comment: middle_comment.sample, booking: booking_random)
   review_random_bad = Review.create!(rating: [1,2,2,3,3].sample, comment: bad_comment.sample, booking: booking_random)
 
 end
