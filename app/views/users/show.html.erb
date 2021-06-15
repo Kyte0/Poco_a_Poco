@@ -22,17 +22,16 @@
               <p> <%= classs.level %> </p>
               <p> <%= classs.location %> </p>
             <% end %>
-            <div class="">
-    <% if current_user.teacher == true%>
-
-      <div class="your-class-buttons-area">
-      <%= link_to 'View all your bookings for your classes', bookings_path, class: 'btn btn-nice-green'%>
-      <% end %>
-      <% if current_user.teacher == true%>
-        <a class="btn btn-nice-dark" href="/lessons/new"> Teach a new class</a>
-      <% end %>
-      </div>
-  </div>
+            <div>
+              <div class="your-class-buttons-area">
+                <% if current_user.teacher == true%>
+                  <%= link_to 'View all your bookings for your classes', bookings_path, class: 'btn btn-nice-green'%>
+                <% end %>
+                <% if current_user.teacher == true%>
+                  <a class="btn btn-nice-dark" href="/lessons/new"> Teach a new class</a>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -42,7 +41,14 @@
 <div class="col-4">
 </div>
 <div class="profile-page-bookings col-6 m-5">
-
+  <div>
+    <h3>Achievements</h3>
+    <% current_user.milestones.each do |milestone| %>
+      <% if milestone.name == 'five_bookings' %>
+        <%= image_tag 'icons/trophy.png', class: 'trophy-small' %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="booking-box-user">
     <p> Your upcoming bookings: </p>
     <% @upcoming_bookings.each do |booking| %>

@@ -1,7 +1,7 @@
 require "open-uri"
 
-Milestone.destroy_all
 UserMilestone.destroy_all
+Milestone.destroy_all
 Review.destroy_all
 Booking.destroy_all
 Lesson.destroy_all
@@ -23,7 +23,15 @@ file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756
 file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
 file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
 
-Milestone.create!(name: "five_bookings")
+Milestone.create!(name: "one_booking")
+Milestone.create!(name: "five_bookings", image: 'icons/trophy.png')
+Milestone.create!(name: "three_tasks")
+Milestone.create!(name: "sign_up")
+Milestone.create!(name: "add_lesson")
+Milestone.create!(name: "first_booking")
+Milestone.create!(name: "two_lessons")
+Milestone.create!(name: "add_review")
+
 puts "Creating users..."
 
 user1 = User.new(first_name:"Reva", last_name:"Scorcese", email:"reva@gmail.com", password:"123456", date_of_birth: DateTime.new(1998,01,01), teacher: true, bio: "Classically trained pianist who can help push any Grade 7 or 8 student over the last hurdles.")
