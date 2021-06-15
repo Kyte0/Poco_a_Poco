@@ -1,4 +1,3 @@
-<br>
 <div class ="banner-booking-index">
 </div>
 <!-- <div class="container-booking-index">
@@ -38,7 +37,13 @@
     <section>
       <h2>Features</h2><% @upcoming_bookings.each do |booking| %>
       <div>
-       <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
+        <% if booking.accepted == nil %>
+          <%= link_to "Reject booking", reject_booking_path(booking), method: :patch, class: "btn m-2 accept-booking" %>
+          <%= link_to "Accept booking", accept_booking_path(booking), method: :patch, class: "btn m-2 accept-booking" %>
+          <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
+        <% elsif booking.accepted %>
+          <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
+        <% end %>
      </div>
      <% end %></section>
      <section>
