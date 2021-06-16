@@ -1,7 +1,7 @@
 <div class="banner-booking-index">
 </div>
 <!--  -->
-<div class="all-items-confirmation d-flex justify-content-around align-items-center">
+<div class="all-items-confirmation d-flex justify-content-around align-items-center" style="height:100vh">
   <div class="container-booking-show">
     <% if current_user == @booking.user %>
       <div class="image-booking">
@@ -19,7 +19,7 @@
         <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-nice-green text-decoration-none your-home-btn' %>
            <div>
         <% if @booking.end_date <= DateTime.now %>
-          <%= link_to_if @booking.review.blank? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn' do %>
+          <%= link_to_if @booking.review.blank? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
           <% end %>
         <% end %>
           </div>
@@ -34,20 +34,14 @@
         <% else %>
           <p> You rejected this booking </p>
         <% end %>
-
-        <h3> <%= @booking.user.first_name %> booked a lesson with you to learn <%= @booking.lesson.instrument %>  </h3>
+          <h3> <%= @booking.user.first_name%> booked a lesson with you to learn <%=  @booking.lesson.instrument%> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %></h3>
           <div class="button-teacher">
         <% if current_user == @booking.lesson.user && @booking.end_date <= DateTime.now %>
           <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-nice-green text-decoration-none' %>
         <% end %>
       </div>
         </div>
-
       <% end %>
-
-
-
-
   </div>
 
   <div class="review-show-task">
@@ -78,10 +72,7 @@
 </div>
 <!--   </div>
 </div> -->
-<br>
-<br>
-<br>
-<br>
+
 
 
 
