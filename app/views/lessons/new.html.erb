@@ -3,9 +3,9 @@
     <div class="card card-new-lesson">
       <h3> Add a lesson:</h3>
       <%= simple_form_for (@lesson) do |f| %>
-          <%= f.input :instrument, placeholder: 'violin' %>
+          <%= f.input :instrument, placeholder: 'Violin', collection: ["Violin", "Double Bass", "Voice", "Piano", "Guitar"] %>
           <%= f.input :price, placeholder: '20' %>
-          <%= f.input :level, placeholder: 'beginner' %>
+          <%= f.input :level, placeholder: 'Beginner' %>
           <%= f.input :location, label: 'Postcode', placeholder: 'E11 4RB' %>
           <%= f.submit class: 'btn btn-nice' %>
       <% end %>

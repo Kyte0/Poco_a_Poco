@@ -6,8 +6,10 @@ class Lesson < ApplicationRecord
   has_many_attached :photos
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-  # after_create :create_milestone_lesson
-  # after_create :create_milestone_two_lessons
+
+  after_create :create_milestone_lesson
+  after_create :create_milestone_two_lessons
+  # after_create :create_milestone_booking_lessons
 
   include PgSearch::Model
     pg_search_scope :global_search,
@@ -24,14 +26,45 @@ class Lesson < ApplicationRecord
       }
 
   def average_rating
-    num_ratings = self.bookings.select{|b| b.review }.map { |b| b.review }.size
-    rating_total = self.bookings.select{|b| b.review }.map { |b| b.review }.map { |r| r.rating }.reduce(:+)
+    num_ratings = self.bookings.select{|b| b.reviews.first }.map { |b| b.reviews.first }.size
+    rating_total = self.bookings.select{|b| b.reviews.first }.map { |b| b.reviews.first }.map { |r| r.rating }.reduce(:+)
     if rating_total
       return "#{rating_total / num_ratings}"
     end
   end
 
   private
+
+  def create_milestone_lesson
+    lesson_created_one = self.user.lessons.count
+    if lesson_created_one == 1
+      puts "User LESSON milestone being created"
+      milestone = Milestone.find_by_name("add_lesson")
+      UserMilestone.create!(milestone: milestone, user: self.user)
+    end
+  end
+
+  def create_milestone_two_lessons
+    lesson_created_two = self.user.lessons.count
+    if lesson_created_two == 2
+      puts "User LESSON milestone being created"
+      milestone = Milestone.find_by_name("two_lessons")
+      UserMilestone.create!(milestone: milestone, user: self.user)
+    end
+  end
+
+  # def create_milestone_booking_lessons
+  #   lesson_booking = self.bookings.count
+  #   if lesson_booking == 2
+  #     puts "User LESSON milestone being created"
+  #     milestone = Milestone.find_by_name("receive_first_booking")
+  #     UserMilestone.create!(milestone: milestone, user: self.user)
+  #   end
+  # end
+
+end
+
+# self.user.lessons.booking.count
 
   # def create_milestone_lesson
   #   puts "Lesson is being created"
@@ -50,4 +83,5 @@ class Lesson < ApplicationRecord
   #     UserMilestone.create!(milestone: milestone, user: self.user)
   #   end
   # end
-end
+
+
