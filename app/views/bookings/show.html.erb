@@ -19,7 +19,7 @@
         <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-nice-green text-decoration-none your-home-btn' %>
            <div>
         <% if @booking.end_date <= DateTime.now %>
-          <%= link_to_if @booking.review.blank? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
+          <%= link_to_if @booking.reviews.empty? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
           <% end %>
         <% end %>
           </div>
