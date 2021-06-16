@@ -51,7 +51,7 @@ user4.save!
 user5 = User.new(first_name:"James", last_name:"Barton", email:"james@gmail.com", password:"123456", date_of_birth: DateTime.new(1954,01,10), teacher: true, bio: "Opera singer with over 30 years of professional experience in opera and theatre.")
 user5.photos.attach(io: file5, filename: 'file5.jpg', content_type: 'image/jpg')
 user5.save!
-user6 = User.new(first_name:"Big", last_name:"Cheddar", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1945,11,16), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
+user6 = User.new(first_name:"Big Cheddar", last_name:"Cheese", email:"cheddar@gmail.com", password:"123456", date_of_birth: DateTime.new(1945,11,16), teacher: true, bio: "Freestyle rapper & beatboxer, undefeated in over 100 rap battles. Let's get together and feel the flow.")
 user6.photos.attach(io: file6, filename: 'file6.jpg', content_type: 'image/jpg')
 user6.save!
 user7 = User.new(first_name:"Ophelia", last_name:"Anderson", email:"ophelia@gmail.com", password:"123456", date_of_birth: DateTime.new(1996,03,17), teacher: true, bio: "Experimental Guitarist with all the gear if you have the ideas. Let's get weird & have fun!")
@@ -66,7 +66,7 @@ user9.save!
 user10 = User.new(first_name:"Alan", last_name:"Jones", email:"alan@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,01,05), teacher: true, bio: "Experienced piano graduate of Liverpool Institute of Arts, fluent in French & English.")
 user10.photos.attach(io: file10, filename: 'file10.jpg', content_type: 'image/jpg')
 user10.save!
-user11 = User.new(first_name:"Jimothy", last_name:"Smith", email:"rosie@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,07,10), teacher: true, bio: "Jazz bassist extrordinaire, take this instrument for a spin with me. I'll show you how easy it is to make great sounds")
+user11 = User.new(first_name:"Timothy", last_name:"Smith", email:"rosie@gmail.com", password:"123456", date_of_birth: DateTime.new(1989,07,10), teacher: true, bio: "Jazz bassist extrordinaire, take this instrument for a spin with me. I'll show you how easy it is to make great sounds")
 user11.photos.attach(io: file11, filename: 'file11.jpg', content_type: 'image/jpg')
 user11.save!
 user12 = User.new(first_name:"Chloé", last_name:"Rubis", email:"chloe@gmail.com", password:"123456", date_of_birth: DateTime.new(1995,10,29), teacher: true, bio: "Passionate Double bassist & violinist, ready to take on some students who want to see how versatile these instruments can be.")
@@ -112,12 +112,12 @@ puts "Creating Bookings..."
 
 # user_id, lesson_id, start_date, end_date
 
-
 booking1 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
-booking2 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
-booking3 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
-booking4 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
-booking5 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking2 = Booking.create!(lesson: lesson9, user: user2, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
+booking3 = Booking.create!(lesson: lesson9, user: user3, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking4 = Booking.create!(lesson: lesson10, user: user4, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking5 = Booking.create!(lesson: lesson10, user: user5, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+
 puts "Created #{Booking.count} bookings!"
 
 puts "Creating Tasks..."
@@ -126,7 +126,7 @@ Task.create!(booking: booking1, name: 'scales', content: "practise scales A-E on
 Task.create!(booking: booking2, name: 'scales', content: "practise scales A-E on piano", completed: true)
 Task.create!(booking: booking3, name: 'scales', content: "practise scales A-E on piano", completed: true)
 
-puts "done"
+puts "Created #{Task.count} tasks!"
 
 puts "Creating reviews..."
 
@@ -166,13 +166,19 @@ lessons.each do |lesson|
     "I was recommended this teacher by another #{nice_adjective.sample} musician. Sounds weird but this teachers was too #{nice_quality.sample}. I'll take someone a little bit #{not_nice_quality.sample} like me next time."
   ]
 
-  user_random = User.all.sample
+  user_random = User.all.shuffle.pop(4)
   lesson_random = Lesson.all.sample
-  Booking.create!(lesson: lesson, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
   booking_random = Booking.last
   review_random_good = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
   review_random_good2 = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
   review_random_middle =  Review.create!(rating: [3,3,4,4,5].sample, comment: middle_comment.sample, booking: booking_random)
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
   review_random_bad = Review.create!(rating: [1,2,2,3,3].sample, comment: bad_comment.sample, booking: booking_random)
 
 end

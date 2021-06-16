@@ -1,57 +1,63 @@
-
 <div class="banner-booking-index">
 </div>
 <!--  -->
-<div class="all-items-confirmation d-flex justify-content-around align-items-center">
+<div class="all-items-confirmation d-flex justify-content-around align-items-center" style="height:100vh">
   <div class="container-booking-show">
-
     <% if current_user == @booking.user %>
-    <h5 class="your-lesson"><%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %> </h5>
-    <% if  @booking.accepted %>
-    <p> Your booking is confirmed! </p>
-    <% elsif @booking.accepted == nil %>
-    <p> Your booking is pending confirmation </p>
-    <% else %>
-    <p> Your booking was rejected! </p>
-    <% end %>
-    <div>
-      <%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
-    </div>
-    <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-outline-dark text-decoration-none your-home-btn' %>
-
-    <% else %>
-    <% if @booking.accepted %>
-    <p> You have confirmed this booking </p>
-    <% elsif @booking.accepted == nil %>
-    <p> You need to accept or reject this booking </p>
-    <% else %>
-    <p> You rejected this booking </p>
-    <% end %>
-
-    <h1> <%= @booking.user.first_name %> booked a lesson with you to learn <%= @booking.lesson.instrument %>  </h1>
-    <div class="mt-3"><%=cl_image_tag @booking.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
-    </div>
-    <% end %>
-
-    <div>
-      <% if @booking.end_date <= DateTime.now %>
-      <%= link_to_if @booking.reviews.empty? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-outline-success text-decoration-none' do %>
+      <div class="image-booking">
+        <%=cl_image_tag @booking.lesson.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%>
+      </div>
+        <div class="content-inside-card">
+        <% if  @booking.accepted %>
+          <p> Your booking is confirmed! </p>
+        <% elsif @booking.accepted == nil %>
+          <p> Your booking is pending confirmation </p>
+        <% else %>
+          <p> Your booking was rejected! </p>
+        <% end %>
+        <h5><%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %> </h5>
+        <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-nice-green text-decoration-none your-home-btn' %>
+           <div>
+        <% if @booking.end_date <= DateTime.now %>
+          <%= link_to_if @booking.review.blank? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
+          <% end %>
+        <% end %>
+          </div>
+      </div>
+      <% else %>
+        <div ><%=cl_image_tag @booking.user.photos.first.key, crop: :fill, width: 500, style: "border-radius: 1px"%> </div>
+        <div class="teacher-content">
+        <% if @booking.accepted %>
+          <p> You have confirmed this booking </p>
+        <% elsif @booking.accepted == nil %>
+          <p> You need to accept or reject this booking </p>
+        <% else %>
+          <p> You rejected this booking </p>
+        <% end %>
+          <h3> <%= @booking.user.first_name%> booked a lesson with you to learn <%=  @booking.lesson.instrument%> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %></h3>
+          <div class="button-teacher">
+        <% if current_user == @booking.lesson.user && @booking.end_date <= DateTime.now %>
+          <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-nice-green text-decoration-none' %>
+        <% end %>
+      </div>
+        </div>
       <% end %>
-      <% end %>
-    </div>
-
-    <div>
-      <% if current_user == @booking.lesson.user && @booking.end_date <= DateTime.now %>
-      <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-outline-success text-decoration-none' %>
-      <% end %>
-    </div>
   </div>
 
   <div class="review-show-task">
+
+    <div class="task-title"><h3>Tasks</h3></div>
+    <% if @tasks.count == 0 %>
+    <p> There are no tasks yet! </p>
+    <% end %>
     <% if @tasks %>
       <% @tasks.each do |task| %>
         <div class="tasks-list">
-        <p> <%= task.name  %> </p>
+          <ul>
+              <li> Name: <%= task.name %> </li>
+              <li> Content: <%= task.content %></li>
+              <li> Category: <%= task.category %></li>
+            </ul>
         <% if current_user == @booking.user && !task.completed %>
           <%= simple_form_for [@booking, task] do |f| %>
             <%= f.input :completed, as: :boolean, label: 'Mark as complete', input_html: {class:"task_complete"} %>
@@ -64,10 +70,9 @@
     <% end %>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
+<!--   </div>
+</div> -->
+
 
 
 

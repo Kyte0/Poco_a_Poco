@@ -1,4 +1,3 @@
-
 <div class="container-user-show cover-photo-underlay">
 
 </div>
@@ -74,11 +73,11 @@
             </div>
           <% end %>
         </div>
-        <a class="btn btn-nice-dark" href="/lessons"> Book a new lesson </a>
-        <div class="booking-box-user">
+        <a class="btn btn-nice-dark mt-3" href="/lessons"> Book a new lesson </a>
+        <div class="booking-box-user mt-4">
           <p> Your completed bookings: </p>
           <% @completed_bookings.each do |booking| %>
-            <div>
+            <div class="mb-3">
               <h5 class="individual-bookings">
                 <%= image_tag("icons/#{booking.lesson.instrument}.png") %>  You completed a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %>
               </h5>

@@ -32,7 +32,6 @@
 
 @import "bourbon";
 
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400';
 
 
 /* colors */
@@ -195,7 +194,7 @@ body {
       max-width: 100%;
       margin: 0 auto;
       height: $indicator-height;
-      background: $accent;
+      background: #0B7A75;
       border-radius: 1px;
     }
 
@@ -236,10 +235,10 @@ body {
     @include tabs {
       > label {
         cursor: default;
-        color: $accent;
+        color: #0B7A75;
 
         svg {
-          fill: $accent;
+          fill: #0B7A75;
         }
 
         @media (max-width: map-get($breakpoints, small)) {

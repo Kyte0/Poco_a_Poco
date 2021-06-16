@@ -16,7 +16,7 @@
 }
 .container-user-show{
   height: 300px;
-  width: 100vw;
+  width: 100%;
   background-color: #c1cfdb;
   color: black;
   // display: flex;
@@ -24,11 +24,9 @@
 }
 
 .image-show{
-  height: 300px;
-  width: 300px;
     img{
       height: 400px;
-      width: 400px;
+      width: 100%;
       object-fit: cover;
     }
 }
@@ -42,7 +40,7 @@
 }
 
 .content-lesson-card{
-  padding-top: 110px;
+  padding: 1rem;
   margin: 5px;
   margin-right: 5px;
 }
@@ -90,8 +88,8 @@
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 400px;
-  position: absolute;
+  // width: 400px;
+  // position: absolute;
   left: 100px;
   top: -1px;
   top: 200px;
@@ -108,26 +106,25 @@
 }
 
 .name-of-person{
-  margin: 0 auto;
-  align-items: center;
-  width: 400px;
-  position: relative;
-  top: 240px;
+  margin-bottom: 1rem;
+  margin-top: 100px;
 }
 
 
 .name-of-person-user-show{
   margin-bottom: 1rem;
+  margin-top: 100px;
 }
 
 .bio{
   font-weight: bold;
+  width: 100%;
 }
 
 .booking-form-show{
-  width: 700px;
+  // width: 700px;
   left: 550px;
-  position: absolute;
+  // position: absolute;
   top: -1px;
   top: 400px;
   background-color: white;
@@ -139,7 +136,7 @@
 }
 
 .review-show{
-  position: absolute;
+  // position: absolute;
   top: 600px;
   left: 560px;
   // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -183,7 +180,7 @@
 
 
 .review-comment{
-  width: 720px;
+  // width: 720px;
   height: 30px;
   margin: 20px;
   left: -25px;
@@ -209,4 +206,8 @@
       margin: 10px;
     }
 }
-
+.avatar-large {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}

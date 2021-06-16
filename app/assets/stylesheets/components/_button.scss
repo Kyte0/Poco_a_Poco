@@ -54,6 +54,7 @@ $white-theme: rgba(255, 255, 255, 0.8) ;
   font-weight: 300;
   border: 1px solid $white-theme;
   border-radius: 4px;
+  padding: 10px 16px;
 }
 
 .btn-nice-white:hover{
@@ -75,4 +76,20 @@ $white-theme: rgba(255, 255, 255, 0.8) ;
   color: white;
   background-color: $green-theme;
   transition: 0.3s;
+}
+
+.btn-nice-green-g{
+  color: white;
+  background-color: $green-theme;
+  transition: 0.3s;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-green-g:hover{
+  background-color: white;
+  color: $green-theme;
+  border: 2px solid $green-theme;
+  padding: 10px 16px;
+  border-radius: 4px;
 }
