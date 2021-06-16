@@ -145,6 +145,8 @@ GEM
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    nokogiri (1.11.7-x86_64-darwin)
+      racc (~> 1.4)
     noticed (1.4.1)
       http (>= 4.0.0)
       rails (>= 5.2.0)
@@ -273,6 +275,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-17
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
@@ -310,4 +313,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.1.0
+   2.2.1
