@@ -73,20 +73,22 @@
           <% if @reviews.any? %>
 
             <% @reviews.each do |review| %>
-              <div class="review-show-card-2">
+
+              <div class="review-show-card-2 d-flex flex-column">
                 <div class="review-stars">
                   <p> <% review.rating.to_i.times do %> </p>
                     <i class="fas fa-star" style="color: #FFED99;"></i>
                   <% end %>
                 </div>
                 <div class="review-comment">
-                  <p> <%= review.comment %></p>
+                  <p class="mb-0"> <%= review.comment %></p>
                   <div class="avatar-n-name">
                     <p><%= review.booking.user.first_name %></p>
-                    <%= cl_image_tag review.booking.user.photos.first.key, class: "avatar-large-reviews" %>
+                    <%= cl_image_tag review.booking.user.photos.first.key, class: "avatar-large-reviews mb-2" %>
                   </div>
                 </div>
               </div>
+
             <% end %>
           <% else %>
             <p> <%= @lesson.user.first_name %> does not have any reviews</p>
