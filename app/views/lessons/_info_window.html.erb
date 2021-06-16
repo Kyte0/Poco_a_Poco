@@ -1,5 +1,5 @@
-<div class="info-window-div">
-<h2><%= lesson.user.first_name %></h2>
+<div class="info-window-div" style="height: 206px;">
+<h4><%= lesson.user.first_name %></h4>
 <% if lesson.user.photos.attached? %>
   <%= cl_image_tag lesson.user.photos.first.key, class: 'info-window-image' %>
 <% else %>
