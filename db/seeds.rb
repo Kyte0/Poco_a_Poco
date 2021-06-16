@@ -165,13 +165,19 @@ lessons.each do |lesson|
     "I was recommended this teacher by another #{nice_adjective.sample} musician. Sounds weird but this teachers was too #{nice_quality.sample}. I'll take someone a little bit #{not_nice_quality.sample} like me next time."
   ]
 
-  user_random = User.all.sample
+  user_random = User.all.shuffle.pop(4)
   lesson_random = Lesson.all.sample
-  Booking.create!(lesson: lesson, user: user_random, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
   booking_random = Booking.last
   review_random_good = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
   review_random_good2 = Review.create!(rating: [4,4,5,5,5].sample, comment: good_comment.sample, booking: booking_random)
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
   review_random_middle =  Review.create!(rating: [3,3,4,4,5].sample, comment: middle_comment.sample, booking: booking_random)
+  Booking.create!(lesson: lesson, user: user_random.pop, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
+  booking_random = Booking.last
   review_random_bad = Review.create!(rating: [1,2,2,3,3].sample, comment: bad_comment.sample, booking: booking_random)
 
 end
