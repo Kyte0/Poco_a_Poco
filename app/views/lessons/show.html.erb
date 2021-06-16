@@ -1,100 +1,93 @@
-<div id="background-color">
-  <div class="container-show">
-    <% if current_user == @lesson.user %>
-      <% @lesson.user.photos.each do |photo| %>
-        <div class="image-show">
-          <%= cl_image_tag photo.key, crop: :fill, width: 300, style: "border-radius: 8px"%>
-        </div>
-      <% end %>
-      <h1> <%= @lesson.instrument %> </h1>
-      <h2> <%= @lesson.price %> </h2>
-      <h2> <%= @lesson.level %> </h2>
-      <h2> <%= @lesson.location %> </h2>
-      <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-outline-success' %>
-      <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-outline-success' %>
-      <%= link_to 'Book a class', lessons_path, class: 'btn btn-outline-success' %>
-    <% else  %>
-      <h1 class="name-of-person"> <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %> </h1>
+<div class="container-user-show cover-photo-underlay">
 
-      <div class="profile-card-info">
-        <%# want the first h3 to show an icon with a colour changing circular border, that is based on level %>
-        <% @lesson.user.photos.each do |photo| %>
-          <div class="image-show">
-            <%= cl_image_tag photo.key %>
-          </div>
-        <% end %>
-        <div class="content-lesson-card">
-          <h4 class="bio">Bio</h4>
-          <p style="width: 400px"> <%= @lesson.user.bio %> </p>
-          <div class="icon-image">
-            <%= image_tag("icons/#{@lesson.instrument}.png") %>
-          </div>
-          <h3> £<%= @lesson.price %>0/hour </h3>
-          <h3> <%= @lesson.level %> </h3>
-          <h3> <%= @lesson.location %> </h3>
-        </div>
-      </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <div class="booking-form-show">
-        <h3> Book a lesson</h3>
-        <%= simple_form_for [@lesson, @booking] do |f| %>
-          <div class="form-input-start">
-            <%= f.input :start_date, as: :datetime, required: false,html5:true,label: false, input_html: {class: "datepicker", placeholder: "Start Date"}  %>
-          </div>
-          <div class="form-input-end">
-           <%= f.input :end_date, as: :datetime, required: false, html5:true, label: false, input_html: {class: "datepicker", placeholder: "End Date"}%>
-          </div>
-          <%= f.submit class: 'btn btn-outline-dark' %>
-        <% end %>
-        <%# <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="review-show">
-
-    <h3 class="review-h1">Reviews</h3>
-    <% if @reviews.any? %>
-
-      <% @reviews.each do |review| %>
-        <div class="review-show-card-2">
-          <div class="review-stars">
-            <p> <% review.rating.to_i.times do %> </p>
-              <i class="fas fa-star" style="color: #FFED99;"></i>
-            <% end %>
-          </div>
-          <div class="review-comment">
-            <p> <%= review.comment %></p>
-            <p><%= review.booking.user.first_name %></p>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <p> <%= @lesson.user.first_name %> does not have any reviews</p>
-    <% end %>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+<div class="cover-photo-spacer">
+
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <% if current_user == @lesson.user %>
+          <div class="profile-card-info">
+            <% @lesson.user.photos.each do |photo| %>
+              <div class="image-show">
+                <%= cl_image_tag photo.key %>
+              </div>
+            <% end %>
+             <div class="content-lesson-card">
+              <h4 class="bio">Price</h4>
+              <p> £<%= @lesson.price %>0/hour </p>
+              <div class="icon-image">
+                <%= image_tag("icons/#{@lesson.instrument}.png") %>
+              </div>
+
+              <h3> <%= @lesson.level %> </h3>
+              <h3> <%= @lesson.location %> </h3>
+            </div>
+            <div class="your-class-buttons-area mb-3">
+              <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-nice-green' %>
+              <%= link_to 'Add another lesson', new_lesson_path, class: 'btn btn-nice-dark' %>
+            </div>
+          </div>
+        <% else  %>
+          <div class="profile-card-info">
+            <% @lesson.user.photos.each do |photo| %>
+              <div class="image-show">
+                <%= cl_image_tag photo.key %>
+              </div>
+            <% end %>
+            <div class="content-lesson-card">
+              <h4 class="bio">Bio</h4>
+              <p> <%= @lesson.user.bio %> </p>
+              <div class="icon-image">
+                <%= image_tag("icons/#{@lesson.instrument}.png") %>
+              </div>
+              <h3> £<%= @lesson.price %>0/hour </h3>
+              <h3> <%= @lesson.level %> </h3>
+              <h3> <%= @lesson.location %> </h3>
+            </div>
+          </div>
+          <% end %>
+      </div>
+      <div class="col-7">
+        <h1 class="name-of-person"> <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %> </h1>
+        <% unless current_user == @lesson.user %>
+          <div class="booking-form-show">
+            <h3> Book a lesson</h3>
+            <%= simple_form_for [@lesson, @booking] do |f| %>
+              <div class="form-input-start">
+                <%= f.input :start_date, as: :datetime, required: false,html5:true,label: false, input_html: {class: "datepicker", placeholder: "Start Date"}  %>
+              </div>
+              <div class="form-input-end">
+                <%= f.input :end_date, as: :datetime, required: false, html5:true, label: false, input_html: {class: "datepicker", placeholder: "End Date"}%>
+              </div>
+              <%= f.submit class: 'btn btn-nice-green w-100' %>
+            <% end %>
+            <%# <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+        <div class="review-show">
+
+          <h3 class="review-h1 mt-4">Reviews</h3>
+          <% if @reviews.any? %>
+
+            <% @reviews.each do |review| %>
+              <div class="review-show-card-2">
+                <div class="review-stars">
+                  <p> <% review.rating.to_i.times do %> </p>
+                    <i class="fas fa-star" style="color: #FFED99;"></i>
+                  <% end %>
+                </div>
+                <div class="review-comment">
+                  <p> <%= review.comment %></p>
+                  <p><%= review.booking.user.first_name %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p> <%= @lesson.user.first_name %> does not have any reviews</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
