@@ -27,7 +27,8 @@ class LessonsController < ApplicationController
       {
         lat: lesson.latitude,
         lng: lesson.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { lesson: lesson })
+        info_window: render_to_string(partial: "info_window", locals: { lesson: lesson }),
+        image_url: helpers.asset_url("icons/#{lesson.instrument}Icon.png")
       }
     end
   end
