@@ -42,9 +42,6 @@
       <br>
       <br>
       <br>
-      <br>
-      <br>
-
       <div class="booking-form-show">
         <h3> Book a lesson</h3>
         <%= simple_form_for [@lesson, @booking] do |f| %>
@@ -63,7 +60,7 @@
 
   <div class="review-show">
     <h1 class="review-h1">Reviews</h1>
-    <% if @reviews.any? %>
+    <% if @reviews.present? %>
       <% @reviews.each do |review| %>
         <!-- <div> -->
           <div class="review-stars">
@@ -98,11 +95,3 @@
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-

@@ -23,14 +23,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.lesson = @lesson
-    if @booking.save
+    if @booking.save!
       Notification.create(user: @booking.lesson.user,
         message: "#{@booking.user.first_name} just booked a spot in your lesson",
         url: booking_path(@booking), seen: false
         )
       redirect_to booking_path(@booking)
     else
-      render 'new'
+      render 'bookings/show'
     end
   end
 
