@@ -1,6 +1,6 @@
 <div class="content">
   <div class="banner background-image-home">
-    <div class="custom-container mt-4">
+    <div class="custom-container">
       <h1 class="home-title" > Poco a Poco </h1>
       <h3>
         <span id="banner-typed-text"></span>
@@ -21,20 +21,13 @@
   </div>
 </div>
 <div class="bottom-cards">
-    <div class="d-flex justify-content-between w-100">
-      <h2 class="feature-teacher-title mt-3 ml-3">Newest Teacher</h2>
-      <h2 class="feature-teacher-title mt-3 ml-3">Featured Teachers</h2>
-    </div>
-          <div class="teachers-home-text">
-            <h3> Newest teacher</h3>
-            <h3> Featured Teachers </h3>
-          </div>
+  <h2 class="ml-4 mt-3"> Featured Teachers</h2>
   <div class="cards home-page-grid mt-3">
       <div class="index-cards mb-3">
         <div>
           <% if @newest_lesson.user.photos.attached? %>
             <%= link_to lesson_path(@newest_lesson), class: "text-decoration-none text-body" do %>
-              <div class="card-category mb-4 mr-4 mt-4">
+              <div class="card-category mb-4">
                 <%= cl_image_tag @newest_lesson.user.photos.first.key, class: 'card-top-image' %>
                 <div class="card-category-infos">
                     <h3><strong><%= @newest_lesson.user.first_name %></strong></h3>
@@ -57,14 +50,14 @@
                   </div>
                 </div>
               </div>
-              <% end %>
-              <% end %>
-            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <% @lessons.each do |lesson| %>
           <div>
-            <% @lessons.each do |lesson| %>
               <% if lesson.user.photos.attached? %>
                 <%= link_to lesson_path(lesson), class: "text-decoration-none text-body" do %>
-                  <div class="card-category mb-4 mr-4 mt-4">
+                  <div class="card-category mb-4">
                     <%= cl_image_tag lesson.user.photos.first.key, class: 'card-top-image' %>
                     <div class="card-category-infos">
                         <h3><strong><%= lesson.user.first_name %></strong></h3>
@@ -82,14 +75,15 @@
                           <h4 class="card-attribute-stat"><strong><%= lesson.level %></strong></h4>
                         </div>
                         <div class="card-attribute-div d-flex align-items-center">
-                          <h4 class="card-attribute-description">PRICE</h4><h4 class="card-attribute-stat"><strong>£<%= lesson.price %>0</strong></h4></div>
+                          <h4 class="card-attribute-description">PRICE</h4><h4 class="card-attribute-stat"><strong>£<%= lesson.price %>0</strong></h4>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         <% end %>
-      </div>
+      
   </div>
 <%= javascript_pack_tag "navbar-scroll" %>
