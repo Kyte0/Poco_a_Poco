@@ -9,11 +9,11 @@
       </div>
         <div class="content-inside-card">
         <% if  @booking.accepted %>
-          <p> Your booking is confirmed! </p>
+          <p> Booking-Status: Confirmed </p>
         <% elsif @booking.accepted == nil %>
-          <p> Your booking is pending confirmation </p>
+          <p> Booking Status: Pending </p>
         <% else %>
-          <p> Your booking was rejected! </p>
+          <p> Booking Status: Rejected </p>
         <% end %>
         <h5><%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %> </h5>
         <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-nice-green text-decoration-none your-home-btn' %>
