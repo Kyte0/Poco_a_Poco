@@ -15,11 +15,13 @@
         <% else %>
           <p> Your booking was rejected! </p>
         <% end %>
-        <h5><%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on <%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %> </h5>
-        <%= link_to 'Your home page', user_path(current_user), class: 'btn btn-nice-green text-decoration-none your-home-btn' %>
+        <p>
+          <%= image_tag("icons/#{@booking.lesson.instrument}.png") %> Your <%= link_to 'lesson', booking_path(@booking), class: 'btn-outline' %> with <%= @booking.lesson.user.first_name %> on:
+        </p>
+        <h5><%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %></h5>
            <div>
         <% if @booking.end_date <= DateTime.now %>
-          <%= link_to_if @booking.review.blank? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
+          <%= link_to_if @booking.reviews.blank? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
           <% end %>
         <% end %>
           </div>

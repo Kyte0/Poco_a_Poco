@@ -36,7 +36,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     @booking = Booking.new
-    @reviews = @lesson.reviews
+    @reviews = @lesson.reviews.order(created_at: :desc)
   end
 
   def edit
