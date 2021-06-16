@@ -59,19 +59,22 @@
   </div>
 
   <div class="review-show">
-    <h1 class="review-h1">Reviews</h1>
-    <% if @reviews.present? %>
+
+    <h3 class="review-h1">Reviews</h3>
+    <% if @reviews.any? %>
+
       <% @reviews.each do |review| %>
-        <!-- <div> -->
+        <div class="review-show-card-2">
           <div class="review-stars">
             <p> <% review.rating.to_i.times do %> </p>
-            <i class="far fa-star"></i>
+              <i class="fas fa-star" style="color: #FFED99;"></i>
             <% end %>
           </div>
           <div class="review-comment">
-          <p> <%= review.comment %></p>
+            <p> <%= review.comment %></p>
+            <p><%= review.booking.user.first_name %></p>
+          </div>
         </div>
-        <!-- </div> -->
       <% end %>
     <% else %>
       <p> <%= @lesson.user.first_name %> does not have any reviews</p>
