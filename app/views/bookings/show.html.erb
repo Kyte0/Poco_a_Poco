@@ -52,7 +52,7 @@
 
     <div class="task-title"><h3>Tasks</h3></div>
     <% if @tasks.count == 0 %>
-    <p> There are no tasks yet! </p>
+      <p class="no-tasks-message"> There are currently no tasks for this lesson. </p>
     <% end %>
     <% if @tasks %>
       <% @tasks.each do |task| %>
