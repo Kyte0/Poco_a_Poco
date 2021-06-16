@@ -1,27 +1,10 @@
 <div class ="banner-booking-index">
 </div>
-<!-- <div class="container-booking-index">
-  <div class="booking-box">
-    <h2 class="b-box"> Your upcoming bookings: </h2>
-    <% @upcoming_bookings.each do |booking| %>
-    <div>
-     <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
-   </div>
-   <% end %>
- </div>
 
- <div class="booking-box">
-  <h2 class="b-box"> Your completed bookings: </h2>
-  <% @completed_bookings.each do |booking| %>
-  <div>
-   <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
- </div>
- <% end %>
-</div>
-</div> -->
 
 
 <!-- ADDING IN NEW HTML  -->
+<div style="height: 100vh">
 <div class="tabs">
   <input type="radio" id="tab1" name="tab-control" checked>
   <input type="radio" id="tab2" name="tab-control">
@@ -32,27 +15,32 @@
     <li title="Delivery Contents"><label for="tab2" role="button"><br><span>Completed bookings</span></label></li>
   </ul>
 
-  <div class="slider"><div class="indicator"></div></div>
-  <div class="content">
-    <section>
-      <h2>Features</h2><% @upcoming_bookings.each do |booking| %>
-      <div>
-        <% if booking.accepted == nil %>
-          <%= link_to "Reject booking", reject_booking_path(booking), method: :patch, class: "btn m-2 accept-booking" %>
-          <%= link_to "Accept booking", accept_booking_path(booking), method: :patch, class: "btn m-2 accept-booking" %>
+  <div class="slider">
+    <div class="indicator">
+    </div>
+  </div>
+    <div class="content">
+      <section>
+        <h2>Features</h2><% @upcoming_bookings.each do |booking| %>
+        <div>
+          <% if booking.accepted == nil %>
+            <%= link_to "Reject booking", reject_booking_path(booking), method: :patch, class: "btn m-2 accept-booking btn-nice-alert" %>
+            <%= link_to "Accept booking", accept_booking_path(booking), method: :patch, class: "btn m-2 accept-booking btn-nice-green-g" %>
+            <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h4>
+            <% elsif booking.accepted %>
+            <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h4>
+          <% end %>
+        </div>
+          <% end %>
+      </section>
+       <section>
+        <h2>Delivery Contents</h2>
+        <% @completed_bookings.each do |booking| %>
+        <div>
           <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
-        <% elsif booking.accepted %>
-          <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
-        <% end %>
-     </div>
-     <% end %></section>
-     <section>
-      <h2>Delivery Contents</h2>
-      <% @completed_bookings.each do |booking| %>
-      <div>
-       <h4 class="individual-bookings"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on the <%= booking.start_date %> </h4>
-     </div>
-     <% end %></section>
-   </div>
+        </div>
+       <% end %>
+     </section>
+    </div>
  </div>
-
+</div>

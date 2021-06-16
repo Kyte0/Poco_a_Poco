@@ -1,7 +1,7 @@
 .container-booking-show{
   background-color: white;
   width: 500px;
-  height: 600px;
+  min-height: 600px;
   // margin: 0 auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   left: 200px;
@@ -77,4 +77,7 @@
   justify-content: center;
   margin-top: 25px;
 
+}
+.your-review-btn{
+  margin-bottom: 20px;
 }
