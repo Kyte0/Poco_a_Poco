@@ -44,7 +44,7 @@ class LessonsController < ApplicationController
 
   def update
     @lesson = Lesson.find(params[:id])
-    @lesson.update(params[:restaurant])
+    @lesson.update(params[:lesson])
   end
 
   def destroy

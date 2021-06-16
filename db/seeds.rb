@@ -112,10 +112,10 @@ puts "Creating Bookings..."
 # user_id, lesson_id, start_date, end_date
 
 booking1 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,01), end_date: DateTime.new(2001,01,01))
-booking2 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
-booking3 = Booking.create!(lesson: lesson9, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
-booking4 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
-booking5 = Booking.create!(lesson: lesson10, user: user1, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking2 = Booking.create!(lesson: lesson9, user: user2, start_date: DateTime.new(2001,01,02), end_date: DateTime.new(2001,01,02))
+booking3 = Booking.create!(lesson: lesson9, user: user3, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking4 = Booking.create!(lesson: lesson10, user: user4, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
+booking5 = Booking.create!(lesson: lesson10, user: user5, start_date: DateTime.new(2001,01,03), end_date: DateTime.new(2001,01,03))
 
 puts "Created #{Booking.count} bookings!"
 
