@@ -33,4 +33,20 @@
 .navbar-brand {
   margin-right: 110px;
 }
-
+.rel {
+  position: relative
+}
+.badge {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #37393A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}

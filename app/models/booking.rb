@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :lesson
   has_many :tasks
-  has_one :review
+  has_many :reviews
 
   after_create :create_milestone_five
   after_create :create_milestone_one

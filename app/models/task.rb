@@ -14,8 +14,8 @@ class Task < ApplicationRecord
   private
 
   def create_milestone_task_three
-    puts "Task is being created"
-    if self.booking.user.tasks.count == 3 && self.completed == true
+    num_completed_tasks = self.booking.tasks.count {|task| task.completed }
+    if num_completed_tasks == 3
       puts "User TASK milestone being created"
       milestone = Milestone.find_by_name("three_tasks")
       UserMilestone.create!(milestone: milestone, user: self.booking.user)

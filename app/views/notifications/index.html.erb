@@ -1,5 +1,17 @@
 <div style="padding-top: 80px">
+<div class="notification">
+<% @notifications.each do |notification| %>
+  <div class="notification-content">
+    <p><small>  <%= Date.today %> </small></p>
+    <p> <%= link_to notification.message, notification_path(notification) %> </p>
+  </div>
+  <% end %>
+</div>
+</div>
+
+<!-- <div style="padding-top: 80px">
 <% @notifications.each do |notification| %>
 <%= link_to notification.message, notification_path(notification) %>
 <% end %>
 </div>
+ -->

@@ -32,6 +32,7 @@ Milestone.create!(name: "add_lesson", image: 'icons/music.png')
 Milestone.create!(name: "two_lessons", image: 'icons/music.png')
 Milestone.create!(name: "receive_first_booking", image: 'icons/review.png')
 Milestone.create!(name: "leaving_review", image: 'icons/review.png')
+Milestone.create!(name: "receive_first_review", image: 'icons/review.png')
 
 puts "Creating users..."
 
