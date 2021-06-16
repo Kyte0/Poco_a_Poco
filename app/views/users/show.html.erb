@@ -17,16 +17,22 @@
         <div class="content-lesson-card-user-show">
           <h4 class="bio">Bio</h4>
           <p> <%= current_user.bio %> </p>
+          <div class="d-flex lesson-new">
           <% current_user.classes.each do |classs| %>
-            <div class="icon-image">
-              <%= image_tag("icons/#{classs.instrument}.png") %>
+            <div class="lesson-content">
+              <div class="icon-image">
+                <%= image_tag("icons/#{classs.instrument}.png") %>
+              </div>
+
+
+                <p> £<%= classs.price %>0/hour</p>
+                <p> <%= classs.level %> </p>
+                <p> <%= classs.location %> </p>
             </div>
-            <div>
-              <p> £<%= classs.price %>0/hour </p>
-              <p> <%= classs.level %> </p>
-              <p> <%= classs.location %> </p>
-            </div>
+
+
           <% end %>
+          </div>
           <div class="">
             <% if current_user.teacher == true%>
               <div class="your-class-buttons-area">
