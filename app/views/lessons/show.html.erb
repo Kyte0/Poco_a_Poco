@@ -42,6 +42,7 @@
               <div class="icon-image">
                 <%= image_tag("icons/#{@lesson.instrument}.png") %>
               </div>
+              <h3> <%= "#{@lesson.instrument}" %> </h3>
               <h3> £<%= @lesson.price %>0/hour </h3>
               <h3> <%= @lesson.level %> </h3>
               <h3> <%= @lesson.location %> </h3>
@@ -80,7 +81,10 @@
                 </div>
                 <div class="review-comment">
                   <p> <%= review.comment %></p>
-                  <p><%= review.booking.user.first_name %></p>
+                  <div class="avatar-n-name">
+                    <p><%= review.booking.user.first_name %></p>
+                    <%= cl_image_tag review.booking.user.photos.first.key, class: "avatar-large-reviews" %>
+                  </div>
                 </div>
               </div>
             <% end %>
