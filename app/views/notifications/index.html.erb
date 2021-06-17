@@ -4,10 +4,19 @@
     <div class="notification">
     <% @notifications.each do |notification| %>
       <div class="notification-content d-flex">
-        <%= cl_image_tag Booking.find(notification.url.split(".").last.to_i).user.photos.first.key, class: "avatar notification-avatar" %>
+        <% if notification.url.include?(".") %>
+          <% id = notification.url.split(".").last.to_i %>
+        <% else %>
+          <% id = notification.url.split("/").last.to_i %>
+        <% end %>
+        <%= cl_image_tag Booking.find(id).user.photos.first.key, class: "avatar notification-avatar" %>
         <div>
           <p> <%= link_to notification.message, notification_path(notification) %> </p>
           <p><small>  <%= Date.today %> </small></p>
+          <% if notification.message.include?("just booked a spot in your lesson") && Booking.find(id).accepted == nil %>
+            <%= link_to "Reject booking", reject_booking_path(Booking.find(id)), method: :patch, class: "btn m-2 accept-booking btn-nice-alert" %>
+            <%= link_to "Accept booking", accept_booking_path(Booking.find(id)), method: :patch, class: "btn m-2 accept-booking btn-nice-green-g" %>
+          <% end %>
         </div>
       </div>
       <% end %>

@@ -21,9 +21,7 @@
         <h5><%= @booking.start_date.strftime("%A, %b %d") %> at <%= @booking.start_date.strftime("%I:%M %p") %></h5>
            <div>
         <% if @booking.end_date <= DateTime.now %>
-
           <%= link_to_if @booking.reviews.empty? , 'Add a review', new_booking_review_path(@booking), class: 'btn btn-nice-green text-decoration-none your-home-btn your-review-btn' do %>
-
           <% end %>
         <% end %>
           </div>
@@ -42,6 +40,9 @@
           <div class="button-teacher">
         <% if current_user == @booking.lesson.user && @booking.end_date <= DateTime.now %>
           <%= link_to 'Add a task', new_booking_task_path(@booking), class: 'btn btn-nice-green text-decoration-none' %>
+        <% end %>
+        <% if current_user == @booking.lesson.user %>
+          <%= link_to 'View all the bookings for your classes', bookings_path , class: 'btn btn-nice-green text-decoration-none' %>
         <% end %>
       </div>
         </div>
