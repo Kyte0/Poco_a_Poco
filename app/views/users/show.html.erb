@@ -17,6 +17,7 @@
         <div class="content-lesson-card-user-show">
           <h4 class="bio">Bio</h4>
           <p> <%= current_user.bio %> </p>
+          <h4 class="bio">Teaches</h4>
           <div class="d-flex lesson-new">
           <% current_user.classes.each do |classs| %>
             <div class="lesson-content">
@@ -74,7 +75,7 @@
           <% @upcoming_bookings.each do |booking| %>
             <div>
               <h5 class="individual-bookings-user">
-                <%= image_tag("icons/#{booking.lesson.instrument}.png") %> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %> on <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %>
+                <%= image_tag("icons/#{booking.lesson.instrument}.png") %> You booked a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with your teacher <%= booking.lesson.user.first_name %> on <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %>
               </h5>
             </div>
           <% end %>
@@ -85,7 +86,7 @@
           <% @completed_bookings.each do |booking| %>
             <div class="mb-3">
               <h5 class="individual-bookings">
-                <%= image_tag("icons/#{booking.lesson.instrument}.png") %>  You completed a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with <%= booking.lesson.user.first_name %>
+                <%= image_tag("icons/#{booking.lesson.instrument}.png") %>  You completed a <%= link_to 'lesson', booking_path(booking), class: 'btn-outline' %> with your teacher <%= booking.lesson.user.first_name %>
               </h5>
             </div>
           <% end %>
