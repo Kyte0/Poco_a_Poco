@@ -37,12 +37,15 @@ import { initFlatpickr } from "../plugins/flatpickr";
 
 import { loadDynamicBannerText } from '../components/banner';
 
+import { achiev_view } from '../components/achievement';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
   initMapbox();
   initFlatpickr();
   updateTaskCompleted();
+  achiev_view();
   if (document.querySelector('#banner-typed-text')) {
     loadDynamicBannerText();
   }
