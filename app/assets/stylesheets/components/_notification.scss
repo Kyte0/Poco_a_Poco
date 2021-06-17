@@ -1,6 +1,6 @@
 .notification {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 8px;
   background: white;
   padding: 8px 16px;

@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
 
   def index
-    all_completed_bookings = Booking.where("end_date < ?", DateTime.now)
+    all_completed_bookings = Booking.where("end_date < ?", DateTime.now.utc)
     @completed_bookings = all_completed_bookings.select { |booking| booking.lesson.user == current_user }
-    all_upcoming_bookings = Booking.where("start_date >= ? ", DateTime.now)
+    all_upcoming_bookings = Booking.where("start_date >= ?", DateTime.now.utc)
+    # raise
     @upcoming_bookings = all_upcoming_bookings.select { |booking| booking.lesson.user == current_user }
   end
 
@@ -60,7 +61,7 @@ class BookingsController < ApplicationController
         message: "#{@booking.lesson.user.first_name} just accepted your booking",
         url: booking_path(@booking), seen: false
         )
-    redirect_to booking_path(@booking)
+    redirect_to notifications_path
   end
 
   def reject
@@ -70,7 +71,7 @@ class BookingsController < ApplicationController
         message: "#{@booking.lesson.user.first_name} just rejected your booking",
         url: booking_path(@booking), seen: false
         )
-    redirect_to booking_path(@booking)
+    redirect_to notifications_path
 
   end
 

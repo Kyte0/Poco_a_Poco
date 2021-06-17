@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-5 custom-container">
-    <div class="card card-new-lesson">
+    <div class="card card-new-lesson unique-lesson-form-class">
       <h3> Add a class:</h3>
       <%= simple_form_for (@lesson) do |f| %>
-          <%= f.input :instrument, placeholder: 'Violin', collection: ["Violin", "Double Bass", "Voice", "Piano", "Guitar"] %>
-          <%= f.input :price, placeholder: '20' %>
+          <%= f.input :instrument, as: :radio_buttons, placeholder: 'Violin', collection: ["Violin", "Double Bass", "Voice", "Piano", "Guitar"], input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+          <%= f.input :price, label: 'Price per hour', placeholder: '20' %>
           <%= f.input :level, placeholder: 'Beginner' %>
           <%= f.input :location, label: 'Postcode', placeholder: 'E11 4RB' %>
           <%= f.button :submit, "Create a class", class: 'btn btn-nice' %>
