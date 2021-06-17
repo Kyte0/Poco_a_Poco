@@ -4,7 +4,7 @@
     <div class="notification">
     <% @notifications.each do |notification| %>
       <div class="notification-content d-flex">
-        <%= cl_image_tag Booking.find(notification.url.split(".").last.to_i).user.photos.first.key, class: "avatar notification-avatar" %>
+        <%= cl_image_tag Booking.find(notification.url.split("/").last.to_i).user.photos.first.key, class: "avatar notification-avatar" %>
         <div>
           <p> <%= link_to notification.message, notification_path(notification) %> </p>
           <p><small>  <%= Date.today %> </small></p>
