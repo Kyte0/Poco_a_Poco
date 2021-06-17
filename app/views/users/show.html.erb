@@ -47,30 +47,39 @@
     </div>
     <div class="col-7">
       <h1 class="name-of-person-user-show"> Welcome <%= current_user.first_name %> </h1>
-      <div class="profile-page-bookings-user-show mb-3">
+      <div class="profile-page-bookings-user-show achievement-box mb-3">
         <h3>Achievements</h3>
+          <div class="milestones d-flex mt-3">
         <% current_user.milestones.each do |milestone| %>
-          <div class="milestone">
-            <% if milestone.name == 'one_booking' %>
+            <div class="milestone mr-3">
+              <% if milestone.name == 'one_booking' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">Make Your First Booking</div>
+              <% elsif milestone.name == 'five_bookings' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">Make Five Bookings</div>
+              <% elsif milestone.name == 'three_tasks' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">Make Three Bookings</div>
+              <% elsif milestone.name == 'add_lesson' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">Add Your First Lesson</div>
+              <% elsif milestone.name == 'two_lessons' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">Add Two Lessons</div>
+              <% elsif milestone.name == 'receive_first_booking' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">First Lesson Booked</div>
+              <% elsif milestone.name == 'leaving_review' %>
+                <%= image_tag milestone.image, class: 'icon-badge-small' %>
+                <div class="mile-tip">Leave A Review</div>
+              <% elsif milestone.name == 'receive_first_review' %>
               <%= image_tag milestone.image, class: 'icon-badge-small' %>
-              <div class="mile-tip">You made one booking</div>
-            <% elsif milestone.name == 'five_bookings' %>
-              <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% elsif milestone.name == 'three_tasks' %>
-              <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% elsif milestone.name == 'add_lesson' %>
-              <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% elsif milestone.name == 'two_lessons' %>
-              <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% elsif milestone.name == 'receive_first_booking' %>
-              <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% elsif milestone.name == 'leaving_review' %>
-              <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% elsif milestone.name == 'receive_first_review' %>
-            <%= image_tag milestone.image, class: 'icon-badge-small' %>
-            <% end %>
-          </div>
+                <div class="mile-tip">Leave Your First Review</div>
+              <% end %>
+            </div>
         <% end %>
+          </div>
       </div>
       <div class="profile-page-bookings-user-show">
         <div>

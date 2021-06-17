@@ -75,9 +75,9 @@
 .review-show-card-2 {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  padding:  0 20px 60px 20px;
+  padding:  20px 10px 0px 30px;
 
-  margin: 20px 0;
+  margin: 20px 0 0 0;
 }
 
 // #ECECEC
@@ -181,12 +181,12 @@
 
 .review-comment{
   // width: 720px;
-  height: 30px;
-  margin: 20px;
+  // height: 40px;
+  margin: 20px 20px 0 20px;
   left: -25px;
   // border: solid black;
   position: relative;
-  display: inline-block;
+  // display: inline-block;
   top: -19px;
 }
 
@@ -210,4 +210,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
+}
+
+.achievement-box {
 }

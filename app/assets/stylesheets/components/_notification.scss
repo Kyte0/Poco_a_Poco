@@ -61,11 +61,12 @@
 .mile-tip {
   display: none;
   position: absolute;
-  left: 40px;
-  bottom: -10px;
+  left: 52px;
+  bottom: 0px;
   padding: 2px 5px;
   width: 120px;
   background-color: #FBF9FF;
   border-radius: 4px;
   border: 1px solid black;
+  z-index: 1;
 }
