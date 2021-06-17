@@ -39,6 +39,7 @@
             <div class="content-lesson-card">
               <h4 class="bio">Bio</h4>
               <p> <%= @lesson.user.bio %> </p>
+              <h4 class="bio">Teaches</h4>
               <div class="icon-image">
                 <%= image_tag("icons/#{@lesson.instrument}.png") %>
               </div>
@@ -54,7 +55,7 @@
         <h1 class="name-of-person"> <%= @lesson.user.first_name%>  <%=  @lesson.user.last_name %> </h1>
         <% unless current_user == @lesson.user %>
           <div class="booking-form-show">
-            <h3> Book a lesson</h3>
+            <h3> Book a lesson with <%= @lesson.user.first_name%> </h3>
             <%= simple_form_for [@lesson, @booking] do |f| %>
               <div class="form-input-start">
                 <%= f.input :start_date, as: :datetime, required: false,html5:true,label: false, input_html: {class: "datepicker", placeholder: "Start Date"}  %>
