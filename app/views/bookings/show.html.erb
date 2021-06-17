@@ -57,15 +57,14 @@
     <% if @tasks %>
       <% @tasks.each do |task| %>
         <div class="tasks-list">
-          <ul>
-              <li> Name: <%= task.name %> </li>
-              <li> Content: <%= task.content %></li>
-              <li> Category: <%= task.category %></li>
-            </ul>
+            <ul>
+              <li class="task-title"><%= task.name %> </li>
+              <li class="task-content"> <%= task.content %></li>
         <% if current_user == @booking.user && !task.completed %>
           <%= simple_form_for [@booking, task] do |f| %>
             <%= f.input :completed, as: :boolean, label: 'Mark as complete', input_html: {class:"task_complete"} %>
           <% end %>
+            </ul>
         <% elsif (current_user == @booking.user || current_user == @booking.lesson.user) && task.completed %>
           <p> Task completed! </p>
         <% end %>

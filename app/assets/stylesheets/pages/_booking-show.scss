@@ -41,10 +41,9 @@
   // height: 500px;
   width: 400px;
   padding: 20px;
-  // border: solid $green-theme;
   min-height: 400px;
   background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
 }
@@ -80,4 +79,25 @@
 }
 .your-review-btn{
   margin-bottom: 20px;
+}
+
+.tasks-list ul{
+      list-style-type: none;
+      list-style-position: none;
+      padding: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      margin: 4px;
+    .task-title {
+      text-align: center;
+      font-weight: 600;
+      margin: 5px 0px;
+    }
+    .task-content {
+      font-weight: 400;
+      text-align: left;
+    }
+    .task-category {
+      font-weight: 300;
+      text-align: right;
+    }
 }
