@@ -62,9 +62,13 @@ background-image: linear-gradient(#588157, white);
 
 // }
 .lesson-content{
-  margin-left:20px;
+  margin-left:10px;
   margin-right:10px;
   justify-content: center;
   align-items: center;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 10px;
 }
+
 
