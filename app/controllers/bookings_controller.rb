@@ -61,7 +61,7 @@ class BookingsController < ApplicationController
         message: "#{@booking.lesson.user.first_name} just accepted your booking",
         url: booking_path(@booking), seen: false
         )
-    redirect_to booking_path(@booking)
+    redirect_to notifications_path
   end
 
   def reject
@@ -71,7 +71,7 @@ class BookingsController < ApplicationController
         message: "#{@booking.lesson.user.first_name} just rejected your booking",
         url: booking_path(@booking), seen: false
         )
-    redirect_to booking_path(@booking)
+    redirect_to notifications_path
 
   end
 
