@@ -32,6 +32,9 @@
         </li>
         <li class="nav-item dropdown rel">
           <% if current_user.photos.any? %>
+            <% if current_user.notifications.where(seen: false).any? %>
+              <div class="badge"><%= current_user.notifications.where(seen: false).count %></div>
+            <% end %>
             <%= cl_image_tag current_user.photos.first.key, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
           <% else %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

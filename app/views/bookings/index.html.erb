@@ -24,13 +24,7 @@
       <section>
         <h2>Features</h2><% @upcoming_bookings.each do |booking| %>
         <div>
-          <% if booking.accepted == nil %>
-            <%= link_to "Reject booking", reject_booking_path(booking), method: :patch, class: "btn m-2 accept-booking btn-nice-alert" %>
-            <%= link_to "Accept booking", accept_booking_path(booking), method: :patch, class: "btn m-2 accept-booking btn-nice-green-g" %>
-            <h4 class="individual-bookings-index"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on  <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h4>
-            <% elsif booking.accepted %>
-            <h4 class="individual-bookings-index"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on  <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h4>
-          <% end %>
+            <h4 class="individual-bookings-index"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on  <%= booking.start_date.in_time_zone('London').strftime("%A, %b %d") %> at <%= booking.start_date.in_time_zone('London').strftime("%I:%M %p") %> </h4>
         </div>
           <% end %>
       </section>
@@ -38,7 +32,7 @@
         <h2>Delivery Contents</h2>
         <% @completed_bookings.each do |booking| %>
         <div>
-          <h4 class="individual-bookings-index"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on <%= booking.start_date.strftime("%A, %b %d") %> at <%= booking.start_date.strftime("%I:%M %p") %> </h4>
+          <h4 class="individual-bookings-index"> <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to 'booked', booking_path(booking), class: 'btn-outline' %> a <%= booking.lesson.instrument %> lesson with you on <%= booking.start_date.in_time_zone('London').strftime("%A, %b %d") %> at <%= booking.start_date.in_time_zone('London').strftime("%I:%M %p") %> </h4>
         </div>
        <% end %>
      </section>
