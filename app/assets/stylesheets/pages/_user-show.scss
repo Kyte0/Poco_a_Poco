@@ -29,7 +29,7 @@
 }
 
 #show-whole-background{
-background-image: linear-gradient(#588157, white);
+// background-image: linear-gradient(#588157, white);
 }
 
 .btn-outline{
@@ -62,13 +62,24 @@ background-image: linear-gradient(#588157, white);
 
 // }
 .lesson-content{
-  margin-left:10px;
+  margin-left:1px;
   margin-right:10px;
   justify-content: center;
   align-items: center;
   // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
+  // border: solid #c1cfdb;
+  // border-radius: 4px;
   padding: 10px;
+  text-align: center;
+}
+
+.lesson-show{
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.icon-image-content{
+  justify-content: center;
 }
 
 

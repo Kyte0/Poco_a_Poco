@@ -93,3 +93,49 @@ $white-theme: rgba(255, 255, 255, 0.8) ;
   padding: 10px 16px;
   border-radius: 4px;
 }
+
+.btn-nice-alert-notification{
+  background-color: $alert-theme;
+  color: white;
+  // border: 2px solid $alert-theme;
+  // padding: 5px 8px;
+  border-radius: 4px;
+  margin-left: 30px;
+}
+
+.btn-nice-green-g-notification{
+    color: white;
+  background-color: $green-theme;
+  transition: 0.3s;
+  // padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-green-g-notification:hover{
+  background-color: white;
+  color: $green-theme;
+  border: 2px solid $green-theme;
+  // padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.btn-nice-alert-notification:hover{
+  color: $alert-theme;
+  background-color: white;
+  transition: 0.3s;
+  border: 2px solid $alert-theme;
+}
+
+.btn-back{
+  color: white;
+  background-color: $green-theme;
+  transition: 0.3s;
+}
+
+.btn-back:hover{
+  background-color: white;
+  color: $green-theme;
+  border: 2px solid $green-theme;
+  padding: 10px 16px;
+  border-radius: 4px;
+}
