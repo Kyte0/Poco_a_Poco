@@ -7,8 +7,8 @@ class Lesson < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  after_create :create_milestone_lesson
-  after_create :create_milestone_two_lessons
+  # after_create :create_milestone_lesson
+  # after_create :create_milestone_two_lessons
   # after_create :create_milestone_booking_lessons
 
   include PgSearch::Model
@@ -35,23 +35,23 @@ class Lesson < ApplicationRecord
 
   private
 
-  def create_milestone_lesson
-    lesson_created_one = self.user.lessons.count
-    if lesson_created_one == 1
-      puts "User LESSON milestone being created"
-      milestone = Milestone.find_by_name("add_lesson")
-      UserMilestone.create!(milestone: milestone, user: self.user)
-    end
-  end
+  # def create_milestone_lesson
+  #   lesson_created_one = self.user.lessons.count
+  #   if lesson_created_one == 1
+  #     puts "User LESSON milestone being created"
+  #     milestone = Milestone.find_by_name("add_lesson")
+  #     UserMilestone.create!(milestone: milestone, user: self.user)
+  #   end
+  # end
 
-  def create_milestone_two_lessons
-    lesson_created_two = self.user.lessons.count
-    if lesson_created_two == 2
-      puts "User LESSON milestone being created"
-      milestone = Milestone.find_by_name("two_lessons")
-      UserMilestone.create!(milestone: milestone, user: self.user)
-    end
-  end
+  # def create_milestone_two_lessons
+  #   lesson_created_two = self.user.lessons.count
+  #   if lesson_created_two == 2
+  #     puts "User LESSON milestone being created"
+  #     milestone = Milestone.find_by_name("two_lessons")
+  #     UserMilestone.create!(milestone: milestone, user: self.user)
+  #   end
+  # end
 
   # def create_milestone_booking_lessons
   #   lesson_booking = self.bookings.count

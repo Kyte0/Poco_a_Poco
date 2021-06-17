@@ -1,6 +1,5 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: transparent;
   font-family: Poppins, sans-serif !important;
   // position: absolute;
   width: 100%;
@@ -22,9 +21,12 @@
   width: 40px;
 }
 
+.navbar-transparent {
+  background-color: transparent;
+}
 
-.navbar-lewagon-black {
-  // background-color: white !important;
+.navbar-lewagon-white {
+    background-color: white !important;
   .nav-link {
     color: black !important;
   }
