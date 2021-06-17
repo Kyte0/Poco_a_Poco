@@ -1,5 +1,6 @@
 <div class="container" style="height: 100vh;">
   <div style="padding-top: 80px">
+    <div class="container-notification">
   <h1 class="notifications-h1">Notifications</h1>
     <div class="notification">
     <% @notifications.each do |notification| %>
@@ -9,19 +10,32 @@
         <% else %>
           <% id = notification.url.split("/").last.to_i %>
         <% end %>
+
         <%= cl_image_tag Booking.find(id).user.photos.first.key, class: "avatar notification-avatar" %>
         <div>
+          <div class="d-flex d-notifications">
+            <div>
           <p> <%= link_to notification.message, notification_path(notification) %> </p>
-          <p><small>  <%= Date.today %> </small></p>
+            </div>
+            <div class="link-notif" >
           <% if notification.message.include?("just booked a spot in your lesson") && Booking.find(id).accepted == nil %>
-            <%= link_to "Reject booking", reject_booking_path(Booking.find(id)), method: :patch, class: "btn m-2 accept-booking btn-nice-alert" %>
-            <%= link_to "Accept booking", accept_booking_path(Booking.find(id)), method: :patch, class: "btn m-2 accept-booking btn-nice-green-g" %>
+            <%= link_to "Reject booking", reject_booking_path(Booking.find(id)), method: :patch, class: "btn accept-booking btn-nice-alert-notification" %>
+            <%= link_to "Accept booking", accept_booking_path(Booking.find(id)), method: :patch, class: "btn accept-booking btn-nice-green-g-notification" %>
           <% end %>
+          </div>
+        </div>
+          <!-- <p><small>  <%= Date.today %> </small></p> -->
+          <p><small>  <%= Booking.find(id).start_date.strftime("%A, %b %d") %> <%= Booking.find(id).start_date.strftime("%I:%M %p") %>  </small></p>
+          <%# if notification.message.include?("just booked a spot in your lesson") && Booking.find(id).accepted == nil %>
+            <%#= link_to "Reject booking", reject_booking_path(Booking.find(id)), method: :patch, class: "btn m-2 accept-booking btn-nice-alert-notification" %>
+            <%#= link_to "Accept booking", accept_booking_path(Booking.find(id)), method: :patch, class: "btn m-2 accept-booking btn-nice-green-g-notification" %>
+         <%# end %>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+</div>
 </div>
 
 <!-- <div style="padding-top: 80px">F
