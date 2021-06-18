@@ -40,13 +40,21 @@
               <h4 class="bio">Bio</h4>
               <p> <%= @lesson.user.bio %> </p>
               <h4 class="bio">Teaches</h4>
-              <div class="icon-image">
-                <%= image_tag("icons/#{@lesson.instrument}.png") %>
+              <div class="card-attribute-div d-flex align-items-center mt-3">
+                <h4 class="card-attribute-description">INSTRUMENT</h4>
+                <h4 class="card-attribute-stat"><strong><%= @lesson.instrument %></strong></h4>
               </div>
-              <p> <%= "#{@lesson.instrument}" %> </p>
-              <p> £<%= @lesson.price %>0/hour </p>
-              <p> <%= @lesson.level %> </p>
-              <p> <%= @lesson.location %> </p>
+              <div class="card-attribute-div d-flex align-items-center">
+                <h4 class="card-attribute-description">LOCATION</h4>
+                <h4 class="card-attribute-stat"><strong><%= @lesson.location %></strong></h4>
+              </div>
+              <div class="card-attribute-div d-flex align-items-center">
+                <h4 class="card-attribute-description">LEVEL</h4>
+                <h4 class="card-attribute-stat"><strong><%= @lesson.level %></strong></h4>
+              </div>
+              <div class="card-attribute-div d-flex align-items-center">
+                <h4 class="card-attribute-description">PRICE</h4><h4 class="card-attribute-stat"><strong>£<%= @lesson.price %>0</strong></h4>
+              </div>
             </div>
           </div>
           <% end %>
