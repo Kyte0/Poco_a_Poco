@@ -25,14 +25,14 @@ file13 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623256756
 file14 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254252/tmu2xf8bm4sbbskqwxwh.jpg')
 file15 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254295/gcqgayabrvoy0qhamqoh.jpg')
 
-Milestone.create!(name: "one_booking", image: 'icons/trophy.png')
-Milestone.create!(name: "five_bookings", image: 'icons/trophy.png')
-Milestone.create!(name: "three_tasks", image: 'icons/clipboard.png')
-Milestone.create!(name: "add_lesson", image: 'icons/music.png')
-Milestone.create!(name: "two_lessons", image: 'icons/music.png')
-Milestone.create!(name: "receive_first_booking", image: 'icons/review.png')
-Milestone.create!(name: "leaving_review", image: 'icons/review.png')
-Milestone.create!(name: "receive_first_review", image: 'icons/review.png')
+Milestone.create!(name: "one_booking", image: 'icons/one_booking.png')
+Milestone.create!(name: "five_bookings", image: 'icons/five_bookings.png')
+Milestone.create!(name: "three_tasks", image: 'icons/three_tasks.png')
+Milestone.create!(name: "add_lesson", image: 'icons/add_lesson.png')
+Milestone.create!(name: "two_lessons", image: 'icons/two_lessons.png')
+Milestone.create!(name: "receive_first_booking", image: 'icons/receive_first_booking.png')
+Milestone.create!(name: "leaving_review", image: 'icons/leaving_review.png')
+Milestone.create!(name: "receive_first_review", image: 'icons/receive_first_review.png')
 
 puts "Creating users..."
 

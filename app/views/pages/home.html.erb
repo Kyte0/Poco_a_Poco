@@ -38,7 +38,10 @@
                     </div>
                     <div class="card-attribute-div d-flex align-items-center">
                       <h4 class="card-attribute-description">RATING</h4>
-                      <h4 class="card-attribute-stat"><strong><%= @newest_lesson.average_rating %></strong></h4>
+                      <h4 class="card-attribute-stat">
+                        <% 5.times do  |int|%>
+                        <i class="fas fa-star" style="color: <%= @newest_lesson.average_rating <= int ? "#71677C" : "#FFED99"%>;"></i>
+                        <% end %> </h4>
                     </div>
                     <div class="card-attribute-div d-flex align-items-center">
                       <h4 class="card-attribute-description">LEVEL</h4>
@@ -68,7 +71,10 @@
                         </div>
                         <div class="card-attribute-div d-flex align-items-center">
                           <h4 class="card-attribute-description">RATING</h4>
-                          <h4 class="card-attribute-stat"><strong><%= lesson.average_rating %></strong></h4>
+                          <h4 class="card-attribute-stat">
+                          <% 5.times do |int|%>
+                            <i class="fas fa-star" style="color: <%= lesson.average_rating <= int ? "#71677C" : "#FFED99"%>;"></i>
+                          <% end %> </h4>
                         </div>
                         <div class="card-attribute-div d-flex align-items-center">
                           <h4 class="card-attribute-description">LEVEL</h4>

@@ -26,10 +26,12 @@ class Lesson < ApplicationRecord
       }
 
   def average_rating
-    num_ratings = self.bookings.select{|b| b.reviews.first }.map { |b| b.reviews.first }.size
-    rating_total = self.bookings.select{|b| b.reviews.first }.map { |b| b.reviews.first }.map { |r| r.rating }.reduce(:+)
+    num_ratings = self.bookings.select{ |b| b.reviews.first }.map { |b| b.reviews.first }.size
+    rating_total = self.bookings.select{ |b| b.reviews.first }.map { |b| b.reviews.first }.map { |r| r.rating }.reduce(:+)
     if rating_total
-      return "#{rating_total / num_ratings}"
+      return rating_total / num_ratings
+    else
+      0
     end
   end
 
