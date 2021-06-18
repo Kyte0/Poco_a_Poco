@@ -12,7 +12,7 @@ User.destroy_all
 file1 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623248495/wzjivbkak78vtrw7swm1.jpg')
 file2 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623248638/aiagyj4hzvl9m5i0tvmw.jpg')
 file3 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623250143/ut0tzgyqvy28ch38xc3t.jpg')
-file4 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623251909/k6ivki2anvsqs3qkeivp.jpg')
+file4 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1624010398/pheobe_zrjmfs.jpg')
 file5 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623319007/ghqgjsyf2c5qx1askl0x.jpg')
 file6 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623251962/gweidwsabso4ax6tkk9h.jpg')
 file7 = URI.open('https://res.cloudinary.com/dufykm87j/image/upload/v1623254540/lvqylvr2dpkcumedpxf1.jpg')
@@ -45,7 +45,7 @@ user2.save!
 user3 = User.new(first_name:"Oliver", last_name:"West", email:"oliver@gmail.com", password:"123456", date_of_birth: DateTime.new(1994,04,22), teacher: true, bio: "Jazz is the most fun way to play piano or double bass! If you bring your love of music, I'll bring the expertise.")
 user3.photos.attach(io: file3, filename: 'file3.jpg', content_type: 'image/jpg')
 user3.save!
-user4 = User.new(first_name:"Hannah", last_name:"Hunter", email:"hannah@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,05,12), teacher: true, bio: "Singer/songwriter/guitarist, happy to help any budding folk musician along their journey.")
+user4 = User.new(first_name:"Phoebe", last_name:"Buffay", email:"phoebe@gmail.com", password:"123456", date_of_birth: DateTime.new(1992,05,12), teacher: true, bio: "Singer/songwriter/guitarist, Self-taught guitar teacher from New York. If you want to receive emails about my upcoming shows please give me money so I can buy a computer.")
 user4.photos.attach(io: file4, filename: 'file4.jpg', content_type: 'image/jpg')
 user4.save!
 user5 = User.new(first_name:"James", last_name:"Barton", email:"james@gmail.com", password:"123456", date_of_birth: DateTime.new(1954,01,10), teacher: true, bio: "Opera singer with over 30 years of professional experience in opera and theatre.")
