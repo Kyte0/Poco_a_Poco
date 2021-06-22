@@ -1,5 +1,5 @@
 meta_product_name: "Poco a Poco"
 meta_title: "Poco a Poco - Music Lessons for All"
 meta_description: "Find teachers, find students, encourage practice and have fun!"
-meta_image: "/icons/image.png" # should exist in `app/assets/images/`
+meta_image: "image.png" # should exist in `app/assets/images/`
 twitter_account: "@pocoapo51132678"   # required for Twitter Cards
