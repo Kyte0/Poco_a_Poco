@@ -6,25 +6,27 @@
 }
 
 .banner {
-  height: 100vh;
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 10vh 0;
   text-align: center;
+  justify-content: space-around;
 }
 
 
 .custom-container{
   flex-direction: column;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 1.5rem !important;
+  margin-top: 7.5vh;
+  margin-bottom: 7.5vh;
+  height: 50vh;
 }
 
 .home-title {
@@ -33,7 +35,6 @@
   font-weight: 600;
   color: white;
   margin: 0;
-  padding-bottom: 30px;
   // font-weight: bolder;
 }
 
@@ -68,8 +69,7 @@
 
 .home-buttons{
   flex-direction: horizontal;
-  margin-bottom: 30px;
-  padding-top: 30px;
+  margin-bottom: 2vh;
 }
 
 .feature-teacher-title{
@@ -83,8 +83,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding-bottom: 70px;
-
+  flex-wrap: wrap;
 }
 
 .teachers-home-text{
@@ -95,5 +94,7 @@
 }
 
 .bottom-cards {
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 1vh;
+  height: 4vh;
 }

@@ -4,7 +4,7 @@
       <h1 class="home-title" > Poco a Poco </h1>
       <h3>
         <span id="banner-typed-text"></span>
-      </p>
+      </h3>
       <div class="home-buttons">
       <a class="btn btn-nice-dark" href="/lessons"> Book a lesson </a>
       <% if current_user %>
@@ -16,11 +16,11 @@
 
       <% end %>
       </div>
+    <div class="home-page-input"> <%= render 'shared/lesson_search_form'  %> </div>
     </div>
-    <div class="home-page-input" style="padding-bottom: 250px;"> <%= render 'shared/lesson_search_form'  %> </div>
   </div>
 </div>
-<div class="bottom-cards">
+<div class="bottom-cards d-flex flex-column col-12">
   <h2 class="ml-4 mt-3 col-sm-12" >Featured Teachers</h2>
   <div class="cards home-page-grid mt-3">
       <div class="index-cards mb-3">

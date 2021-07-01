@@ -1,7 +1,7 @@
 import Typed from 'typed.js';
 
 const quotes = [
-  "Music in the soul can be heard by the universe."
+  "Find the music teacher that inspires you."
 ]
 
 const loadDynamicBannerText = () => {
