@@ -8,7 +8,7 @@
   margin: 0;
   border-radius: 8px 0px 0px 8px;
   border: none;
-  width: 75px;
+  width: 112px;
   height: 40px;
 }
 
@@ -17,7 +17,7 @@
   margin: 0;
   border: 2px lightgray solid;
   border-radius: 0px;
-  width: 40px;
+  width: 92px;
   height: 40px;
 }
 
@@ -30,4 +30,8 @@
   border-left: 2px solid lightgray;
   border-radius: 0px 8px 8px 0px;
   margin: 0;
+}
+
+.form-inline {
+  align-items: end;
 }
