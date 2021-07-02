@@ -1,5 +1,4 @@
 .navbar-lewagon {
-  justify-content: space-between;
   font-family: Poppins, sans-serif !important;
   // position: absolute;
   width: 100%;
@@ -11,6 +10,7 @@
   }
   transition: 1s background-color ease;
   position: fixed;
+  justify-content: space-between;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -33,7 +33,8 @@
 }
 
 .navbar-brand {
-  margin-right: 110px;
+  display: flex;
+  justify-content: flex-start;
 }
 .rel {
   position: relative
@@ -55,4 +56,9 @@
 
 .navbar-light {
   color: #097a74;
+}
+
+.navbar-toggler-div {
+  display: flex;
+  justify-content: flex-end;
 }
