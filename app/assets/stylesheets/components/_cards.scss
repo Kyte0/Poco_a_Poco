@@ -140,7 +140,30 @@ font-weight: bolder;
 }
 
 .card-sign-up-lesson {
-  padding: 40px;
+  padding: 8vh;
   border-radius: 4px;
-  width: 500px;
+  margin-top: 7vh;
+  width: 90%;
+  margin-left: 2vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-sign-up-lesson {
+    margin-top: 35vh !important;
+    width: 110vw !important;
+    margin-left: 0vh;
+  }
+}
+
+.sign-up-image {
+  position: static;
+}
+
+.teacher-image {
+  display: flex;
+  flex-direction: columns;
+}
+
+.form-control-file {
+  width: 140%;
 }
