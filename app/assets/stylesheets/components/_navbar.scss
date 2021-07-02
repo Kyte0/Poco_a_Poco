@@ -68,3 +68,11 @@
   right: 2.25vh;
   top: 1.5vh;
 }
+
+@media only screen and (max-width: 600px) {
+  .nav-link {
+    position: absolute;
+    right: 3vh;
+    top: 7vh;
+  }
+}
